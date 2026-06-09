@@ -1,0 +1,234 @@
+{
+  "metadata": {
+    "title": "Lenara Labs | Servicios Tecnológicos",
+    "description": "Lenara Labs — desarrollo de software, consultoría tecnológica e innovación digital para empresas."
+  },
+  "common": {
+    "language": "Idioma",
+    "themeLight": "Cambiar a modo claro",
+    "themeDark": "Cambiar a modo oscuro",
+    "scrollDown": "Desplazarse hacia abajo"
+  },
+  "header": {
+    "brand": "Lenara Labs",
+    "navLabel": "Navegación principal",
+    "nav": {
+      "home": "Inicio",
+      "apps": "Apps"
+    },
+    "contact": "Contacto",
+    "menuOpen": "Abrir menú",
+    "menuClose": "Cerrar menú"
+  },
+  "footer": {
+    "brand": "Lenara Labs",
+    "tagline": "Desarrollo de aplicaciones móviles, software a medida y consultoría tecnológica para empresas que quieren crecer.",
+    "services": {
+      "title": "Servicios",
+      "mobile": "Apps móviles",
+      "web": "Desarrollo web",
+      "cloud": "Cloud & APIs",
+      "consulting": "Consultoría tech"
+    },
+    "company": {
+      "title": "Empresa",
+      "about": "Sobre nosotros",
+      "process": "Cómo trabajamos",
+      "careers": "Trabaja con nosotros",
+      "contact": "Contacto"
+    },
+    "contact": {
+      "title": "Contacto",
+      "email": "hola@lenaralabs.com",
+      "location": "Remoto · LATAM"
+    },
+    "copyright": "© {year} Lenara Labs. Todos los derechos reservados."
+  },
+  "home": {
+    "metadata": {
+      "title": "Lenara Labs | Inicio",
+      "description": "Conoce Lenara Labs: servicios tecnológicos, desarrollo de software y consultoría digital para empresas."
+    },
+    "eyebrow": "Tecnología · Software · Consultoría",
+    "title": "Tecnología que impulsa tu negocio",
+    "typewriterPhrases": [
+      "Tecnología que impulsa productos modernos",
+      "Software que hace avanzar a las empresas",
+      "Productos digitales creados con precisión",
+      "Construimos software que escala contigo",
+      "Experiencias modernas para móvil y web",
+      "Convertimos ideas en productos digitales escalables",
+      "Soluciones con IA para empresas modernas",
+      "Aplicaciones inteligentes para el futuro",
+      "Donde el software se encuentra con la inteligencia artificial",
+      "Integrando IA en productos del mundo real",
+      "Aplicaciones más inteligentes para negocios más inteligentes",
+      "Desarrollo impulsado por IA para productos modernos"
+    ],
+    "description": "Somos tu partner tecnológico: diseñamos, desarrollamos y acompañamos productos digitales de principio a fin.",
+    "hero": {
+      "ctaContact": "Contáctanos",
+      "ctaServices": "Nuestros servicios"
+    },
+    "services": {
+      "title": "Lo que hacemos",
+      "description": "Combinamos estrategia, diseño y desarrollo para llevar tus ideas a producción con calidad y velocidad.",
+      "items": {
+        "mobile": {
+          "title": "Apps móviles",
+          "description": "Aplicaciones nativas e híbridas para iOS y Android, pensadas para escalar con tu negocio."
+        },
+        "web": {
+          "title": "Desarrollo web",
+          "description": "Plataformas, dashboards y productos digitales con arquitecturas modernas y mantenibles."
+        },
+        "cloud": {
+          "title": "Cloud & APIs",
+          "description": "Infraestructura en la nube, integraciones y backends robustos para soportar tu producto."
+        },
+        "consulting": {
+          "title": "Consultoría tech",
+          "description": "Auditorías, definición de arquitectura y acompañamiento técnico para equipos en crecimiento."
+        }
+      }
+    },
+    "process": {
+      "title": "Cómo trabajamos",
+      "description": "Un proceso claro de principio a fin, con entregas iterativas y comunicación constante.",
+      "steps": {
+        "discovery": {
+          "title": "Descubrimiento",
+          "description": "Entendemos tu negocio, usuarios y objetivos para definir el alcance del producto."
+        },
+        "design": {
+          "title": "Diseño",
+          "description": "Prototipamos flujos y experiencias antes de escribir una línea de código."
+        },
+        "development": {
+          "title": "Desarrollo",
+          "description": "Construimos en sprints con demos frecuentes y feedback continuo."
+        },
+        "launch": {
+          "title": "Lanzamiento",
+          "description": "Publicamos, medimos y acompañamos la evolución de tu producto."
+        }
+      }
+    },
+    "about": {
+      "title": "Sobre Lenara Labs",
+      "subtitle": "Un estudio enfocado en apps móviles, productos web y soluciones con IA para startups y equipos en crecimiento.",
+      "founderLabel": "Fundador",
+      "name": "Leonel Ortega",
+      "initials": "LO",
+      "role": "Ingeniero de software · Fundador",
+      "description": "Fundador de Lenara Labs. Leonel diseña y desarrolla apps móviles, productos web y soluciones con IA para startups y equipos en crecimiento.",
+      "profileLink": "Ver perfil",
+      "profileLinkAria": "Visitar la página personal de Leonel Ortega",
+      "appsLink": "Explorar nuestras apps",
+      "appsLinkAria": "Ver las apps móviles de Lenara Labs",
+      "projects": {
+        "label": "Proyectos",
+        "title": "Lo que construimos",
+        "description": "Desde apps nativas hasta sistemas inteligentes — productos en cada capa del stack.",
+        "areas": {
+          "ios": "iOS",
+          "android": "Android",
+          "web": "Web",
+          "iot": "IoT",
+          "ai": "IA"
+        }
+      }
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "headline": "¿Listo para transformar tu empresa con tecnología?",
+      "description": "Cuéntanos tu desafío y diseñamos juntos la solución ideal.",
+      "email": "hola@lenaralabs.com",
+      "responseTime": "Respondemos en menos de 24 horas hábiles.",
+      "eyebrow": "Contacto",
+      "services": {
+        "mobile": "Apps móviles",
+        "web": "Desarrollo web",
+        "cloud": "Cloud & APIs",
+        "consulting": "Consultoría tech"
+      },
+      "form": {
+        "fullName": {
+          "label": "Nombre completo",
+          "placeholder": "Tu nombre"
+        },
+        "email": {
+          "label": "Correo de trabajo",
+          "placeholder": "tu@empresa.com"
+        },
+        "company": {
+          "label": "Empresa (opcional)",
+          "placeholder": "Nombre de tu empresa"
+        },
+        "service": {
+          "label": "Me interesa",
+          "placeholder": "Selecciona un servicio"
+        },
+        "message": {
+          "label": "Mensaje",
+          "placeholder": "Cuéntanos sobre tu proyecto o desafío..."
+        },
+        "submit": "Enviar mensaje",
+        "submitting": "Enviando...",
+        "success": "¡Mensaje enviado! Te responderemos pronto.",
+        "error": "Algo salió mal. Inténtalo de nuevo o escríbenos directamente.",
+        "validationError": "Revisa los campos marcados.",
+        "configError": "El formulario aún no está configurado. Escríbenos directamente.",
+        "errors": {
+          "fullName": "Ingresa tu nombre completo.",
+          "email": "Ingresa un correo de trabajo válido.",
+          "service": "Selecciona un servicio.",
+          "message": "Cuéntanos un poco más sobre tu proyecto (mínimo 10 caracteres)."
+        }
+      }
+    }
+  },
+  "apps": {
+    "metadata": {
+      "title": "Lenara Labs | Apps móviles",
+      "description": "Desarrollo de aplicaciones móviles nativas y multiplataforma para iOS y Android."
+    },
+    "eyebrow": "iOS · Android · Cross-platform",
+    "title": "Aplicaciones móviles que escalan contigo",
+    "description": "Diseñamos y desarrollamos apps móviles de alto rendimiento, desde el MVP hasta productos listos para millones de usuarios.",
+    "cardsReminder": {
+      "badge": "Primera app",
+      "name": "CardsReminder",
+      "description": "La primera app que desarrollé — un calendario inteligente para tus tarjetas de crédito. Muestra fechas de facturación y pago, te indica los mejores días para comprar, envía notificaciones oportunas y te ayuda a entender cada tarjeta con una UX/UI clara. Ingresa tu fecha de pago y el algoritmo recomienda la mejor fecha de pago por tarjeta y el día óptimo para usar cada una.",
+      "platformsLabel": "Disponible en",
+      "iosLabel": "iOS",
+      "androidSoonLabel": "Android · Próximamente",
+      "videoLabel": "Video tutorial de CardsReminder",
+      "videoFallback": "Video tutorial próximamente.",
+      "subtitles": [
+        "Nunca más pierdas una fecha de facturación o pago",
+        "Mejores días para comprar — según tu ciclo",
+        "Todas tus tarjetas, fáciles de entender",
+        "Notificaciones inteligentes cuando importan",
+        "Ingresa tu fecha de pago — nosotros optimizamos el resto"
+      ]
+    },
+    "times2u": {
+      "badge": "Gestión del tiempo · IA",
+      "name": "Times2U",
+      "description": "Importa horarios desde archivos Excel, capturas o fotos — o créalos manualmente en la app. Lo distinto de Times2U es un asistente de IA que funciona como tu secretaria: dile que tienes reunión el miércoles y se agenda en el calendario, pregúntale qué días tienes libres, pide una rutina y el horario se adapta. Todo gira en torno a una gestión del tiempo más inteligente.",
+      "platformsLabel": "Disponible en",
+      "iosLabel": "iOS",
+      "androidSoonLabel": "Android · Aún no",
+      "videoLabel": "Video tutorial de Times2U",
+      "videoFallback": "Video tutorial próximamente.",
+      "subtitles": [
+        "Dile a tu asistente que tienes reunión — queda en tu calendario",
+        "Importa horarios desde Excel, capturas o fotos",
+        "Pregunta qué días tienes libres",
+        "¿Necesitas una rutina? Tu horario se adapta al instante",
+        "Tu tiempo, gestionado como una secretaria personal"
+      ]
+    }
+  }
+}
