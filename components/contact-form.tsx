@@ -3,10 +3,8 @@
 import { useActionState } from "react";
 import { Mail } from "lucide-react";
 
-import {
-  initialContactFormState,
-  sendContactMessage,
-} from "@/app/actions/contact";
+import { sendContactMessage } from "@/app/actions/contact";
+import { initialContactFormState } from "@/lib/contact-schema";
 import { buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { serviceItems, type ServiceItem } from "@/lib/services";

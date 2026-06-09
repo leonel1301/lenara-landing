@@ -3,11 +3,7 @@
 import { Resend } from "resend";
 import { getTranslations } from "next-intl/server";
 
-import {
-  contactSchema,
-  type ContactFormState,
-  initialContactFormState,
-} from "@/lib/contact-schema";
+import { contactSchema, type ContactFormState } from "@/lib/contact-schema";
 
 export async function sendContactMessage(
   _prevState: ContactFormState,
@@ -86,5 +82,3 @@ export async function sendContactMessage(
     };
   }
 }
-
-export { initialContactFormState };
