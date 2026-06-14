@@ -35,14 +35,23 @@
       "about": "Sobre nosotros",
       "process": "Cómo trabajamos",
       "careers": "Trabaja con nosotros",
-      "contact": "Contacto"
+      "contact": "Contacto",
+      "apps": "Apps"
     },
     "contact": {
       "title": "Contacto",
-      "email": "hola@lenaralabs.com",
+      "email": "hello@lenaralabs.com",
       "location": "Remoto · LATAM"
     },
-    "copyright": "© {year} Lenara Labs. Todos los derechos reservados."
+    "copyright": "© {year} Lenara Labs. Todos los derechos reservados.",
+    "products": {
+      "title": "Productos",
+      "cardsReminder": {
+        "name": "CardsReminder",
+        "privacy": "Política de privacidad",
+        "terms": "Términos y condiciones"
+      }
+    }
   },
   "home": {
     "metadata": {
@@ -143,7 +152,7 @@
       "title": "Contáctanos",
       "headline": "¿Listo para transformar tu empresa con tecnología?",
       "description": "Cuéntanos tu desafío y diseñamos juntos la solución ideal.",
-      "email": "hola@lenaralabs.com",
+      "email": "hello@lenaralabs.com",
       "responseTime": "Respondemos en menos de 24 horas hábiles.",
       "eyebrow": "Contacto",
       "services": {
@@ -211,7 +220,25 @@
         "Todas tus tarjetas, fáciles de entender",
         "Notificaciones inteligentes cuando importan",
         "Ingresa tu fecha de pago — nosotros optimizamos el resto"
-      ]
+      ],
+      "legal": {
+        "eyebrow": "CardsReminder · Legal",
+        "backToApp": "Volver a CardsReminder",
+        "privacyLink": "Política de privacidad",
+        "termsLink": "Términos y condiciones",
+        "privacy": {
+          "metadata": {
+            "title": "CardsReminder | Política de Privacidad",
+            "description": "Política de Privacidad de CardsReminder, la app de gestión de tarjetas de crédito desarrollada por Lenara Labs."
+          }
+        },
+        "terms": {
+          "metadata": {
+            "title": "CardsReminder | Términos y Condiciones",
+            "description": "Términos y Condiciones de uso de CardsReminder, la app de gestión de tarjetas de crédito desarrollada por Lenara Labs."
+          }
+        }
+      }
     },
     "times2u": {
       "badge": "Gestión del tiempo · IA",

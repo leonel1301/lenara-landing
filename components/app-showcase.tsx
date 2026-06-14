@@ -9,6 +9,7 @@ import {
 import { Apple, Smartphone } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
@@ -26,6 +27,12 @@ type Props = {
   videoSrc: string;
   videoPoster: string;
   reversed?: boolean;
+  legalLinks?: {
+    privacyHref: string;
+    termsHref: string;
+    privacyLabel: string;
+    termsLabel: string;
+  };
 };
 
 export function AppShowcase({
@@ -41,6 +48,7 @@ export function AppShowcase({
   videoSrc,
   videoPoster,
   reversed = false,
+  legalLinks,
 }: Props) {
   const prefersReducedMotion = useReducedMotion();
   const [activeSubtitle, setActiveSubtitle] = useState(0);
@@ -177,6 +185,27 @@ export function AppShowcase({
             </motion.span>
           </div>
         </motion.div>
+
+        {legalLinks ? (
+          <motion.nav
+            variants={leftItem}
+            aria-label={legalLinks.privacyLabel}
+            className="flex flex-wrap gap-x-4 gap-y-2 text-sm"
+          >
+            <Link
+              href={legalLinks.privacyHref}
+              className="font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+            >
+              {legalLinks.privacyLabel}
+            </Link>
+            <Link
+              href={legalLinks.termsHref}
+              className="font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+            >
+              {legalLinks.termsLabel}
+            </Link>
+          </motion.nav>
+        ) : null}
       </motion.div>
 
       <motion.div

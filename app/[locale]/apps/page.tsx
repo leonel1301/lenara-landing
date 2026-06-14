@@ -92,6 +92,12 @@ export default async function AppsPage({ params }: Props) {
             videoFallback={t("cardsReminder.videoFallback")}
             videoSrc={CARDS_REMINDER_VIDEO_SRC}
             videoPoster={CARDS_REMINDER_VIDEO_POSTER}
+            legalLinks={{
+              privacyHref: "/apps/cards-reminder/privacy",
+              termsHref: "/apps/cards-reminder/terms",
+              privacyLabel: t("cardsReminder.legal.privacyLink"),
+              termsLabel: t("cardsReminder.legal.termsLink"),
+            }}
           />
         </ScrollReveal>
       </FullscreenSection>

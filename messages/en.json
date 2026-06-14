@@ -35,14 +35,23 @@
       "about": "About us",
       "process": "How we work",
       "careers": "Careers",
-      "contact": "Contact"
+      "contact": "Contact",
+      "apps": "Apps"
     },
     "contact": {
       "title": "Contact",
       "email": "hello@lenaralabs.com",
       "location": "Remote · LATAM"
     },
-    "copyright": "© {year} Lenara Labs. All rights reserved."
+    "copyright": "© {year} Lenara Labs. All rights reserved.",
+    "products": {
+      "title": "Products",
+      "cardsReminder": {
+        "name": "CardsReminder",
+        "privacy": "Privacy Policy",
+        "terms": "Terms & Conditions"
+      }
+    }
   },
   "home": {
     "metadata": {
@@ -211,7 +220,25 @@
         "All your cards, easy to understand at a glance",
         "Smart notifications when it actually matters",
         "Enter your pay date — we optimize the rest"
-      ]
+      ],
+      "legal": {
+        "eyebrow": "CardsReminder · Legal",
+        "backToApp": "Back to CardsReminder",
+        "privacyLink": "Privacy Policy",
+        "termsLink": "Terms & Conditions",
+        "privacy": {
+          "metadata": {
+            "title": "CardsReminder | Privacy Policy",
+            "description": "Privacy Policy for CardsReminder, the credit card management app developed by Lenara Labs."
+          }
+        },
+        "terms": {
+          "metadata": {
+            "title": "CardsReminder | Terms & Conditions",
+            "description": "Terms and Conditions of use for CardsReminder, the credit card management app developed by Lenara Labs."
+          }
+        }
+      }
     },
     "times2u": {
       "badge": "Time management · AI",
