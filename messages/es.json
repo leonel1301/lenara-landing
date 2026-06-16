@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Lenara Labs | Servicios Tecnológicos",
-    "description": "Lenara Labs — desarrollo de software, consultoría tecnológica e innovación digital para empresas."
+    "title": "Lenara Labs — Diseño, código e IA para experiencias digitales",
+    "description": "Lenara Labs diseña y desarrolla productos digitales, sitios web y apps móviles — para clientes y nuestro propio portafolio."
   },
   "common": {
     "language": "Idioma",
@@ -14,7 +14,7 @@
     "navLabel": "Navegación principal",
     "nav": {
       "home": "Inicio",
-      "apps": "Apps"
+      "apps": "Nuestras apps"
     },
     "contact": "Contacto",
     "menuOpen": "Abrir menú",
@@ -22,7 +22,7 @@
   },
   "footer": {
     "brand": "Lenara Labs",
-    "tagline": "Desarrollo de aplicaciones móviles, software a medida y consultoría tecnológica para empresas que quieren crecer.",
+    "tagline": "Lenara Labs diseña productos digitales, sitios web y apps móviles para empresas — y lanza sus propias apps.",
     "services": {
       "title": "Servicios",
       "mobile": "Apps móviles",
@@ -36,7 +36,7 @@
       "process": "Cómo trabajamos",
       "careers": "Trabaja con nosotros",
       "contact": "Contacto",
-      "apps": "Apps"
+      "apps": "Nuestras apps"
     },
     "contact": {
       "title": "Contacto",
@@ -55,10 +55,10 @@
   },
   "home": {
     "metadata": {
-      "title": "Lenara Labs | Inicio",
-      "description": "Conoce Lenara Labs: servicios tecnológicos, desarrollo de software y consultoría digital para empresas."
+      "title": "Lenara Labs — Diseño, código e IA para experiencias digitales",
+      "description": "Lenara Labs diseña y desarrolla productos digitales, sitios web y apps móviles — para clientes y nuestro propio portafolio."
     },
-    "eyebrow": "Tecnología · Software · Consultoría",
+    "eyebrow": "Diseño · Software · IA",
     "title": "Tecnología que impulsa tu negocio",
     "typewriterPhrases": [
       "Tecnología que impulsa productos modernos",
@@ -74,7 +74,7 @@
       "Aplicaciones más inteligentes para negocios más inteligentes",
       "Desarrollo impulsado por IA para productos modernos"
     ],
-    "description": "Somos tu partner tecnológico: diseñamos, desarrollamos y acompañamos productos digitales de principio a fin.",
+    "description": "Lenara Labs diseña, desarrolla y acompaña productos digitales de principio a fin — para empresas y nuestra línea de productos propios.",
     "hero": {
       "ctaContact": "Contáctanos",
       "ctaServices": "Nuestros servicios"
@@ -125,12 +125,12 @@
     },
     "about": {
       "title": "Sobre Lenara Labs",
-      "subtitle": "Un estudio enfocado en apps móviles, productos web y soluciones con IA para startups y equipos en crecimiento.",
-      "founderLabel": "Fundador",
+      "subtitle": "Lenara Labs diseña y desarrolla apps móviles, sitios web y productos digitales con IA — para clientes y nuestro propio portafolio.",
+      "founderLabel": "Liderazgo",
       "name": "Leonel Ortega",
       "initials": "LO",
-      "role": "Ingeniero de software · Fundador",
-      "description": "Fundador de Lenara Labs. Leonel diseña y desarrolla apps móviles, productos web y soluciones con IA para startups y equipos en crecimiento.",
+      "role": "Fundador e ingeniero líder",
+      "description": "Lenara Labs está liderada por su fundador Leonel Ortega, quien impulsa el diseño y la ingeniería de productos móviles, web y soluciones con IA.",
       "profileLink": "Ver perfil",
       "profileLinkAria": "Visitar la página personal de Leonel Ortega",
       "appsLink": "Explorar nuestras apps",
@@ -199,16 +199,16 @@
   },
   "apps": {
     "metadata": {
-      "title": "Lenara Labs | Apps móviles",
-      "description": "Desarrollo de aplicaciones móviles nativas y multiplataforma para iOS y Android."
+      "title": "Nuestras Apps — Lenara Labs",
+      "description": "Apps creadas por Lenara Labs — incluyendo CardsReminder y otros productos diseñados y lanzados por nosotros."
     },
-    "eyebrow": "iOS · Android · Cross-platform",
-    "title": "Aplicaciones móviles que escalan contigo",
-    "description": "Diseñamos y desarrollamos apps móviles de alto rendimiento, desde el MVP hasta productos listos para millones de usuarios.",
+    "eyebrow": "Lenara Labs · Productos",
+    "title": "Nuestras apps",
+    "description": "Productos diseñados, desarrollados y publicados por Lenara Labs — de la idea a la App Store.",
     "cardsReminder": {
-      "badge": "Primera app",
+      "badge": "Primer producto",
       "name": "CardsReminder",
-      "description": "La primera app que desarrollé — un calendario inteligente para tus tarjetas de crédito. Muestra fechas de facturación y pago, te indica los mejores días para comprar, envía notificaciones oportunas y te ayuda a entender cada tarjeta con una UX/UI clara. Ingresa tu fecha de pago y el algoritmo recomienda la mejor fecha de pago por tarjeta y el día óptimo para usar cada una.",
+      "description": "El primer producto propio de Lenara Labs — un calendario inteligente para tus tarjetas de crédito. Muestra fechas de facturación y pago, te indica los mejores días para comprar, envía notificaciones oportunas y te ayuda a entender cada tarjeta con una UX/UI clara. Ingresa tu fecha de pago y el algoritmo recomienda la mejor fecha de pago por tarjeta y el día óptimo para usar cada una.",
       "platformsLabel": "Disponible en",
       "iosLabel": "iOS",
       "androidSoonLabel": "Android · Próximamente",
