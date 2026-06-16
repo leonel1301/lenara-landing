@@ -32,7 +32,6 @@ export function SectionLink({
 
     event.preventDefault();
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-    window.history.replaceState(null, "", `#${sectionId}`);
   }
 
   return (

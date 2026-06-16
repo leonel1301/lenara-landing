@@ -10,11 +10,20 @@ type Props = {
 
 export function ScrollIndicator({ href, label }: Props) {
   const prefersReducedMotion = useReducedMotion();
+  const sectionId = href.startsWith("#") ? href.slice(1) : href.split("#").at(-1);
+
+  function handleClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    if (!sectionId) return;
+
+    event.preventDefault();
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+  }
 
   return (
     <motion.a
       href={href}
       aria-label={label}
+      onClick={handleClick}
       initial={prefersReducedMotion ? false : { opacity: 0, y: -8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.85, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}

@@ -112,7 +112,7 @@ export default async function OverviewPage({ params }: Props) {
         </div>
       </FullscreenSection>
 
-      <FullscreenSection containerClassName="max-w-6xl">
+      <FullscreenSection id="process" containerClassName="max-w-6xl">
         <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-14">
           <ScrollReveal className="space-y-3 lg:sticky lg:top-24">
             <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">

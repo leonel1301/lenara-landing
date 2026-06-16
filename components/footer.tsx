@@ -2,6 +2,7 @@ import { Mail, MapPin } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/navigation";
+import { SectionAnchor } from "@/components/section-anchor";
 import { cn } from "@/lib/utils";
 
 type FooterColumnProps = {
@@ -26,14 +27,21 @@ type FooterLinkProps = {
 };
 
 function FooterLink({ href, children, className }: FooterLinkProps) {
+  const linkClassName = cn(
+    "text-sm text-muted-foreground transition-colors hover:text-foreground",
+    className,
+  );
+
+  if (href.includes("#")) {
+    return (
+      <SectionAnchor href={href} className={linkClassName}>
+        {children}
+      </SectionAnchor>
+    );
+  }
+
   return (
-    <Link
-      href={href}
-      className={cn(
-        "text-sm text-muted-foreground transition-colors hover:text-foreground",
-        className,
-      )}
-    >
+    <Link href={href} className={linkClassName}>
       {children}
     </Link>
   );
@@ -45,8 +53,8 @@ export async function Footer() {
 
   const serviceLinks = ["mobile", "web", "cloud", "consulting"] as const;
   const companyLinks = [
-    { key: "about", href: "/" },
-    { key: "process", href: "/" },
+    { key: "about", href: "/#about" },
+    { key: "process", href: "/#process" },
     { key: "contact", href: "/#contact" },
   ] as const;
 

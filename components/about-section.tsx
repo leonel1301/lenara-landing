@@ -45,6 +45,7 @@ export function AboutSection({
 }: Props) {
   return (
     <FullscreenSection
+      id="about"
       containerClassName="max-w-5xl"
       className="border-t border-border"
     >
