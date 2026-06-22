@@ -7,6 +7,7 @@
     "language": "Language",
     "themeLight": "Switch to light mode",
     "themeDark": "Switch to dark mode",
+    "themeSystem": "Use system theme",
     "scrollDown": "Scroll down"
   },
   "header": {
@@ -46,10 +47,11 @@
     "copyright": "© {year} Lenara Labs. All rights reserved.",
     "products": {
       "title": "Products",
-      "cardsReminder": {
-        "name": "CardsReminder",
+      "waloop": {
+        "name": "Waloop",
         "privacy": "Privacy Policy",
-        "terms": "Terms & Conditions"
+        "terms": "Terms of Service",
+        "faq": "FAQ"
       }
     }
   },
@@ -200,42 +202,50 @@
   "apps": {
     "metadata": {
       "title": "Our Apps — Lenara Labs",
-      "description": "Apps built by Lenara Labs — including CardsReminder and other products designed and shipped in-house."
+      "description": "Apps built by Lenara Labs — including Waloop and other products designed and shipped in-house."
     },
     "eyebrow": "Lenara Labs · Products",
     "title": "Our Apps",
     "description": "Products designed, built, and shipped by Lenara Labs — from idea to the App Store.",
-    "cardsReminder": {
+    "waloop": {
       "badge": "First product",
-      "name": "CardsReminder",
-      "description": "Lenara Labs' first in-house product — a smart calendar for your credit cards. It surfaces billing and payment dates, suggests the best days to buy, sends timely notifications, and helps you understand every card you own with clear UX/UI. Enter your pay date and the algorithm recommends the best payment date for each card and the optimal day to use each one.",
+      "name": "Waloop",
+      "tagline": "Card billing cycles & payment tracker",
+      "description": "Lenara Labs' first in-house product — a personal finance app for managing credit cards. Organize cards and household members, track billing cycles and payment due dates, get timely reminders, see a timeline of upcoming due dates, and discover the best days to buy based on each card's cycle. Enter your pay date and Waloop recommends the optimal payment and purchase days for every card.",
       "platformsLabel": "Available on",
       "iosLabel": "iOS",
       "androidSoonLabel": "Android · Coming soon",
-      "videoLabel": "CardsReminder tutorial video",
+      "videoLabel": "Waloop tutorial video",
       "videoFallback": "Tutorial video coming soon.",
       "subtitles": [
         "Never miss a billing or payment date again",
         "Best days to buy — tailored to your cycle",
-        "All your cards, easy to understand at a glance",
+        "All your cards and household members in one place",
         "Smart notifications when it actually matters",
         "Enter your pay date — we optimize the rest"
       ],
       "legal": {
-        "eyebrow": "CardsReminder · Legal",
-        "backToApp": "Back to CardsReminder",
+        "eyebrow": "Waloop · Legal",
+        "backToApp": "Back to Waloop",
         "privacyLink": "Privacy Policy",
-        "termsLink": "Terms & Conditions",
+        "termsLink": "Terms of Service",
+        "faqLink": "FAQ",
         "privacy": {
           "metadata": {
-            "title": "CardsReminder | Privacy Policy",
-            "description": "Privacy Policy for CardsReminder, the credit card management app developed by Lenara Labs."
+            "title": "Waloop | Privacy Policy",
+            "description": "Privacy Policy for Waloop, the credit card billing cycle and payment tracker app by Lenara Labs."
           }
         },
         "terms": {
           "metadata": {
-            "title": "CardsReminder | Terms & Conditions",
-            "description": "Terms and Conditions of use for CardsReminder, the credit card management app developed by Lenara Labs."
+            "title": "Waloop | Terms of Service",
+            "description": "Terms of Service for Waloop, the credit card billing cycle and payment tracker app by Lenara Labs."
+          }
+        },
+        "faq": {
+          "metadata": {
+            "title": "Waloop | FAQ",
+            "description": "Frequently asked questions about Waloop, the credit card billing cycle and payment tracker app by Lenara Labs."
           }
         }
       }

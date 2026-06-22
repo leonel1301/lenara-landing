@@ -3,7 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { LegalPageShell } from "@/components/legal-page-shell";
 import { routing } from "@/i18n/routing";
-import { getCardsReminderPrivacy } from "@/lib/legal/cards-reminder";
+import { getWaloopTerms } from "@/lib/legal/waloop";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -17,26 +17,33 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({
     locale,
-    namespace: "apps.cardsReminder.legal.privacy.metadata",
+    namespace: "apps.waloop.legal.terms.metadata",
   });
 
   return {
     title: t("title"),
     description: t("description"),
+    alternates: {
+      canonical: `https://lenaralabs.com/${locale}/apps/waloop/terms`,
+      languages: {
+        en: "https://lenaralabs.com/en/apps/waloop/terms",
+        es: "https://lenaralabs.com/es/apps/waloop/terms",
+      },
+    },
   };
 }
 
-export default async function CardsReminderPrivacyPage({ params }: Props) {
+export default async function WaloopTermsPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("apps.cardsReminder.legal");
+  const t = await getTranslations("apps.waloop.legal");
 
   return (
     <LegalPageShell
       eyebrow={t("eyebrow")}
       backLabel={t("backToApp")}
-      backHref="/apps#cards-reminder"
-      document={getCardsReminderPrivacy(locale)}
+      backHref="/apps#waloop"
+      document={getWaloopTerms(locale)}
     />
   );
 }

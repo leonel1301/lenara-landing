@@ -11,8 +11,8 @@ import {
   ScrollRevealStagger,
 } from "@/components/scroll-reveal";
 import {
-  CARDS_REMINDER_VIDEO_POSTER,
-  CARDS_REMINDER_VIDEO_SRC,
+  WALOOP_VIDEO_POSTER,
+  WALOOP_VIDEO_SRC,
   TIMES2U_VIDEO_POSTER,
   TIMES2U_VIDEO_SRC,
 } from "@/lib/apps";
@@ -41,7 +41,7 @@ export default async function AppsPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations("apps");
   const tCommon = await getTranslations("common");
-  const cardsReminderSubtitles = t.raw("cardsReminder.subtitles") as string[];
+  const waloopSubtitles = t.raw("waloop.subtitles") as string[];
   const times2uSubtitles = t.raw("times2u.subtitles") as string[];
 
   return (
@@ -52,7 +52,7 @@ export default async function AppsPage({ params }: Props) {
         className="border-b border-border bg-background"
         scrollIndicator={
           <ScrollIndicator
-            href="#cards-reminder"
+            href="#waloop"
             label={tCommon("scrollDown")}
           />
         }
@@ -78,25 +78,27 @@ export default async function AppsPage({ params }: Props) {
         </ScrollRevealStagger>
       </FullscreenSection>
 
-      <FullscreenSection id="cards-reminder" containerClassName="max-w-6xl">
+      <FullscreenSection id="waloop" containerClassName="max-w-6xl">
         <ScrollReveal delay={0.05}>
           <AppShowcase
-            badge={t("cardsReminder.badge")}
-            name={t("cardsReminder.name")}
-            description={t("cardsReminder.description")}
-            platformsLabel={t("cardsReminder.platformsLabel")}
-            iosLabel={t("cardsReminder.iosLabel")}
-            androidSoonLabel={t("cardsReminder.androidSoonLabel")}
-            subtitles={cardsReminderSubtitles}
-            videoLabel={t("cardsReminder.videoLabel")}
-            videoFallback={t("cardsReminder.videoFallback")}
-            videoSrc={CARDS_REMINDER_VIDEO_SRC}
-            videoPoster={CARDS_REMINDER_VIDEO_POSTER}
+            badge={t("waloop.badge")}
+            name={t("waloop.name")}
+            description={t("waloop.description")}
+            platformsLabel={t("waloop.platformsLabel")}
+            iosLabel={t("waloop.iosLabel")}
+            androidSoonLabel={t("waloop.androidSoonLabel")}
+            subtitles={waloopSubtitles}
+            videoLabel={t("waloop.videoLabel")}
+            videoFallback={t("waloop.videoFallback")}
+            videoSrc={WALOOP_VIDEO_SRC}
+            videoPoster={WALOOP_VIDEO_POSTER}
             legalLinks={{
-              privacyHref: "/apps/cards-reminder/privacy",
-              termsHref: "/apps/cards-reminder/terms",
-              privacyLabel: t("cardsReminder.legal.privacyLink"),
-              termsLabel: t("cardsReminder.legal.termsLink"),
+              privacyHref: "/apps/waloop/privacy",
+              termsHref: "/apps/waloop/terms",
+              faqHref: "/apps/waloop/faq",
+              privacyLabel: t("waloop.legal.privacyLink"),
+              termsLabel: t("waloop.legal.termsLink"),
+              faqLabel: t("waloop.legal.faqLink"),
             }}
           />
         </ScrollReveal>

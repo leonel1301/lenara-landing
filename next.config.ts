@@ -14,6 +14,23 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: projectRoot,
   },
+  async redirects() {
+    const locales = ["en", "es"] as const;
+    const legalPaths = ["privacy", "terms"] as const;
+    const redirects = [];
+
+    for (const locale of locales) {
+      for (const path of legalPaths) {
+        redirects.push({
+          source: `/${locale}/apps/cards-reminder/${path}`,
+          destination: `/${locale}/apps/waloop/${path}`,
+          permanent: true,
+        });
+      }
+    }
+
+    return redirects;
+  },
 };
 
 export default withNextIntl(nextConfig);

@@ -90,20 +90,25 @@ export async function Footer() {
           <FooterColumn title={t("products.title")}>
             <div className="space-y-3">
               <FooterLink
-                href="/apps#cards-reminder"
+                href="/apps#waloop"
                 className="font-medium text-foreground/90 hover:text-primary"
               >
-                {t("products.cardsReminder.name")}
+                {t("products.waloop.name")}
               </FooterLink>
               <ul className="space-y-2 border-l border-border pl-3">
                 <li>
-                  <FooterLink href="/apps/cards-reminder/privacy">
-                    {t("products.cardsReminder.privacy")}
+                  <FooterLink href="/apps/waloop/privacy">
+                    {t("products.waloop.privacy")}
                   </FooterLink>
                 </li>
                 <li>
-                  <FooterLink href="/apps/cards-reminder/terms">
-                    {t("products.cardsReminder.terms")}
+                  <FooterLink href="/apps/waloop/terms">
+                    {t("products.waloop.terms")}
+                  </FooterLink>
+                </li>
+                <li>
+                  <FooterLink href="/apps/waloop/faq">
+                    {t("products.waloop.faq")}
                   </FooterLink>
                 </li>
               </ul>

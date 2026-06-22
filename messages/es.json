@@ -7,6 +7,7 @@
     "language": "Idioma",
     "themeLight": "Cambiar a modo claro",
     "themeDark": "Cambiar a modo oscuro",
+    "themeSystem": "Usar tema del sistema",
     "scrollDown": "Desplazarse hacia abajo"
   },
   "header": {
@@ -46,10 +47,11 @@
     "copyright": "© {year} Lenara Labs. Todos los derechos reservados.",
     "products": {
       "title": "Productos",
-      "cardsReminder": {
-        "name": "CardsReminder",
+      "waloop": {
+        "name": "Waloop",
         "privacy": "Política de privacidad",
-        "terms": "Términos y condiciones"
+        "terms": "Términos de servicio",
+        "faq": "Preguntas frecuentes"
       }
     }
   },
@@ -200,42 +202,50 @@
   "apps": {
     "metadata": {
       "title": "Nuestras Apps — Lenara Labs",
-      "description": "Apps creadas por Lenara Labs — incluyendo CardsReminder y otros productos diseñados y lanzados por nosotros."
+      "description": "Apps creadas por Lenara Labs — incluyendo Waloop y otros productos diseñados y lanzados por nosotros."
     },
     "eyebrow": "Lenara Labs · Productos",
     "title": "Nuestras apps",
     "description": "Productos diseñados, desarrollados y publicados por Lenara Labs — de la idea a la App Store.",
-    "cardsReminder": {
+    "waloop": {
       "badge": "Primer producto",
-      "name": "CardsReminder",
-      "description": "El primer producto propio de Lenara Labs — un calendario inteligente para tus tarjetas de crédito. Muestra fechas de facturación y pago, te indica los mejores días para comprar, envía notificaciones oportunas y te ayuda a entender cada tarjeta con una UX/UI clara. Ingresa tu fecha de pago y el algoritmo recomienda la mejor fecha de pago por tarjeta y el día óptimo para usar cada una.",
+      "name": "Waloop",
+      "tagline": "Card billing cycles & payment tracker",
+      "description": "El primer producto propio de Lenara Labs — una app de finanzas personales para gestionar tarjetas de crédito. Organiza tarjetas y miembros del hogar, sigue ciclos de facturación y fechas de pago, recibe recordatorios oportunos, consulta un timeline de vencimientos e identifica los mejores días para comprar según el ciclo de cada tarjeta. Ingresa tu fecha de pago y Waloop recomienda los días óptimos de pago y compra para cada tarjeta.",
       "platformsLabel": "Disponible en",
       "iosLabel": "iOS",
       "androidSoonLabel": "Android · Próximamente",
-      "videoLabel": "Video tutorial de CardsReminder",
+      "videoLabel": "Video tutorial de Waloop",
       "videoFallback": "Video tutorial próximamente.",
       "subtitles": [
         "Nunca más pierdas una fecha de facturación o pago",
         "Mejores días para comprar — según tu ciclo",
-        "Todas tus tarjetas, fáciles de entender",
+        "Todas tus tarjetas y miembros del hogar en un solo lugar",
         "Notificaciones inteligentes cuando importan",
         "Ingresa tu fecha de pago — nosotros optimizamos el resto"
       ],
       "legal": {
-        "eyebrow": "CardsReminder · Legal",
-        "backToApp": "Volver a CardsReminder",
+        "eyebrow": "Waloop · Legal",
+        "backToApp": "Volver a Waloop",
         "privacyLink": "Política de privacidad",
-        "termsLink": "Términos y condiciones",
+        "termsLink": "Términos de servicio",
+        "faqLink": "Preguntas frecuentes",
         "privacy": {
           "metadata": {
-            "title": "CardsReminder | Política de Privacidad",
-            "description": "Política de Privacidad de CardsReminder, la app de gestión de tarjetas de crédito desarrollada por Lenara Labs."
+            "title": "Waloop | Política de Privacidad",
+            "description": "Política de Privacidad de Waloop, la app de ciclos de facturación y seguimiento de pagos de tarjetas de crédito de Lenara Labs."
           }
         },
         "terms": {
           "metadata": {
-            "title": "CardsReminder | Términos y Condiciones",
-            "description": "Términos y Condiciones de uso de CardsReminder, la app de gestión de tarjetas de crédito desarrollada por Lenara Labs."
+            "title": "Waloop | Términos de Servicio",
+            "description": "Términos de Servicio de Waloop, la app de ciclos de facturación y seguimiento de pagos de tarjetas de crédito de Lenara Labs."
+          }
+        },
+        "faq": {
+          "metadata": {
+            "title": "Waloop | Preguntas Frecuentes",
+            "description": "Preguntas frecuentes sobre Waloop, la app de ciclos de facturación y seguimiento de pagos de tarjetas de crédito de Lenara Labs."
           }
         }
       }
