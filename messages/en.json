@@ -261,6 +261,7 @@
         "emptyTitle": "No feedback yet",
         "emptyDescription": "When users share comments or report issues from the app, they will appear here.",
         "count": "{count, plural, =0 {No entries} one {# entry} other {# entries}}",
+        "updatedLabel": "Updated",
         "errorGeneric": "Unable to load feedback right now. Please try again later.",
         "errorUnauthorized": "Feedback panel is not configured. Contact the administrator."
       }

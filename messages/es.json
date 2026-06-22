@@ -261,6 +261,7 @@
         "emptyTitle": "Aún no hay feedback",
         "emptyDescription": "Cuando los usuarios compartan comentarios o reporten problemas desde la app, aparecerán aquí.",
         "count": "{count, plural, =0 {Sin entradas} one {# entrada} other {# entradas}}",
+        "updatedLabel": "Actualizado",
         "errorGeneric": "No se pudo cargar el feedback en este momento. Inténtelo de nuevo más tarde.",
         "errorUnauthorized": "El panel de feedback no está configurado. Contacte al administrador."
       }

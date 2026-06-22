@@ -74,11 +74,11 @@ export default async function WaloopFeedbackPage({ params }: Props) {
       ) : (
         <WaloopFeedbackList
           items={items}
-          locale={locale}
           labels={{
             emptyTitle: t("feedback.emptyTitle"),
             emptyDescription: t("feedback.emptyDescription"),
             count: t("feedback.count", { count: items.length }),
+            updatedLabel: t("feedback.updatedLabel"),
           }}
         />
       )}
