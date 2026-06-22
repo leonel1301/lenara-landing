@@ -96,9 +96,11 @@ export default async function AppsPage({ params }: Props) {
               privacyHref: "/apps/waloop/privacy",
               termsHref: "/apps/waloop/terms",
               faqHref: "/apps/waloop/faq",
+              feedbackHref: "/apps/waloop/feedback",
               privacyLabel: t("waloop.legal.privacyLink"),
               termsLabel: t("waloop.legal.termsLink"),
               faqLabel: t("waloop.legal.faqLink"),
+              feedbackLabel: t("waloop.legal.feedbackLink"),
             }}
           />
         </ScrollReveal>

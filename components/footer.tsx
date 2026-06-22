@@ -111,6 +111,11 @@ export async function Footer() {
                     {t("products.waloop.faq")}
                   </FooterLink>
                 </li>
+                <li>
+                  <FooterLink href="/apps/waloop/feedback">
+                    {t("products.waloop.feedback")}
+                  </FooterLink>
+                </li>
               </ul>
             </div>
           </FooterColumn>

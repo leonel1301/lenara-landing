@@ -31,9 +31,11 @@ type Props = {
     privacyHref: string;
     termsHref: string;
     faqHref?: string;
+    feedbackHref?: string;
     privacyLabel: string;
     termsLabel: string;
     faqLabel?: string;
+    feedbackLabel?: string;
   };
 };
 
@@ -212,6 +214,14 @@ export function AppShowcase({
                 className="font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
               >
                 {legalLinks.faqLabel}
+              </Link>
+            ) : null}
+            {legalLinks.feedbackHref && legalLinks.feedbackLabel ? (
+              <Link
+                href={legalLinks.feedbackHref}
+                className="font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+              >
+                {legalLinks.feedbackLabel}
               </Link>
             ) : null}
           </motion.nav>
