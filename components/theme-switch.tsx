@@ -43,7 +43,7 @@ function ThemeIcon({ isDark, reducedMotion }: { isDark: boolean; reducedMotion: 
 }
 
 export function ThemeSwitch() {
-  const { theme, resolvedTheme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const t = useTranslations("common");
   const prefersReducedMotion = useReducedMotion();
   const [mounted, setMounted] = useState(false);
@@ -64,17 +64,7 @@ export function ThemeSwitch() {
     );
   }
 
-  const isDark = resolvedTheme === "dark";
-  const followsSystem = theme === "system";
-
-  function handleClick() {
-    if (followsSystem) {
-      setTheme(isDark ? "light" : "dark");
-      return;
-    }
-
-    setTheme("system");
-  }
+  const isDark = theme === "dark";
 
   return (
     <Button
@@ -82,14 +72,8 @@ export function ThemeSwitch() {
       variant="outline"
       size="icon"
       className="size-9 overflow-hidden"
-      aria-label={
-        followsSystem
-          ? isDark
-            ? t("themeLight")
-            : t("themeDark")
-          : t("themeSystem")
-      }
-      onClick={handleClick}
+      aria-label={isDark ? t("themeLight") : t("themeDark")}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
     >
       <ThemeIcon isDark={isDark} reducedMotion={prefersReducedMotion ?? false} />
     </Button>

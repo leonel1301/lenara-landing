@@ -2,8 +2,6 @@
 
 import { ThemeProvider } from "next-themes";
 
-import { SystemThemeSync } from "@/components/providers/system-theme-sync";
-
 export function NextThemeProvider({
   children,
 }: {
@@ -12,13 +10,12 @@ export function NextThemeProvider({
   return (
     <ThemeProvider
       attribute="class"
-      defaultTheme="system"
-      enableSystem
+      defaultTheme="dark"
+      enableSystem={false}
       enableColorScheme
       disableTransitionOnChange
       scriptProps={{ type: "application/json" }}
     >
-      <SystemThemeSync />
       {children}
     </ThemeProvider>
   );
