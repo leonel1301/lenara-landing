@@ -90,7 +90,7 @@ export async function Footer() {
           <FooterColumn title={t("products.title")}>
             <div className="space-y-3">
               <FooterLink
-                href="/apps#waloop"
+                href="/apps/waloop"
                 className="font-medium text-foreground/90 hover:text-primary"
               >
                 {t("products.waloop.name")}

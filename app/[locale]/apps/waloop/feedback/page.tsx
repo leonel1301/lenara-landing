@@ -60,7 +60,7 @@ export default async function WaloopFeedbackPage({ params }: Props) {
     <WaloopSubpageShell
       eyebrow={tLegal("eyebrow")}
       backLabel={tLegal("backToApp")}
-      backHref="/apps#waloop"
+      backHref="/apps/waloop"
       title={t("feedback.title")}
       description={t("feedback.description")}
     >

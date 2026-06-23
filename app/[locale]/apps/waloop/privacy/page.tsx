@@ -42,7 +42,7 @@ export default async function WaloopPrivacyPage({ params }: Props) {
     <LegalPageShell
       eyebrow={t("eyebrow")}
       backLabel={t("backToApp")}
-      backHref="/apps#waloop"
+      backHref="/apps/waloop"
       document={getWaloopPrivacy(locale)}
     />
   );

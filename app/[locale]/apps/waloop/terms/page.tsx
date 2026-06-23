@@ -42,7 +42,7 @@ export default async function WaloopTermsPage({ params }: Props) {
     <LegalPageShell
       eyebrow={t("eyebrow")}
       backLabel={t("backToApp")}
-      backHref="/apps#waloop"
+      backHref="/apps/waloop"
       document={getWaloopTerms(locale)}
     />
   );

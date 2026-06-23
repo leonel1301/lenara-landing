@@ -83,6 +83,8 @@ export default async function AppsPage({ params }: Props) {
           <AppShowcase
             badge={t("waloop.badge")}
             name={t("waloop.name")}
+            nameHref="/apps/waloop"
+            nameLinkAria={t("waloop.nameLinkAria")}
             description={t("waloop.description")}
             platformsLabel={t("waloop.platformsLabel")}
             iosLabel={t("waloop.iosLabel")}

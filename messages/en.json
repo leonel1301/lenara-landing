@@ -210,7 +210,19 @@
     "waloop": {
       "badge": "First product",
       "name": "Waloop",
+      "nameLinkAria": "View Waloop app page",
       "tagline": "Card billing cycles & payment tracker",
+      "page": {
+        "metadata": {
+          "title": "Waloop — Credit Card Billing & Payment Tracker",
+          "description": "Waloop is a personal finance app for managing credit card billing cycles and payment due dates. Track cards, get reminders, and find the best days to buy."
+        },
+        "backToApps": "Back to all apps",
+        "purposeTitle": "What is Waloop?",
+        "purpose": "Waloop is a personal finance app that helps you manage credit cards. It tracks billing cycles and payment due dates for every card, sends timely reminders before deadlines, and shows a timeline of upcoming due dates. Enter your pay date and Waloop recommends the best days to pay and to make purchases based on each card's billing cycle. You can organize cards for yourself or your entire household — all in one place.",
+        "featuresTitle": "What you can do with Waloop",
+        "developedBy": "Developed by Lenara Labs"
+      },
       "description": "Lenara Labs' first in-house product — a personal finance app for managing credit cards. Organize cards and household members, track billing cycles and payment due dates, get timely reminders, see a timeline of upcoming due dates, and discover the best days to buy based on each card's cycle. Enter your pay date and Waloop recommends the optimal payment and purchase days for every card.",
       "platformsLabel": "Available on",
       "iosLabel": "iOS",

@@ -210,7 +210,19 @@
     "waloop": {
       "badge": "Primer producto",
       "name": "Waloop",
-      "tagline": "Card billing cycles & payment tracker",
+      "nameLinkAria": "Ver la página de la app Waloop",
+      "tagline": "Ciclos de facturación y seguimiento de pagos",
+      "page": {
+        "metadata": {
+          "title": "Waloop — Ciclos de facturación y pagos de tarjetas",
+          "description": "Waloop es una app de finanzas personales para gestionar ciclos de facturación y fechas de pago de tarjetas de crédito. Organiza tarjetas, recibe recordatorios y descubre los mejores días para comprar."
+        },
+        "backToApps": "Volver a todas las apps",
+        "purposeTitle": "¿Qué es Waloop?",
+        "purpose": "Waloop es una app de finanzas personales que te ayuda a gestionar tarjetas de crédito. Sigue los ciclos de facturación y las fechas de pago de cada tarjeta, envía recordatorios oportunos antes de los vencimientos y muestra un timeline de fechas próximas. Ingresa tu fecha de pago y Waloop recomienda los mejores días para pagar y para comprar según el ciclo de facturación de cada tarjeta. Puedes organizar tarjetas para ti o para todo tu hogar — todo en un solo lugar.",
+        "featuresTitle": "Qué puedes hacer con Waloop",
+        "developedBy": "Desarrollado por Lenara Labs"
+      },
       "description": "El primer producto propio de Lenara Labs — una app de finanzas personales para gestionar tarjetas de crédito. Organiza tarjetas y miembros del hogar, sigue ciclos de facturación y fechas de pago, recibe recordatorios oportunos, consulta un timeline de vencimientos e identifica los mejores días para comprar según el ciclo de cada tarjeta. Ingresa tu fecha de pago y Waloop recomienda los días óptimos de pago y compra para cada tarjeta.",
       "platformsLabel": "Disponible en",
       "iosLabel": "iOS",
