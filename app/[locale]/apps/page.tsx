@@ -17,6 +17,8 @@ import {
   TIMES2U_VIDEO_SRC,
 } from "@/lib/apps";
 import { routing } from "@/i18n/routing";
+import type { Locale } from "@/i18n/routing";
+import { buildAlternates, buildOpenGraph } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -33,6 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("title"),
     description: t("description"),
+    alternates: buildAlternates(locale as Locale, "/apps"),
+    openGraph: buildOpenGraph(locale as Locale, "/apps", t("title"), t("description")),
   };
 }
 

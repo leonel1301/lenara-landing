@@ -3,7 +3,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { LegalPageShell } from "@/components/legal-page-shell";
 import { routing } from "@/i18n/routing";
+import type { Locale } from "@/i18n/routing";
 import { getWaloopPrivacy } from "@/lib/legal/waloop";
+import { buildAlternates, buildOpenGraph } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -23,13 +25,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("title"),
     description: t("description"),
-    alternates: {
-      canonical: `https://lenaralabs.com/${locale}/apps/waloop/privacy`,
-      languages: {
-        en: "https://lenaralabs.com/en/apps/waloop/privacy",
-        es: "https://lenaralabs.com/es/apps/waloop/privacy",
-      },
-    },
+    alternates: buildAlternates(locale as Locale, "/apps/waloop/privacy"),
+    openGraph: buildOpenGraph(
+      locale as Locale,
+      "/apps/waloop/privacy",
+      t("title"),
+      t("description"),
+    ),
   };
 }
 

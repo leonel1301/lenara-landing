@@ -6,6 +6,8 @@ import { EyebrowBadge } from "@/components/eyebrow-badge";
 import { FullscreenSection } from "@/components/fullscreen-section";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
+import type { Locale } from "@/i18n/routing";
+import { buildAlternates, buildOpenGraph } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -25,13 +27,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("title"),
     description: t("description"),
-    alternates: {
-      canonical: `https://lenaralabs.com/${locale}/apps/waloop`,
-      languages: {
-        en: "https://lenaralabs.com/en/apps/waloop",
-        es: "https://lenaralabs.com/es/apps/waloop",
-      },
-    },
+    alternates: buildAlternates(locale as Locale, "/apps/waloop"),
+    openGraph: buildOpenGraph(
+      locale as Locale,
+      "/apps/waloop",
+      t("title"),
+      t("description"),
+    ),
   };
 }
 

@@ -9,6 +9,7 @@ import { Header } from "@/components/header";
 import { NextThemeProvider } from "@/components/providers/next-theme-provider";
 import { ThemeScript } from "@/components/providers/theme-script";
 import { routing } from "@/i18n/routing";
+import { SITE_URL } from "@/lib/seo";
 
 import "../globals.css";
 
@@ -36,7 +37,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "metadata" });
 
   return {
-    title: t("title"),
+    metadataBase: new URL(SITE_URL),
+    title: {
+      default: t("title"),
+      template: "%s",
+    },
     description: t("description"),
     icons: {
       icon: [

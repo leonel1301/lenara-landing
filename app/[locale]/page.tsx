@@ -19,6 +19,9 @@ import { processSteps as processStepsList } from "@/lib/process";
 import { projectAreas as projectAreasList } from "@/lib/projects";
 import { serviceItems as servicesList } from "@/lib/services";
 import { routing } from "@/i18n/routing";
+import type { Locale } from "@/i18n/routing";
+import { buildAlternates, buildOpenGraph } from "@/lib/seo";
+import { OrganizationJsonLd } from "@/components/organization-jsonld";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -37,6 +40,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("title"),
     description: t("description"),
+    alternates: buildAlternates(locale as Locale, "/"),
+    openGraph: buildOpenGraph(locale as Locale, "/", t("title"), t("description")),
   };
 }
 
@@ -60,6 +65,7 @@ export default async function OverviewPage({ params }: Props) {
 
   return (
     <>
+      <OrganizationJsonLd />
       <FullscreenSection
         fullHeight
         containerClassName="max-w-3xl items-center text-center"

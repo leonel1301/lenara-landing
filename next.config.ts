@@ -20,14 +20,35 @@ const nextConfig: NextConfig = {
     const redirects = [];
 
     for (const locale of locales) {
-      for (const path of legalPaths) {
+      const prefix = locale === "en" ? "" : `/${locale}`;
+
+      for (const legalPath of legalPaths) {
         redirects.push({
-          source: `/${locale}/apps/cards-reminder/${path}`,
-          destination: `/${locale}/apps/waloop/${path}`,
+          source: `/${locale}/apps/cards-reminder/${legalPath}`,
+          destination: `${prefix}/apps/waloop/${legalPath}`,
           permanent: true,
         });
       }
     }
+
+    redirects.push(
+      {
+        source: "/en",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/en/:path*",
+        destination: "/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host" as const, value: "www.lenaralabs.com" }],
+        destination: "https://lenaralabs.com/:path*",
+        permanent: true,
+      },
+    );
 
     return redirects;
   },

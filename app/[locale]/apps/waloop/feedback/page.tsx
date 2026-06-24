@@ -4,8 +4,10 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { WaloopFeedbackList } from "@/components/waloop-feedback-list";
 import { WaloopSubpageShell } from "@/components/waloop-subpage-shell";
 import { routing } from "@/i18n/routing";
+import type { Locale } from "@/i18n/routing";
 import { FeedbackFetchError, fetchFeedback } from "@/lib/feedback/fetch-feedback";
 import type { FeedbackAdminItem } from "@/lib/feedback/types";
+import { buildAlternates, buildOpenGraph } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -27,12 +29,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("title"),
     description: t("description"),
-    alternates: {
-      canonical: `https://lenaralabs.com/${locale}/apps/waloop/feedback`,
-      languages: {
-        en: "https://lenaralabs.com/en/apps/waloop/feedback",
-        es: "https://lenaralabs.com/es/apps/waloop/feedback",
-      },
+    alternates: buildAlternates(locale as Locale, "/apps/waloop/feedback"),
+    openGraph: buildOpenGraph(
+      locale as Locale,
+      "/apps/waloop/feedback",
+      t("title"),
+      t("description"),
+    ),
+    robots: {
+      index: false,
+      follow: false,
     },
   };
 }
