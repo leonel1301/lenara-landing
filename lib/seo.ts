@@ -5,6 +5,9 @@ import { routing, type Locale } from "@/i18n/routing";
 
 export const SITE_URL = "https://lenaralabs.com";
 
+/** Fallback for users whose language does not match a listed locale (hreflang). */
+export const SEO_DEFAULT_LOCALE: Locale = "en";
+
 type Href = Parameters<typeof getPathname>[0]["href"];
 
 export function pageUrl(locale: Locale, href: Href = "/"): string {
@@ -20,7 +23,7 @@ export function buildAlternates(
     routing.locales.map((l) => [l, pageUrl(l, href)]),
   ) as Record<string, string>;
 
-  languages["x-default"] = pageUrl(routing.defaultLocale, href);
+  languages["x-default"] = pageUrl(SEO_DEFAULT_LOCALE, href);
 
   return {
     canonical: pageUrl(locale, href),

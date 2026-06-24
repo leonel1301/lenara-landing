@@ -20,8 +20,8 @@ import { projectAreas as projectAreasList } from "@/lib/projects";
 import { serviceItems as servicesList } from "@/lib/services";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/i18n/routing";
-import { buildAlternates, buildOpenGraph } from "@/lib/seo";
 import { OrganizationJsonLd } from "@/components/organization-jsonld";
+import { buildAlternates, buildOpenGraph } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
