@@ -1,8 +1,9 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { Apple, ArrowUpRight, Smartphone } from "lucide-react";
+import { ArrowUpRight, Smartphone } from "lucide-react";
 
+import { AppStoreBadge } from "@/components/app-store-badge";
 import { AppVideoPanel } from "@/components/app-video-panel";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
@@ -16,7 +17,7 @@ type Props = {
   nameLinkAria?: string;
   description: string;
   platformsLabel: string;
-  iosLabel: string;
+  appStoreHref?: string;
   androidSoonLabel: string;
   subtitles: string[];
   videoLabel: string;
@@ -43,7 +44,7 @@ export function AppShowcase({
   nameLinkAria,
   description,
   platformsLabel,
-  iosLabel,
+  appStoreHref,
   androidSoonLabel,
   subtitles,
   videoLabel,
@@ -122,21 +123,15 @@ export function AppShowcase({
         <motion.div variants={leftItem} className="space-y-3">
           <p className="text-sm font-medium text-foreground">{platformsLabel}</p>
           <div className="flex flex-wrap gap-3">
-            <motion.span
+            <motion.div
               initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.5, ease: easeOut }}
               whileHover={prefersReducedMotion ? undefined : { y: -3, scale: 1.02 }}
-              className={cn(
-                "inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium",
-                "border-[color-mix(in_oklch,var(--icon-1)_28%,transparent)]",
-                "bg-[color-mix(in_oklch,var(--icon-1)_12%,transparent)] text-[var(--icon-1)]",
-              )}
             >
-              <Apple className="size-4" strokeWidth={1.75} />
-              {iosLabel}
-            </motion.span>
+              <AppStoreBadge href={appStoreHref} />
+            </motion.div>
             <motion.span
               initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}

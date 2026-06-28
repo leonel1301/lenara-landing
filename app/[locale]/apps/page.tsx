@@ -11,6 +11,7 @@ import {
   ScrollRevealStagger,
 } from "@/components/scroll-reveal";
 import {
+  WALOOP_APP_STORE_URL,
   WALOOP_VIDEO_POSTER,
   WALOOP_VIDEO_SRC,
   TIMES2U_VIDEO_POSTER,
@@ -91,7 +92,7 @@ export default async function AppsPage({ params }: Props) {
             nameLinkAria={t("waloop.nameLinkAria")}
             description={t("waloop.description")}
             platformsLabel={t("waloop.platformsLabel")}
-            iosLabel={t("waloop.iosLabel")}
+            appStoreHref={WALOOP_APP_STORE_URL}
             androidSoonLabel={t("waloop.androidSoonLabel")}
             subtitles={waloopSubtitles}
             videoLabel={t("waloop.videoLabel")}
@@ -123,7 +124,6 @@ export default async function AppsPage({ params }: Props) {
             name={t("times2u.name")}
             description={t("times2u.description")}
             platformsLabel={t("times2u.platformsLabel")}
-            iosLabel={t("times2u.iosLabel")}
             androidSoonLabel={t("times2u.androidSoonLabel")}
             subtitles={times2uSubtitles}
             videoLabel={t("times2u.videoLabel")}

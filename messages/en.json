@@ -7,7 +7,8 @@
     "language": "Language",
     "themeLight": "Switch to light mode",
     "themeDark": "Switch to dark mode",
-    "scrollDown": "Scroll down"
+    "scrollDown": "Scroll down",
+    "appStoreBadgeAria": "Download on the App Store"
   },
   "header": {
     "brand": "Lenara Labs",
@@ -225,7 +226,6 @@
       },
       "description": "Lenara Labs' first in-house product — a personal finance app for managing credit cards. Organize cards and household members, track billing cycles and payment due dates, get timely reminders, see a timeline of upcoming due dates, and discover the best days to buy based on each card's cycle. Enter your pay date and Waloop recommends the optimal payment and purchase days for every card.",
       "platformsLabel": "Available on",
-      "iosLabel": "iOS",
       "androidSoonLabel": "Android · Coming soon",
       "videoLabel": "Waloop tutorial video",
       "videoFallback": "Tutorial video coming soon.",
@@ -282,7 +282,6 @@
       "name": "Times2U",
       "description": "Import schedules from Excel files, screenshots or photos — or build them manually in the app. What sets Times2U apart is an AI assistant that works like your personal secretary: tell it you have a meeting on Wednesday and it lands on your calendar, ask which days you're free, request a routine and your schedule adapts. Everything revolves around smarter time management.",
       "platformsLabel": "Available on",
-      "iosLabel": "iOS",
       "androidSoonLabel": "Android · Not yet",
       "videoLabel": "Times2U tutorial video",
       "videoFallback": "Tutorial video coming soon.",

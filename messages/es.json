@@ -7,7 +7,8 @@
     "language": "Idioma",
     "themeLight": "Cambiar a modo claro",
     "themeDark": "Cambiar a modo oscuro",
-    "scrollDown": "Desplazarse hacia abajo"
+    "scrollDown": "Desplazarse hacia abajo",
+    "appStoreBadgeAria": "Consíguelo en el App Store"
   },
   "header": {
     "brand": "Lenara Labs",
@@ -225,7 +226,6 @@
       },
       "description": "El primer producto propio de Lenara Labs — una app de finanzas personales para gestionar tarjetas de crédito. Organiza tarjetas y miembros del hogar, sigue ciclos de facturación y fechas de pago, recibe recordatorios oportunos, consulta un timeline de vencimientos e identifica los mejores días para comprar según el ciclo de cada tarjeta. Ingresa tu fecha de pago y Waloop recomienda los días óptimos de pago y compra para cada tarjeta.",
       "platformsLabel": "Disponible en",
-      "iosLabel": "iOS",
       "androidSoonLabel": "Android · Próximamente",
       "videoLabel": "Video tutorial de Waloop",
       "videoFallback": "Video tutorial próximamente.",
@@ -282,7 +282,6 @@
       "name": "Times2U",
       "description": "Importa horarios desde archivos Excel, capturas o fotos — o créalos manualmente en la app. Lo distinto de Times2U es un asistente de IA que funciona como tu secretaria: dile que tienes reunión el miércoles y se agenda en el calendario, pregúntale qué días tienes libres, pide una rutina y el horario se adapta. Todo gira en torno a una gestión del tiempo más inteligente.",
       "platformsLabel": "Disponible en",
-      "iosLabel": "iOS",
       "androidSoonLabel": "Android · Aún no",
       "videoLabel": "Video tutorial de Times2U",
       "videoFallback": "Video tutorial próximamente.",
