@@ -8,7 +8,9 @@
     "themeLight": "Switch to light mode",
     "themeDark": "Switch to dark mode",
     "scrollDown": "Scroll down",
-    "appStoreBadgeAria": "Download on the App Store"
+    "appStoreBadgeAria": "Download on the App Store",
+    "carouselPrev": "Previous screenshot",
+    "carouselNext": "Next screenshot"
   },
   "header": {
     "brand": "Lenara Labs",
@@ -213,11 +215,20 @@
     },
     "eyebrow": "Lenara Labs · Products",
     "title": "Our Apps",
-    "description": "Products designed, built, and shipped by Lenara Labs — from idea to the App Store.",
+    "description": "Products designed, built, and shipped by Lenara Labs — from idea to launch on mobile, web, and desktop.",
+    "comingSoon": {
+      "eyebrow": "Coming soon",
+      "title": "More apps on the way",
+      "description": "We're building the next products in the Lenara Labs lineup. Stay tuned."
+    },
     "waloop": {
       "badge": "First product",
       "name": "Waloop",
       "nameLinkAria": "View Waloop app page",
+      "galleryLabel": "Waloop app screenshots",
+      "screenshotAlt": "Waloop screenshot {number}",
+      "platformIos": "iOS",
+      "platformAndroid": "Android",
       "tagline": "Card billing cycles & payment tracker",
       "page": {
         "metadata": {

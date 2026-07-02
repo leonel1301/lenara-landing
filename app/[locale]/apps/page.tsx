@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { AppCarousel } from "@/components/app-carousel";
 import { AppShowcase } from "@/components/app-showcase";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { EyebrowBadge } from "@/components/eyebrow-badge";
@@ -11,13 +12,7 @@ import {
   ScrollRevealItem,
   ScrollRevealStagger,
 } from "@/components/scroll-reveal";
-import {
-  WALOOP_APP_STORE_URL,
-  WALOOP_VIDEO_POSTER,
-  WALOOP_VIDEO_SRC,
-  TIMES2U_VIDEO_POSTER,
-  TIMES2U_VIDEO_SRC,
-} from "@/lib/apps";
+import { WALOOP_APP_STORE_URL } from "@/lib/apps";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/i18n/routing";
 import { buildAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
@@ -49,8 +44,13 @@ export default async function AppsPage({ params }: Props) {
   const t = await getTranslations("apps");
   const tCommon = await getTranslations("common");
   const tNav = await getTranslations("header");
-  const waloopSubtitles = t.raw("waloop.subtitles") as string[];
-  const times2uSubtitles = t.raw("times2u.subtitles") as string[];
+  const waloopGallery = Array.from({ length: 6 }, (_, i) => {
+    const number = i + 1;
+    return {
+      src: `/images/waloop/${locale}/Frame%20${number}.png`,
+      alt: t("waloop.screenshotAlt", { number }),
+    };
+  });
 
   return (
     <>
@@ -104,11 +104,16 @@ export default async function AppsPage({ params }: Props) {
             platformsLabel={t("waloop.platformsLabel")}
             appStoreHref={WALOOP_APP_STORE_URL}
             androidSoonLabel={t("waloop.androidSoonLabel")}
-            subtitles={waloopSubtitles}
-            videoLabel={t("waloop.videoLabel")}
-            videoFallback={t("waloop.videoFallback")}
-            videoSrc={WALOOP_VIDEO_SRC}
-            videoPoster={WALOOP_VIDEO_POSTER}
+            media={
+              <AppCarousel
+                slides={waloopGallery}
+                label={t("waloop.galleryLabel")}
+                prevLabel={tCommon("carouselPrev")}
+                nextLabel={tCommon("carouselNext")}
+                iosLabel={t("waloop.platformIos")}
+                androidLabel={t("waloop.platformAndroid")}
+              />
+            }
             legalLinks={{
               privacyHref: "/apps/waloop/privacy",
               termsHref: "/apps/waloop/terms",
@@ -124,24 +129,21 @@ export default async function AppsPage({ params }: Props) {
       </FullscreenSection>
 
       <FullscreenSection
-        id="times2u"
-        containerClassName="max-w-6xl"
+        id="coming-soon"
+        containerClassName="max-w-3xl items-center text-center"
         className="border-t border-border"
       >
-        <ScrollReveal delay={0.05}>
-          <AppShowcase
-            badge={t("times2u.badge")}
-            name={t("times2u.name")}
-            description={t("times2u.description")}
-            platformsLabel={t("times2u.platformsLabel")}
-            androidSoonLabel={t("times2u.androidSoonLabel")}
-            subtitles={times2uSubtitles}
-            videoLabel={t("times2u.videoLabel")}
-            videoFallback={t("times2u.videoFallback")}
-            videoSrc={TIMES2U_VIDEO_SRC}
-            videoPoster={TIMES2U_VIDEO_POSTER}
-            reversed
-          />
+        <ScrollReveal
+          delay={0.05}
+          className="flex w-full flex-col items-center gap-5"
+        >
+          <EyebrowBadge>{t("comingSoon.eyebrow")}</EyebrowBadge>
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            {t("comingSoon.title")}
+          </h2>
+          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
+            {t("comingSoon.description")}
+          </p>
         </ScrollReveal>
       </FullscreenSection>
     </>

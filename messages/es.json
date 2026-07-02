@@ -8,7 +8,9 @@
     "themeLight": "Cambiar a modo claro",
     "themeDark": "Cambiar a modo oscuro",
     "scrollDown": "Desplazarse hacia abajo",
-    "appStoreBadgeAria": "Consíguelo en el App Store"
+    "appStoreBadgeAria": "Consíguelo en el App Store",
+    "carouselPrev": "Captura anterior",
+    "carouselNext": "Captura siguiente"
   },
   "header": {
     "brand": "Lenara Labs",
@@ -213,11 +215,20 @@
     },
     "eyebrow": "Lenara Labs · Productos",
     "title": "Nuestras apps",
-    "description": "Productos diseñados, desarrollados y publicados por Lenara Labs — de la idea a la App Store.",
+    "description": "Productos diseñados, desarrollados y publicados por Lenara Labs — de la idea al lanzamiento en móvil, web y escritorio.",
+    "comingSoon": {
+      "eyebrow": "Muy pronto",
+      "title": "Más apps en camino",
+      "description": "Estamos construyendo los próximos productos de Lenara Labs. Muy pronto."
+    },
     "waloop": {
       "badge": "Primer producto",
       "name": "Waloop",
       "nameLinkAria": "Ver la página de la app Waloop",
+      "galleryLabel": "Capturas de la app Waloop",
+      "screenshotAlt": "Captura {number} de Waloop",
+      "platformIos": "iOS",
+      "platformAndroid": "Android",
       "tagline": "Ciclos de facturación y seguimiento de pagos",
       "page": {
         "metadata": {

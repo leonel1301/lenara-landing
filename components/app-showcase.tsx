@@ -4,7 +4,6 @@ import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ArrowUpRight, Smartphone } from "lucide-react";
 
 import { AppStoreBadge } from "@/components/app-store-badge";
-import { AppVideoPanel } from "@/components/app-video-panel";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
@@ -19,11 +18,8 @@ type Props = {
   platformsLabel: string;
   appStoreHref?: string;
   androidSoonLabel: string;
-  subtitles: string[];
-  videoLabel: string;
-  videoFallback: string;
-  videoSrc: string;
-  videoPoster: string;
+  /** Media panel rendered beside the copy (e.g. carousel or video panel). */
+  media: React.ReactNode;
   reversed?: boolean;
   legalLinks?: {
     privacyHref: string;
@@ -46,11 +42,7 @@ export function AppShowcase({
   platformsLabel,
   appStoreHref,
   androidSoonLabel,
-  subtitles,
-  videoLabel,
-  videoFallback,
-  videoSrc,
-  videoPoster,
+  media,
   reversed = false,
   legalLinks,
 }: Props) {
@@ -187,14 +179,7 @@ export function AppShowcase({
         ) : null}
       </motion.div>
 
-      <AppVideoPanel
-        subtitles={subtitles}
-        videoLabel={videoLabel}
-        videoFallback={videoFallback}
-        videoSrc={videoSrc}
-        videoPoster={videoPoster}
-        className={reversed ? "lg:order-1" : undefined}
-      />
+      <div className={cn("flex", reversed && "lg:order-1")}>{media}</div>
     </div>
   );
 }
