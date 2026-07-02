@@ -41,14 +41,6 @@ function CarouselSlideFrame({
 }) {
   return (
     <div className="absolute inset-0 flex items-center justify-center px-1 pt-14 pb-6 sm:px-4 md:px-8 md:py-14">
-      {/* Mobile — soft tint only (blurred screenshots look harsh on narrow viewports) */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 md:hidden"
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_85%_at_50%_42%,color-mix(in_oklch,var(--primary)_5%,var(--background))_0%,var(--background)_75%)]" />
-      </div>
-
       {/* Desktop — ambient glow from the screenshot */}
       <div
         aria-hidden
@@ -163,7 +155,7 @@ export function AppCarousel({
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
       className={cn(
-        "group relative flex h-[44rem] w-full items-center justify-center overflow-hidden rounded-xl bg-background sm:h-[42rem] md:h-[46rem]",
+        "group relative flex h-[44rem] w-full items-center justify-center overflow-hidden rounded-xl bg-transparent sm:h-[42rem] md:h-[46rem] md:bg-background",
         className,
       )}
     >
