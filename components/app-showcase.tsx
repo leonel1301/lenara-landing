@@ -71,7 +71,7 @@ export function AppShowcase({
   };
 
   return (
-    <div className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-14">
+    <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-6">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -179,7 +179,9 @@ export function AppShowcase({
         ) : null}
       </motion.div>
 
-      <div className={cn("flex", reversed && "lg:order-1")}>{media}</div>
+      <div className={cn("flex w-full justify-start", reversed && "lg:order-1")}>
+        {media}
+      </div>
     </div>
   );
 }

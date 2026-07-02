@@ -55,7 +55,7 @@ function PhoneScreenshot({
         src={src}
         alt={alt}
         fill
-        sizes="(max-width: 640px) 86vw, (max-width: 1024px) 88vw, 20rem"
+        sizes="(max-width: 640px) 86vw, (max-width: 1024px) 88vw, 17rem"
         className="object-cover object-top"
         loading={eager ? "eager" : "lazy"}
         priority={eager}
@@ -126,7 +126,7 @@ export function AppCarousel({
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
       className={cn(
-        "group relative w-full bg-transparent md:flex md:h-[46rem] md:items-center md:justify-center md:overflow-hidden md:rounded-xl md:bg-background",
+        "group relative w-full bg-transparent md:flex md:h-[46rem] md:items-center md:justify-start md:overflow-hidden md:rounded-xl md:bg-background",
         className,
       )}
     >
@@ -156,7 +156,7 @@ export function AppCarousel({
 
         {/* Stage — mobile height follows the phone; desktop fills the panel */}
         <div
-          className="relative mx-auto w-full max-w-[min(86vw,25rem)] max-md:aspect-[1284/2778] md:absolute md:inset-x-8 md:top-14 md:bottom-14 md:max-w-none"
+          className="relative mx-auto w-full max-w-[min(86vw,25rem)] max-md:aspect-[1284/2778] md:absolute md:left-2 md:right-8 md:top-14 md:bottom-14 md:max-w-none"
           aria-live="polite"
         >
           {/* Desktop ambient glow (current slide only) */}
@@ -172,7 +172,7 @@ export function AppCarousel({
                 src={slides[index].src}
                 alt=""
                 fill
-                sizes="20rem"
+                sizes="17rem"
                 className="scale-[1.35] object-cover opacity-[0.42] blur-3xl saturate-150 dark:opacity-[0.3] dark:saturate-125"
               />
             </div>
@@ -202,7 +202,7 @@ export function AppCarousel({
                 src={slideItem.src}
                 alt={slideItem.alt}
                 eager={slideIndex === 0 || Boolean(loaded[slideItem.src])}
-                className="h-full w-auto max-w-full md:h-[95%] md:w-auto md:max-w-[min(100%,20rem)] lg:max-w-[min(100%,18rem)]"
+                className="h-full w-auto max-w-full md:h-[90%] md:w-auto md:max-w-[min(100%,17rem)] lg:max-w-[min(100%,15rem)]"
                 style={{ aspectRatio: PHONE_ASPECT }}
               />
             </motion.div>
@@ -212,17 +212,17 @@ export function AppCarousel({
             type="button"
             aria-label={prevLabel}
             onClick={() => paginate(-1)}
-            className="absolute top-1/2 left-2 z-20 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/80 text-foreground opacity-100 backdrop-blur-md transition-all duration-200 hover:border-primary/35 hover:bg-background focus-visible:opacity-100 md:left-3 md:size-10 md:opacity-0 md:group-hover:opacity-100"
+            className="absolute top-1/2 left-2 z-20 flex size-8 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/80 text-foreground opacity-100 backdrop-blur-md transition-all duration-200 hover:border-primary/35 hover:bg-background focus-visible:opacity-100 md:left-3 md:size-9 md:opacity-0 md:group-hover:opacity-100"
           >
-            <ChevronLeft className="size-5" strokeWidth={2} aria-hidden />
+            <ChevronLeft className="size-4" strokeWidth={2} aria-hidden />
           </button>
           <button
             type="button"
             aria-label={nextLabel}
             onClick={() => paginate(1)}
-            className="absolute top-1/2 right-2 z-20 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/80 text-foreground opacity-100 backdrop-blur-md transition-all duration-200 hover:border-primary/35 hover:bg-background focus-visible:opacity-100 md:right-3 md:size-10 md:opacity-0 md:group-hover:opacity-100"
+            className="absolute top-1/2 right-2 z-20 flex size-8 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/80 text-foreground opacity-100 backdrop-blur-md transition-all duration-200 hover:border-primary/35 hover:bg-background focus-visible:opacity-100 md:right-3 md:size-9 md:opacity-0 md:group-hover:opacity-100"
           >
-            <ChevronRight className="size-5" strokeWidth={2} aria-hidden />
+            <ChevronRight className="size-4" strokeWidth={2} aria-hidden />
           </button>
         </div>
 
