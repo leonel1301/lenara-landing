@@ -9,7 +9,8 @@ import { Header } from "@/components/header";
 import { NextThemeProvider } from "@/components/providers/next-theme-provider";
 import { ThemeScript } from "@/components/providers/theme-script";
 import { routing } from "@/i18n/routing";
-import { SITE_URL } from "@/lib/seo";
+import type { Locale } from "@/i18n/routing";
+import { buildOpenGraph, buildTwitter, SITE_URL } from "@/lib/seo";
 
 import "../globals.css";
 
@@ -40,9 +41,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     metadataBase: new URL(SITE_URL),
     title: {
       default: t("title"),
-      template: "%s",
+      template: "%s | Lenara Labs",
     },
     description: t("description"),
+    openGraph: buildOpenGraph(locale as Locale, "/", t("title"), t("description")),
+    twitter: buildTwitter(t("title"), t("description")),
     icons: {
       icon: [
         { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },

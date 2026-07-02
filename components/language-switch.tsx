@@ -1,9 +1,10 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
+import { useTransition } from "react";
 
 import { Button } from "@/components/ui/button";
-import { getPathname, usePathname } from "@/i18n/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
@@ -15,12 +16,18 @@ const localeLabels: Record<Locale, string> = {
 export function LanguageSwitch() {
   const locale = useLocale() as Locale;
   const pathname = usePathname();
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
   const t = useTranslations("common");
 
   function onSelect(nextLocale: Locale) {
     if (nextLocale === locale) return;
-    const href = getPathname({ locale: nextLocale, href: pathname });
-    window.location.assign(href);
+    // Use next-intl's router so the NEXT_LOCALE cookie is set. A hard
+    // navigation would let locale detection redirect back to the previous
+    // language (the default locale has no URL prefix with "as-needed").
+    startTransition(() => {
+      router.replace(pathname, { locale: nextLocale });
+    });
   }
 
   return (
@@ -40,6 +47,7 @@ export function LanguageSwitch() {
             locale !== loc && "text-muted-foreground",
           )}
           aria-pressed={locale === loc}
+          disabled={isPending}
           onClick={() => onSelect(loc)}
         >
           {localeLabels[loc]}

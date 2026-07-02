@@ -7,15 +7,24 @@ import { useEffect, useId, useRef, useState } from "react";
 
 import { ContactHeaderButton } from "@/components/contact-header-button";
 import { LanguageSwitch } from "@/components/language-switch";
+import { SectionAnchor } from "@/components/section-anchor";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { Button } from "@/components/ui/button";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { key: "home", href: "/" },
-  { key: "apps", href: "/apps" },
+  { key: "home", href: "/", type: "route" },
+  { key: "services", href: "/#services", type: "section" },
+  { key: "process", href: "/#process", type: "section" },
+  { key: "apps", href: "/apps", type: "route" },
 ] as const;
+
+const mobileLinkBase =
+  "flex rounded-lg border px-3 py-2.5 text-sm transition-colors";
+const mobileLinkInactive =
+  "border-transparent text-muted-foreground hover:border-border hover:bg-muted hover:text-foreground";
+const mobileLinkActive = "border-primary/35 bg-badge font-medium text-foreground";
 
 type Props = {
   label: string;
@@ -66,7 +75,7 @@ export function HeaderMobileNav({ label, menuOpenLabel, menuCloseLabel }: Props)
   }, [open]);
 
   return (
-    <div ref={containerRef} className="relative md:hidden">
+    <div ref={containerRef} className="relative lg:hidden">
       <Button
         type="button"
         variant="outline"
@@ -109,21 +118,29 @@ export function HeaderMobileNav({ label, menuOpenLabel, menuCloseLabel }: Props)
             )}
           >
             <ul className="space-y-0.5">
-              {navItems.map(({ key, href }) => (
+              {navItems.map(({ key, href, type }) => (
                 <li key={key}>
-                  <Link
-                    href={href}
-                    onClick={() => setOpen(false)}
-                    aria-current={isActive(href) ? "page" : undefined}
-                    className={cn(
-                      "flex rounded-lg border px-3 py-2.5 text-sm transition-colors",
-                      isActive(href)
-                        ? "border-primary/35 bg-badge font-medium text-foreground"
-                        : "border-transparent text-muted-foreground hover:border-border hover:bg-muted hover:text-foreground",
-                    )}
-                  >
-                    {t(`nav.${key}`)}
-                  </Link>
+                  {type === "section" ? (
+                    <SectionAnchor
+                      href={href}
+                      onClick={() => setOpen(false)}
+                      className={cn(mobileLinkBase, mobileLinkInactive)}
+                    >
+                      {t(`nav.${key}`)}
+                    </SectionAnchor>
+                  ) : (
+                    <Link
+                      href={href}
+                      onClick={() => setOpen(false)}
+                      aria-current={isActive(href) ? "page" : undefined}
+                      className={cn(
+                        mobileLinkBase,
+                        isActive(href) ? mobileLinkActive : mobileLinkInactive,
+                      )}
+                    >
+                      {t(`nav.${key}`)}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

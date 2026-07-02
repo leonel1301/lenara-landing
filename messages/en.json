@@ -15,6 +15,8 @@
     "navLabel": "Main navigation",
     "nav": {
       "home": "Home",
+      "services": "Services",
+      "process": "Process",
       "apps": "Our Apps"
     },
     "contact": "Contact",
@@ -24,6 +26,10 @@
   "footer": {
     "brand": "Lenara Labs",
     "tagline": "Lenara Labs designs digital products, websites, and mobile apps for businesses — and ships its own in-house apps.",
+    "social": {
+      "title": "Follow us",
+      "linkedin": "Lenara Labs on LinkedIn"
+    },
     "services": {
       "title": "Services",
       "mobile": "Mobile apps",
@@ -202,7 +208,7 @@
   },
   "apps": {
     "metadata": {
-      "title": "Our Apps — Lenara Labs",
+      "title": "Our Apps",
       "description": "Apps built by Lenara Labs — including Waloop and other products designed and shipped in-house."
     },
     "eyebrow": "Lenara Labs · Products",
@@ -245,26 +251,26 @@
         "feedbackLink": "Feedback",
         "privacy": {
           "metadata": {
-            "title": "Waloop | Privacy Policy",
+            "title": "Waloop — Privacy Policy",
             "description": "Privacy Policy for Waloop, the credit card billing cycle and payment tracker app by Lenara Labs."
           }
         },
         "terms": {
           "metadata": {
-            "title": "Waloop | Terms of Service",
+            "title": "Waloop — Terms of Service",
             "description": "Terms of Service for Waloop, the credit card billing cycle and payment tracker app by Lenara Labs."
           }
         },
         "faq": {
           "metadata": {
-            "title": "Waloop | FAQ",
+            "title": "Waloop — FAQ",
             "description": "Frequently asked questions about Waloop, the credit card billing cycle and payment tracker app by Lenara Labs."
           }
         }
       },
       "feedback": {
         "metadata": {
-          "title": "Waloop | Feedback",
+          "title": "Waloop — Feedback",
           "description": "User feedback submitted through the Waloop iOS app."
         },
         "title": "Feedback",

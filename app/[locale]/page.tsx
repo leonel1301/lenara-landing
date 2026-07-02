@@ -21,7 +21,7 @@ import { serviceItems as servicesList } from "@/lib/services";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/i18n/routing";
 import { OrganizationJsonLd } from "@/components/organization-jsonld";
-import { buildAlternates, buildOpenGraph } from "@/lib/seo";
+import { buildAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -38,10 +38,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "home.metadata" });
 
   return {
-    title: t("title"),
+    title: { absolute: t("title") },
     description: t("description"),
     alternates: buildAlternates(locale as Locale, "/"),
     openGraph: buildOpenGraph(locale as Locale, "/", t("title"), t("description")),
+    twitter: buildTwitter(t("title"), t("description")),
   };
 }
 

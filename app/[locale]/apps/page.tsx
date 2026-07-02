@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { AppShowcase } from "@/components/app-showcase";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { EyebrowBadge } from "@/components/eyebrow-badge";
 import { FullscreenSection } from "@/components/fullscreen-section";
 import { ScrollIndicator } from "@/components/scroll-indicator";
@@ -19,7 +20,7 @@ import {
 } from "@/lib/apps";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/i18n/routing";
-import { buildAlternates, buildOpenGraph } from "@/lib/seo";
+import { buildAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -38,6 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t("description"),
     alternates: buildAlternates(locale as Locale, "/apps"),
     openGraph: buildOpenGraph(locale as Locale, "/apps", t("title"), t("description")),
+    twitter: buildTwitter(t("title"), t("description")),
   };
 }
 
@@ -46,11 +48,19 @@ export default async function AppsPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations("apps");
   const tCommon = await getTranslations("common");
+  const tNav = await getTranslations("header");
   const waloopSubtitles = t.raw("waloop.subtitles") as string[];
   const times2uSubtitles = t.raw("times2u.subtitles") as string[];
 
   return (
     <>
+      <BreadcrumbJsonLd
+        locale={locale as Locale}
+        items={[
+          { name: tNav("nav.home"), href: "/" },
+          { name: tNav("nav.apps"), href: "/apps" },
+        ]}
+      />
       <FullscreenSection
         fullHeight
         containerClassName="max-w-3xl items-center text-center"

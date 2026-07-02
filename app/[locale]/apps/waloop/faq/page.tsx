@@ -5,7 +5,7 @@ import { LegalPageShell } from "@/components/legal-page-shell";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/i18n/routing";
 import { getWaloopFaq } from "@/lib/legal/waloop";
-import { buildAlternates, buildOpenGraph } from "@/lib/seo";
+import { buildAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       t("title"),
       t("description"),
     ),
+    twitter: buildTwitter(t("title"), t("description")),
   };
 }
 

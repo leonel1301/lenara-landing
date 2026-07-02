@@ -15,6 +15,8 @@
     "navLabel": "Navegación principal",
     "nav": {
       "home": "Inicio",
+      "services": "Servicios",
+      "process": "Proceso",
       "apps": "Nuestras apps"
     },
     "contact": "Contacto",
@@ -24,6 +26,10 @@
   "footer": {
     "brand": "Lenara Labs",
     "tagline": "Lenara Labs diseña productos digitales, sitios web y apps móviles para empresas — y lanza sus propias apps.",
+    "social": {
+      "title": "Síguenos",
+      "linkedin": "Lenara Labs en LinkedIn"
+    },
     "services": {
       "title": "Servicios",
       "mobile": "Apps móviles",
@@ -202,7 +208,7 @@
   },
   "apps": {
     "metadata": {
-      "title": "Nuestras Apps — Lenara Labs",
+      "title": "Nuestras apps",
       "description": "Apps creadas por Lenara Labs — incluyendo Waloop y otros productos diseñados y lanzados por nosotros."
     },
     "eyebrow": "Lenara Labs · Productos",
@@ -245,26 +251,26 @@
         "feedbackLink": "Feedback",
         "privacy": {
           "metadata": {
-            "title": "Waloop | Política de Privacidad",
+            "title": "Waloop — Política de privacidad",
             "description": "Política de Privacidad de Waloop, la app de ciclos de facturación y seguimiento de pagos de tarjetas de crédito de Lenara Labs."
           }
         },
         "terms": {
           "metadata": {
-            "title": "Waloop | Términos de Servicio",
+            "title": "Waloop — Términos de servicio",
             "description": "Términos de Servicio de Waloop, la app de ciclos de facturación y seguimiento de pagos de tarjetas de crédito de Lenara Labs."
           }
         },
         "faq": {
           "metadata": {
-            "title": "Waloop | Preguntas Frecuentes",
+            "title": "Waloop — Preguntas frecuentes",
             "description": "Preguntas frecuentes sobre Waloop, la app de ciclos de facturación y seguimiento de pagos de tarjetas de crédito de Lenara Labs."
           }
         }
       },
       "feedback": {
         "metadata": {
-          "title": "Waloop | Feedback",
+          "title": "Waloop — Feedback",
           "description": "Comentarios de usuarios enviados desde la app iOS de Waloop."
         },
         "title": "Feedback",

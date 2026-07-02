@@ -15,7 +15,7 @@ export async function Header() {
 
         <HeaderNav label={t("navLabel")} />
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           <SiteControls />
         </div>
 

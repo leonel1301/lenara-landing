@@ -18,13 +18,23 @@ type Props = {
   href: string;
   className?: string;
   children: React.ReactNode;
+  "aria-current"?: React.AriaAttributes["aria-current"];
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
-export function SectionAnchor({ href, className, children }: Props) {
+export function SectionAnchor({
+  href,
+  className,
+  children,
+  onClick,
+  ...rest
+}: Props) {
   const pathname = usePathname();
   const { path, sectionId } = parseSectionHref(href);
 
   function handleClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    onClick?.(event);
+
     if (!sectionId || pathname !== path) return;
 
     event.preventDefault();
@@ -32,7 +42,7 @@ export function SectionAnchor({ href, className, children }: Props) {
   }
 
   return (
-    <Link href={href} onClick={handleClick} className={className}>
+    <Link href={href} onClick={handleClick} className={className} {...rest}>
       {children}
     </Link>
   );

@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { EyebrowBadge } from "@/components/eyebrow-badge";
 import { FullscreenSection } from "@/components/fullscreen-section";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/i18n/routing";
-import { buildAlternates, buildOpenGraph } from "@/lib/seo";
+import { buildAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       t("title"),
       t("description"),
     ),
+    twitter: buildTwitter(t("title"), t("description")),
   };
 }
 
@@ -42,11 +44,21 @@ export default async function WaloopPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations("apps.waloop");
   const tPage = await getTranslations("apps.waloop.page");
+  const tNav = await getTranslations("header");
   const subtitles = t.raw("subtitles") as string[];
 
   return (
-    <FullscreenSection containerClassName="max-w-3xl">
-      <div className="space-y-8">
+    <>
+      <BreadcrumbJsonLd
+        locale={locale as Locale}
+        items={[
+          { name: tNav("nav.home"), href: "/" },
+          { name: tNav("nav.apps"), href: "/apps" },
+          { name: t("name"), href: "/apps/waloop" },
+        ]}
+      />
+      <FullscreenSection containerClassName="max-w-3xl">
+        <div className="space-y-8">
         <Link
           href="/apps"
           className="inline-flex w-fit items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -118,7 +130,8 @@ export default async function WaloopPage({ params }: Props) {
             {t("legal.feedbackLink")}
           </Link>
         </nav>
-      </div>
-    </FullscreenSection>
+        </div>
+      </FullscreenSection>
+    </>
   );
 }
