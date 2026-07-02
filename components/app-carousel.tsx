@@ -41,10 +41,18 @@ function CarouselSlideFrame({
 }) {
   return (
     <div className="absolute inset-0 flex items-center justify-center px-1 pt-14 pb-6 sm:px-4 md:px-8 md:py-14">
-      {/* Ambient glow — blurred reflection of the screenshot */}
+      {/* Mobile — soft tint only (blurred screenshots look harsh on narrow viewports) */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden"
+        className="pointer-events-none absolute inset-0 md:hidden"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_85%_at_50%_42%,color-mix(in_oklch,var(--primary)_5%,var(--background))_0%,var(--background)_75%)]" />
+      </div>
+
+      {/* Desktop — ambient glow from the screenshot */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 hidden items-center justify-center overflow-hidden md:flex"
       >
         <div
           className={cn("relative shrink-0", PHONE_FRAME_SIZE)}
@@ -208,7 +216,7 @@ export function AppCarousel({
         type="button"
         aria-label={prevLabel}
         onClick={() => paginate(-1)}
-        className="absolute left-3 top-1/2 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/70 text-foreground opacity-0 backdrop-blur-md transition-all duration-200 hover:border-primary/35 hover:bg-background focus-visible:opacity-100 group-hover:opacity-100"
+        className="absolute left-2 top-1/2 z-10 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/80 text-foreground opacity-100 backdrop-blur-md transition-all duration-200 hover:border-primary/35 hover:bg-background focus-visible:opacity-100 md:left-3 md:size-10 md:opacity-0 md:group-hover:opacity-100"
       >
         <ChevronLeft className="size-5" strokeWidth={2} aria-hidden />
       </button>
@@ -216,7 +224,7 @@ export function AppCarousel({
         type="button"
         aria-label={nextLabel}
         onClick={() => paginate(1)}
-        className="absolute right-3 top-1/2 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/70 text-foreground opacity-0 backdrop-blur-md transition-all duration-200 hover:border-primary/35 hover:bg-background focus-visible:opacity-100 group-hover:opacity-100"
+        className="absolute right-2 top-1/2 z-10 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/80 text-foreground opacity-100 backdrop-blur-md transition-all duration-200 hover:border-primary/35 hover:bg-background focus-visible:opacity-100 md:right-3 md:size-10 md:opacity-0 md:group-hover:opacity-100"
       >
         <ChevronRight className="size-5" strokeWidth={2} aria-hidden />
       </button>
