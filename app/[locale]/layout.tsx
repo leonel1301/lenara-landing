@@ -82,7 +82,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <NextThemeProvider>
           <NextIntlClientProvider messages={messages}>
             <Header />
-            <main className="flex-1">{children}</main>
+            <main className="site-main flex-1">{children}</main>
             <Footer />
           </NextIntlClientProvider>
         </NextThemeProvider>
