@@ -55,7 +55,7 @@ function PhoneScreenshot({
         src={src}
         alt={alt}
         fill
-        sizes="(max-width: 640px) 96vw, (max-width: 1024px) 88vw, 20rem"
+        sizes="(max-width: 640px) 86vw, (max-width: 1024px) 88vw, 20rem"
         className="object-cover object-top"
         loading={eager ? "eager" : "lazy"}
         priority={eager}
@@ -156,7 +156,7 @@ export function AppCarousel({
 
         {/* Stage — mobile height follows the phone; desktop fills the panel */}
         <div
-          className="relative mx-auto w-full max-w-[min(96vw,28rem)] max-md:aspect-[1284/2778] md:absolute md:inset-x-8 md:top-14 md:bottom-14 md:max-w-none"
+          className="relative mx-auto w-full max-w-[min(86vw,25rem)] max-md:aspect-[1284/2778] md:absolute md:inset-x-8 md:top-14 md:bottom-14 md:max-w-none"
           aria-live="polite"
         >
           {/* Desktop ambient glow (current slide only) */}
