@@ -6,9 +6,9 @@ import { routing, type Locale } from "@/i18n/routing";
 export const SITE_URL = "https://lenaralabs.com";
 
 /**
- * Canonical/primary locale. Must match `routing.defaultLocale` so the "as-needed"
- * URLs (e.g. lenaralabs.com/apps) and the hreflang `x-default` point at the same
- * language and Google indexes one consistent version per page.
+ * Canonical locale for SEO. Must match `routing.defaultLocale`.
+ * With `localePrefix: "never"`, every locale shares the same public URL;
+ * crawlers always see the default (English) at the bare path.
  */
 export const SEO_DEFAULT_LOCALE: Locale = "en";
 
@@ -23,19 +23,12 @@ export function pageUrl(locale: Locale, href: Href = "/"): string {
 }
 
 export function buildAlternates(
-  locale: Locale,
+  _locale: Locale,
   href: Href = "/",
 ): NonNullable<Metadata["alternates"]> {
-  const languages = Object.fromEntries(
-    routing.locales.map((l) => [l, pageUrl(l, href)]),
-  ) as Record<string, string>;
+  const canonical = pageUrl(SEO_DEFAULT_LOCALE, href);
 
-  languages["x-default"] = pageUrl(SEO_DEFAULT_LOCALE, href);
-
-  return {
-    canonical: pageUrl(locale, href),
-    languages,
-  };
+  return { canonical };
 }
 
 export function buildOpenGraph(
@@ -47,7 +40,7 @@ export function buildOpenGraph(
   return {
     type: "website",
     locale: locale === "es" ? "es_ES" : "en_US",
-    url: pageUrl(locale, href),
+    url: pageUrl(SEO_DEFAULT_LOCALE, href),
     siteName: "Lenara Labs",
     title,
     description,

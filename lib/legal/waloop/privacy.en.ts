@@ -225,7 +225,7 @@ export const waloopPrivacyEn: LegalDocumentContent = {
       id: "changes",
       title: "12. Changes to this Policy",
       paragraphs: [
-        "We may update this Privacy Policy from time to time. We will publish the current version at https://lenaralabs.com/en/apps/waloop/privacy (English) and https://lenaralabs.com/es/apps/waloop/privacy (Spanish). When changes are significant, we will notify you through the App or by email.",
+        "We may update this Privacy Policy from time to time. We will publish the current version at https://lenaralabs.com/apps/waloop/privacy. When changes are significant, we will notify you through the App or by email.",
         "Continued use of the App after changes are published will constitute acceptance of the updated Policy, unless the law requires additional consent.",
       ],
     },

@@ -15,8 +15,16 @@ const nextConfig: NextConfig = {
     root: projectRoot,
   },
   async redirects() {
-    // Legacy/stale URLs that search engines still have indexed under the old
-    // structure. Map them to the current canonical paths with 308 redirects.
+    const redirects = [];
+
+    // Locale prefixes are never part of public URLs — collapse old /en and /es paths.
+    redirects.push(
+      { source: "/es", destination: "/", permanent: true },
+      { source: "/en", destination: "/", permanent: true },
+      { source: "/es/:path*", destination: "/:path*", permanent: true },
+      { source: "/en/:path*", destination: "/:path*", permanent: true },
+    );
+
     const legacyMap: Array<[from: string, to: string]> = [
       ["/waloop", "/apps/waloop"],
       ["/waloop/privacy", "/apps/waloop/privacy"],
@@ -31,20 +39,8 @@ const nextConfig: NextConfig = {
       ["/apps/cards-reminder/terms", "/apps/waloop/terms"],
     ];
 
-    // Cover the bare (canonical English) path plus both locale prefixes, since
-    // older versions of the site used `localePrefix: "always"`.
-    const localePrefixes = ["", "/en", "/es"] as const;
-    const redirects = [];
-
-    for (const prefix of localePrefixes) {
-      const destPrefix = prefix === "/es" ? "/es" : "";
-      for (const [from, to] of legacyMap) {
-        redirects.push({
-          source: `${prefix}${from}`,
-          destination: `${destPrefix}${to}`,
-          permanent: true,
-        });
-      }
+    for (const [from, to] of legacyMap) {
+      redirects.push({ source: from, destination: to, permanent: true });
     }
 
     redirects.push({

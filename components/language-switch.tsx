@@ -3,7 +3,6 @@
 import { useLocale, useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
-import { getPathname, usePathname } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
@@ -17,16 +16,14 @@ const localeLabels: Record<Locale, string> = {
 
 export function LanguageSwitch() {
   const locale = useLocale() as Locale;
-  const pathname = usePathname();
   const t = useTranslations("common");
 
   function onSelect(nextLocale: Locale) {
     if (nextLocale === locale) return;
 
-    // Persist choice before a full reload so locale detection respects it
-    // with localePrefix "as-needed" (bare URLs for the default locale).
+    // Persist choice, then reload the same URL (localePrefix "never").
     document.cookie = `${LOCALE_COOKIE}=${nextLocale};path=/;max-age=${LOCALE_COOKIE_MAX_AGE};SameSite=Lax`;
-    window.location.assign(getPathname({ locale: nextLocale, href: pathname }));
+    window.location.reload();
   }
 
   return (

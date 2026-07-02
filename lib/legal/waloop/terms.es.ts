@@ -123,7 +123,7 @@ export const waloopTermsEs: LegalDocumentContent = {
       title: "11. Modificaciones del servicio y de los Términos",
       paragraphs: [
         "Podemos modificar, suspender o discontinuar cualquier parte de la App en cualquier momento, con o sin previo aviso.",
-        "Podemos modificar estos Términos en cualquier momento. Publicaremos la versión actualizada en https://lenaralabs.com/es/apps/waloop/terms (español) y https://lenaralabs.com/en/apps/waloop/terms (inglés). Cuando los cambios sean sustanciales, procuraremos notificarle a través de la App o por correo electrónico.",
+        "Podemos modificar estos Términos en cualquier momento. Publicaremos la versión actualizada en https://lenaralabs.com/apps/waloop/terms. Cuando los cambios sean sustanciales, procuraremos notificarle a través de la App o por correo electrónico.",
         "El uso continuado de la App después de la entrada en vigor de los cambios constituirá la aceptación de los Términos revisados, salvo que la ley exija un consentimiento adicional.",
       ],
     },
