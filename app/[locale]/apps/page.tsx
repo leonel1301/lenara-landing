@@ -44,13 +44,16 @@ export default async function AppsPage({ params }: Props) {
   const t = await getTranslations("apps");
   const tCommon = await getTranslations("common");
   const tNav = await getTranslations("header");
-  const waloopGallery = Array.from({ length: 6 }, (_, i) => {
-    const number = i + 1;
-    return {
-      src: `/images/waloop/${locale}/Frame%20${number}.png`,
-      alt: t("waloop.screenshotAlt", { number }),
-    };
-  });
+  const buildWaloopGallery = (platform: "ios" | "android") =>
+    Array.from({ length: 6 }, (_, i) => {
+      const number = i + 1;
+      return {
+        src: `/images/waloop/${platform}/${locale}/Frame%20${number}.png`,
+        alt: t("waloop.screenshotAlt", { number }),
+      };
+    });
+  const waloopIosGallery = buildWaloopGallery("ios");
+  const waloopAndroidGallery = buildWaloopGallery("android");
 
   return (
     <>
@@ -106,7 +109,8 @@ export default async function AppsPage({ params }: Props) {
             androidSoonLabel={t("waloop.androidSoonLabel")}
             media={
               <AppCarousel
-                slides={waloopGallery}
+                iosSlides={waloopIosGallery}
+                androidSlides={waloopAndroidGallery}
                 label={t("waloop.galleryLabel")}
                 prevLabel={tCommon("carouselPrev")}
                 nextLabel={tCommon("carouselNext")}

@@ -16,8 +16,11 @@ type Slide = {
   alt: string;
 };
 
+type Platform = "ios" | "android";
+
 type Props = {
-  slides: Slide[];
+  iosSlides: Slide[];
+  androidSlides: Slide[];
   label: string;
   prevLabel: string;
   nextLabel: string;
@@ -65,8 +68,17 @@ function PhoneScreenshot({
   );
 }
 
+const platformTagClass = (active: boolean) =>
+  cn(
+    "inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-semibold tracking-wide transition-colors",
+    active
+      ? "border-primary/30 bg-badge text-primary shadow-[0_0_0_1px_color-mix(in_oklch,var(--primary)_8%,transparent)]"
+      : "border-border bg-muted/40 font-medium text-muted-foreground hover:border-primary/20 hover:bg-muted/70 hover:text-foreground",
+  );
+
 export function AppCarousel({
-  slides,
+  iosSlides,
+  androidSlides,
   label,
   prevLabel,
   nextLabel,
@@ -75,10 +87,17 @@ export function AppCarousel({
   className,
 }: Props) {
   const prefersReducedMotion = useReducedMotion();
+  const [platform, setPlatform] = useState<Platform>("ios");
+  const slides = platform === "ios" ? iosSlides : androidSlides;
   const count = slides.length;
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [loaded, setLoaded] = useState<Record<string, boolean>>({});
+
+  const selectPlatform = useCallback((next: Platform) => {
+    setPlatform(next);
+    setIndex(0);
+  }, []);
 
   const paginate = useCallback(
     (step: number) => {
@@ -93,7 +112,7 @@ export function AppCarousel({
 
   // Preload every slide so crossfades never reveal an empty frame.
   useEffect(() => {
-    slides.forEach(({ src }) => {
+    [...iosSlides, ...androidSlides].forEach(({ src }) => {
       const img = new window.Image();
       img.decoding = "async";
       img.onload = () => {
@@ -101,7 +120,7 @@ export function AppCarousel({
       };
       img.src = src;
     });
-  }, [slides]);
+  }, [iosSlides, androidSlides]);
 
   useEffect(() => {
     if (count <= 1 || paused) return;
@@ -131,27 +150,31 @@ export function AppCarousel({
       )}
     >
       <div className="relative w-full max-md:pt-11 max-md:pb-2 md:absolute md:inset-0 md:pt-14 md:pb-12">
-        <div className="absolute top-0 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 md:top-4">
-          <span
-            className={cn(
-              "inline-flex items-center gap-1.5 rounded-lg border border-primary/30 bg-badge px-3 py-1.5",
-              "text-xs font-semibold tracking-wide text-primary",
-              "shadow-[0_0_0_1px_color-mix(in_oklch,var(--primary)_8%,transparent)]",
-            )}
+        <div
+          role="tablist"
+          aria-label={label}
+          className="absolute top-0 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 md:top-4"
+        >
+          <button
+            type="button"
+            role="tab"
+            aria-selected={platform === "ios"}
+            onClick={() => selectPlatform("ios")}
+            className={platformTagClass(platform === "ios")}
           >
             <Apple className="size-3.5" strokeWidth={2} aria-hidden />
             {iosLabel}
-          </span>
-          <span
-            aria-disabled
-            className={cn(
-              "inline-flex cursor-not-allowed items-center gap-1.5 rounded-lg border border-border px-3 py-1.5",
-              "bg-muted/50 text-xs font-medium text-muted-foreground opacity-70",
-            )}
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={platform === "android"}
+            onClick={() => selectPlatform("android")}
+            className={platformTagClass(platform === "android")}
           >
             <Smartphone className="size-3.5" strokeWidth={1.75} aria-hidden />
             {androidLabel}
-          </span>
+          </button>
         </div>
 
         {/* Stage — mobile height follows the phone; desktop fills the panel */}
@@ -184,7 +207,7 @@ export function AppCarousel({
           {/* All slides stay mounted — crossfade, no unmount flash */}
           {slides.map((slideItem, slideIndex) => (
             <motion.div
-              key={slideItem.src}
+              key={`${platform}-${slideItem.src}`}
               initial={false}
               animate={{ opacity: slideIndex === index ? 1 : 0 }}
               transition={{
