@@ -179,8 +179,8 @@
           "placeholder": "Your name"
         },
         "email": {
-          "label": "Work email",
-          "placeholder": "you@company.com"
+          "label": "Work or personal email",
+          "placeholder": "you@email.com"
         },
         "company": {
           "label": "Company (optional)",
@@ -202,7 +202,7 @@
         "configError": "The contact form is not configured yet. Email us directly.",
         "errors": {
           "fullName": "Enter your full name.",
-          "email": "Enter a valid work email.",
+          "email": "Enter a valid email.",
           "service": "Select a service.",
           "message": "Tell us a bit more about your project (at least 10 characters)."
         }

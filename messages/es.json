@@ -179,8 +179,8 @@
           "placeholder": "Tu nombre"
         },
         "email": {
-          "label": "Correo de trabajo",
-          "placeholder": "tu@empresa.com"
+          "label": "Correo de trabajo o personal",
+          "placeholder": "tu@email.com"
         },
         "company": {
           "label": "Empresa (opcional)",
@@ -202,7 +202,7 @@
         "configError": "El formulario aún no está configurado. Escríbenos directamente.",
         "errors": {
           "fullName": "Ingresa tu nombre completo.",
-          "email": "Ingresa un correo de trabajo válido.",
+          "email": "Ingresa un correo válido.",
           "service": "Selecciona un servicio.",
           "message": "Cuéntanos un poco más sobre tu proyecto (mínimo 10 caracteres)."
         }
