@@ -235,14 +235,14 @@
   outline-offset: 2px;
 }
 
-/* Mobile: offset main for fixed header; remove offset when header auto-hides on scroll */
+/* Mobile: offset main for fixed header; slide content up when header hides (no layout shift) */
 @media (max-width: 1023px) {
   .site-main {
     padding-top: var(--header-height);
-    transition: padding-top 0.3s ease;
+    transition: transform 0.3s ease;
   }
 
   html[data-mobile-header-hidden="true"] .site-main {
-    padding-top: 0;
+    transform: translateY(calc(-1 * var(--header-height)));
   }
 }

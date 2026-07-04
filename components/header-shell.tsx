@@ -5,8 +5,10 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const MOBILE_MAX_WIDTH = 1023;
-const SCROLL_DELTA = 10;
-const TOP_THRESHOLD = 12;
+const SCROLL_THRESHOLD = 8;
+const TOP_THRESHOLD = 16;
+const BOTTOM_THRESHOLD = 80;
+const TOGGLE_COOLDOWN_MS = 320;
 
 type Props = {
   children: React.ReactNode;
@@ -16,6 +18,8 @@ export function HeaderShell({ children }: Props) {
   const [visible, setVisible] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const lastScrollY = useRef(0);
+  const visibleRef = useRef(true);
+  const lastToggleAt = useRef(0);
   const ticking = useRef(false);
 
   useEffect(() => {
@@ -27,6 +31,7 @@ export function HeaderShell({ children }: Props) {
 
       if (!mobile) {
         delete document.documentElement.dataset.mobileHeaderHidden;
+        visibleRef.current = true;
         setVisible(true);
       }
     }
@@ -53,20 +58,41 @@ export function HeaderShell({ children }: Props) {
 
     lastScrollY.current = window.scrollY;
 
+    function updateVisibility(nextVisible: boolean) {
+      if (visibleRef.current === nextVisible) return;
+
+      const now = Date.now();
+      if (now - lastToggleAt.current < TOGGLE_COOLDOWN_MS) return;
+
+      visibleRef.current = nextVisible;
+      lastToggleAt.current = now;
+      setVisible(nextVisible);
+    }
+
+    function getMaxScrollY() {
+      return Math.max(
+        0,
+        document.documentElement.scrollHeight - window.innerHeight,
+      );
+    }
+
     function onScroll() {
       if (ticking.current) return;
 
       ticking.current = true;
       requestAnimationFrame(() => {
         const currentY = window.scrollY;
+        const maxScrollY = getMaxScrollY();
         const delta = currentY - lastScrollY.current;
+        const nearTop = currentY <= TOP_THRESHOLD;
+        const nearBottom = currentY >= maxScrollY - BOTTOM_THRESHOLD;
 
-        if (currentY <= TOP_THRESHOLD) {
-          setVisible(true);
-        } else if (delta > SCROLL_DELTA) {
-          setVisible(false);
-        } else if (delta < -SCROLL_DELTA) {
-          setVisible(true);
+        if (nearTop || nearBottom) {
+          updateVisibility(true);
+        } else if (delta > SCROLL_THRESHOLD) {
+          updateVisibility(false);
+        } else if (delta < -SCROLL_THRESHOLD) {
+          updateVisibility(true);
         }
 
         lastScrollY.current = currentY;
