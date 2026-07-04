@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { SectionScrollHandler } from "@/components/section-scroll-handler";
 import { NextThemeProvider } from "@/components/providers/next-theme-provider";
 import { ThemeScript } from "@/components/providers/theme-script";
 import { routing } from "@/i18n/routing";
@@ -81,6 +82,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <ThemeScript />
         <NextThemeProvider>
           <NextIntlClientProvider messages={messages}>
+            <SectionScrollHandler />
             <Header />
             <main className="site-main flex-1">{children}</main>
             <Footer />

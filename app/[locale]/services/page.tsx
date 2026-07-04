@@ -53,8 +53,6 @@ export default async function ServicesPage({ params }: Props) {
   const t = await getTranslations("services");
   const tCommon = await getTranslations("common");
   const tNav = await getTranslations("header");
-  const firstService = servicePageOrder[0];
-
   return (
     <>
       <WebPageJsonLd
@@ -76,7 +74,7 @@ export default async function ServicesPage({ params }: Props) {
         className="border-b border-border bg-background"
         scrollIndicator={
           <ScrollIndicator
-            href={`#${firstService}`}
+            href="#services-ai-banner"
             label={tCommon("scrollDown")}
           />
         }

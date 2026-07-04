@@ -1,7 +1,12 @@
 "use client";
 
 import { buttonVariants } from "@/components/ui/button";
-import { Link, usePathname } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import {
+  parseSectionHref,
+  requestSectionScroll,
+  scrollToSection,
+} from "@/lib/scroll-to-section";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -22,21 +27,27 @@ export function SectionLink({
   children,
 }: Props) {
   const pathname = usePathname();
-  const sectionId = href.split("#")[1];
+  const router = useRouter();
+  const { path, sectionId } = parseSectionHref(href);
 
   function handleClick(event: React.MouseEvent<HTMLAnchorElement>) {
     onClick?.(event);
-    if (event.defaultPrevented) return;
-
-    if (pathname !== "/" || !sectionId) return;
+    if (event.defaultPrevented || !sectionId) return;
 
     event.preventDefault();
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+
+    if (pathname === path) {
+      scrollToSection(sectionId);
+      return;
+    }
+
+    requestSectionScroll(sectionId);
+    router.push(path);
   }
 
   return (
     <Link
-      href={href}
+      href={path}
       onClick={handleClick}
       className={cn(buttonVariants({ variant, size }), className)}
     >

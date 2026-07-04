@@ -1,18 +1,11 @@
 "use client";
 
-import { Link, usePathname } from "@/i18n/navigation";
-
-function parseSectionHref(href: string) {
-  const hashIndex = href.indexOf("#");
-  if (hashIndex === -1) {
-    return { path: href, sectionId: undefined };
-  }
-
-  return {
-    path: href.slice(0, hashIndex) || "/",
-    sectionId: href.slice(hashIndex + 1),
-  };
-}
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import {
+  parseSectionHref,
+  requestSectionScroll,
+  scrollToSection,
+} from "@/lib/scroll-to-section";
 
 type Props = {
   href: string;
@@ -30,19 +23,26 @@ export function SectionAnchor({
   ...rest
 }: Props) {
   const pathname = usePathname();
+  const router = useRouter();
   const { path, sectionId } = parseSectionHref(href);
 
   function handleClick(event: React.MouseEvent<HTMLAnchorElement>) {
     onClick?.(event);
-
-    if (!sectionId || pathname !== path) return;
+    if (event.defaultPrevented || !sectionId) return;
 
     event.preventDefault();
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+
+    if (pathname === path) {
+      scrollToSection(sectionId);
+      return;
+    }
+
+    requestSectionScroll(sectionId);
+    router.push(path);
   }
 
   return (
-    <Link href={href} onClick={handleClick} className={className} {...rest}>
+    <Link href={path} onClick={handleClick} className={className} {...rest}>
       {children}
     </Link>
   );

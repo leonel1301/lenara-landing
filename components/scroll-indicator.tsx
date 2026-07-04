@@ -3,12 +3,15 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
+import { scrollToSection } from "@/lib/scroll-to-section";
+
 type Props = {
   href: string;
   label: string;
+  block?: ScrollLogicalPosition;
 };
 
-export function ScrollIndicator({ href, label }: Props) {
+export function ScrollIndicator({ href, label, block = "start" }: Props) {
   const prefersReducedMotion = useReducedMotion();
   const sectionId = href.startsWith("#") ? href.slice(1) : href.split("#").at(-1);
 
@@ -16,7 +19,10 @@ export function ScrollIndicator({ href, label }: Props) {
     if (!sectionId) return;
 
     event.preventDefault();
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    scrollToSection(sectionId, {
+      block,
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
   }
 
   return (

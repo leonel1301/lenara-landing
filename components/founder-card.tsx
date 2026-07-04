@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, User } from "lucide-react";
 
+import { CardCornerAccent } from "@/components/card-corner-accent";
 import { PERSONAL_HOMEPAGE_URL } from "@/lib/process";
 import { cn } from "@/lib/utils";
 
@@ -25,9 +26,11 @@ export function FounderCard({
   profileLinkAria,
   initials,
 }: Props) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <motion.article
-      whileHover={{ y: -4 }}
+      whileHover={prefersReducedMotion ? undefined : { y: -4 }}
       transition={{ type: "spring", stiffness: 380, damping: 28 }}
       className={cn(
         "group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card",
@@ -36,13 +39,12 @@ export function FounderCard({
         "hover:border-primary/25 hover:shadow-[0_16px_48px_-16px_color-mix(in_oklch,var(--primary)_18%,transparent)]",
       )}
     >
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -right-12 -top-12 size-40 rounded-full bg-primary/5 transition-transform duration-500 group-hover:scale-125"
-      />
+      <CardCornerAccent position="top-right" />
 
       <div className="relative flex flex-1 flex-col items-center gap-5 p-6 text-center md:p-8">
-        <div
+        <motion.div
+          whileHover={prefersReducedMotion ? undefined : { scale: 1.04 }}
+          transition={{ type: "spring", stiffness: 420, damping: 20 }}
           aria-hidden
           className={cn(
             "flex size-20 items-center justify-center rounded-xl",
@@ -51,7 +53,7 @@ export function FounderCard({
           )}
         >
           {initials}
-        </div>
+        </motion.div>
 
         <span className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1 text-xs font-medium text-muted-foreground">
           <User className="size-3.5" strokeWidth={1.75} />
@@ -83,7 +85,10 @@ export function FounderCard({
           )}
         >
           {profileLink}
-          <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={1.75} />
+          <ArrowUpRight
+            className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            strokeWidth={1.75}
+          />
         </a>
       </div>
     </motion.article>

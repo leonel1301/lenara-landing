@@ -1,27 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  Apple,
-  BrainCircuit,
-  Cpu,
-  Globe,
-  LayoutGrid,
-  Smartphone,
-  type LucideIcon,
-} from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { LayoutGrid } from "lucide-react";
 
+import { CardCornerAccent } from "@/components/card-corner-accent";
+import { ProjectAreaIcon } from "@/components/project-area-icon";
 import { Link } from "@/i18n/navigation";
 import { type ProjectArea } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 
-const icons: Record<ProjectArea, LucideIcon> = {
-  ios: Apple,
-  android: Smartphone,
-  web: Globe,
-  iot: Cpu,
-  ai: BrainCircuit,
-};
+const easeOut = [0.22, 1, 0.36, 1] as const;
 
 const iconStyles: Record<ProjectArea, { bg: string; text: string; border: string }> = {
   ios: {
@@ -73,9 +61,11 @@ export function ProjectsCard({
   appsLink,
   appsLinkAria,
 }: Props) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <motion.article
-      whileHover={{ y: -4 }}
+      whileHover={prefersReducedMotion ? undefined : { y: -4 }}
       transition={{ type: "spring", stiffness: 380, damping: 28 }}
       className={cn(
         "group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card",
@@ -84,10 +74,7 @@ export function ProjectsCard({
         "hover:border-primary/25 hover:shadow-[0_16px_48px_-16px_color-mix(in_oklch,var(--primary)_18%,transparent)]",
       )}
     >
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -left-12 -bottom-12 size-40 rounded-full bg-primary/5 transition-transform duration-500 group-hover:scale-125"
-      />
+      <CardCornerAccent position="bottom-left" />
 
       <div className="relative flex flex-1 flex-col gap-6 p-6 md:p-8">
         <div className="space-y-2">
@@ -104,24 +91,26 @@ export function ProjectsCard({
 
         <div className="grid grid-cols-3 gap-3 sm:grid-cols-5">
           {areas.map((area, index) => {
-            const Icon = icons[area.id];
             const style = iconStyles[area.id];
 
             return (
               <motion.div
                 key={area.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: index * 0.06 }}
-                whileHover={{ y: -3 }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.4, delay: index * 0.07, ease: easeOut }}
+                whileHover={prefersReducedMotion ? undefined : { y: -3 }}
                 className={cn(
                   "flex flex-col items-center gap-2 rounded-xl border p-3",
                   "border-border bg-background transition-colors duration-300",
                   "hover:border-primary/20",
                 )}
               >
-                <div
+                <motion.div
+                  whileHover={prefersReducedMotion ? undefined : { scale: 1.08, rotate: -4 }}
+                  whileTap={prefersReducedMotion ? undefined : { scale: 0.92 }}
+                  transition={{ type: "spring", stiffness: 420, damping: 18 }}
                   className={cn(
                     "flex size-10 items-center justify-center rounded-lg border",
                     style.bg,
@@ -129,8 +118,8 @@ export function ProjectsCard({
                     style.border,
                   )}
                 >
-                  <Icon className="size-5" strokeWidth={1.75} />
-                </div>
+                  <ProjectAreaIcon area={area.id} />
+                </motion.div>
                 <span className="text-center text-xs font-medium text-muted-foreground">
                   {area.label}
                 </span>

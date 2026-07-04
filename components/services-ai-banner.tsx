@@ -10,7 +10,7 @@ type Props = {
 export function ServicesAiBanner({ text }: Props) {
   return (
     <ScrollReveal trigger="mount" duration={0.45}>
-      <AccentStrip ariaLabel={text}>
+      <AccentStrip id="services-ai-banner" ariaLabel={text}>
         <p className="mx-auto max-w-4xl text-center text-sm font-medium leading-snug text-[#1a1b1c] md:text-base">
           {text}
         </p>

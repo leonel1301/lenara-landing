@@ -21,7 +21,7 @@ export function FullscreenSection({
     <section
       id={id}
       className={cn(
-        "scroll-mt-16 px-6",
+        "scroll-mt-[var(--header-height)] px-6",
         fullHeight
           ? "relative flex min-h-[calc(100svh-var(--header-height))] flex-col justify-center"
           : "py-16 md:py-24",

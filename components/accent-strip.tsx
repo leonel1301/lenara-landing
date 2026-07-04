@@ -5,13 +5,18 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   ariaLabel?: string;
+  id?: string;
 };
 
-export function AccentStrip({ children, className, ariaLabel }: Props) {
+export function AccentStrip({ children, className, ariaLabel, id }: Props) {
   return (
     <section
+      id={id}
       aria-label={ariaLabel}
-      className={cn("w-full px-6 py-4 md:py-5", className)}
+      className={cn(
+        "w-full scroll-mt-[var(--header-height)] px-6 py-4 md:py-5",
+        className,
+      )}
       style={{ backgroundColor: SERVICES_AI_BANNER_COLOR }}
     >
       {children}
