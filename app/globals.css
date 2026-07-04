@@ -70,6 +70,7 @@
   --muted-foreground: #6b6a66;
   --badge: #eef1fb;
   --link: #2a3a96;
+  --accent-strip: #7b8fe3;
 
   --card: var(--section);
   --card-foreground: var(--foreground);
@@ -116,6 +117,7 @@
   --muted-foreground: #9b9a96;
   --badge: #1e2442;
   --link: #c4ceff;
+  --accent-strip: #7b8fe3;
 
   --card: var(--section);
   --card-foreground: var(--foreground);

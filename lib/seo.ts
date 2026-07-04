@@ -67,11 +67,27 @@ export function buildTwitter(
   };
 }
 
-export const SITEMAP_PATHS = [
-  "/",
-  "/apps",
-  "/apps/waloop",
-  "/apps/waloop/privacy",
-  "/apps/waloop/terms",
-  "/apps/waloop/faq",
-] as const satisfies readonly Href[];
+/** Primary site sections surfaced in navigation and structured data. */
+export const MAIN_SITE_PAGES = [
+  { href: "/", name: "Home" },
+  { href: "/services", name: "Services" },
+  { href: "/process", name: "Process" },
+  { href: "/apps", name: "Our Apps" },
+] as const satisfies readonly { href: Href; name: string }[];
+
+type SitemapEntry = {
+  href: Href;
+  priority: number;
+  changeFrequency: "weekly" | "monthly" | "yearly";
+};
+
+export const SITEMAP_ENTRIES = [
+  { href: "/", priority: 1, changeFrequency: "weekly" },
+  { href: "/services", priority: 0.9, changeFrequency: "monthly" },
+  { href: "/process", priority: 0.9, changeFrequency: "monthly" },
+  { href: "/apps", priority: 0.9, changeFrequency: "weekly" },
+  { href: "/apps/waloop", priority: 0.7, changeFrequency: "monthly" },
+  { href: "/apps/waloop/privacy", priority: 0.3, changeFrequency: "yearly" },
+  { href: "/apps/waloop/terms", priority: 0.3, changeFrequency: "yearly" },
+  { href: "/apps/waloop/faq", priority: 0.4, changeFrequency: "monthly" },
+] as const satisfies readonly SitemapEntry[];

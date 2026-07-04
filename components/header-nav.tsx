@@ -2,15 +2,14 @@
 
 import { useTranslations } from "next-intl";
 
-import { SectionAnchor } from "@/components/section-anchor";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { key: "home", href: "/", type: "route" },
-  { key: "services", href: "/#services", type: "section" },
-  { key: "process", href: "/#process", type: "section" },
-  { key: "apps", href: "/apps", type: "route" },
+  { key: "home", href: "/" },
+  { key: "services", href: "/services" },
+  { key: "process", href: "/process" },
+  { key: "apps", href: "/apps" },
 ] as const;
 
 type Props = {
@@ -32,15 +31,7 @@ export function HeaderNav({ label }: Props) {
 
   return (
     <nav aria-label={label} className="hidden items-center gap-1 lg:flex">
-      {navItems.map(({ key, href, type }) => {
-        if (type === "section") {
-          return (
-            <SectionAnchor key={key} href={href} className={linkClassName}>
-              {t(`nav.${key}`)}
-            </SectionAnchor>
-          );
-        }
-
+      {navItems.map(({ key, href }) => {
         const active = isActive(href);
 
         return (

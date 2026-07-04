@@ -7,17 +7,16 @@ import { useEffect, useId, useRef, useState } from "react";
 
 import { ContactHeaderButton } from "@/components/contact-header-button";
 import { LanguageSwitch } from "@/components/language-switch";
-import { SectionAnchor } from "@/components/section-anchor";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { Button } from "@/components/ui/button";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { key: "home", href: "/", type: "route" },
-  { key: "services", href: "/#services", type: "section" },
-  { key: "process", href: "/#process", type: "section" },
-  { key: "apps", href: "/apps", type: "route" },
+  { key: "home", href: "/" },
+  { key: "services", href: "/services" },
+  { key: "process", href: "/process" },
+  { key: "apps", href: "/apps" },
 ] as const;
 
 const mobileLinkBase =
@@ -118,29 +117,19 @@ export function HeaderMobileNav({ label, menuOpenLabel, menuCloseLabel }: Props)
             )}
           >
             <ul className="space-y-0.5">
-              {navItems.map(({ key, href, type }) => (
+              {navItems.map(({ key, href }) => (
                 <li key={key}>
-                  {type === "section" ? (
-                    <SectionAnchor
-                      href={href}
-                      onClick={() => setOpen(false)}
-                      className={cn(mobileLinkBase, mobileLinkInactive)}
-                    >
-                      {t(`nav.${key}`)}
-                    </SectionAnchor>
-                  ) : (
-                    <Link
-                      href={href}
-                      onClick={() => setOpen(false)}
-                      aria-current={isActive(href) ? "page" : undefined}
-                      className={cn(
-                        mobileLinkBase,
-                        isActive(href) ? mobileLinkActive : mobileLinkInactive,
-                      )}
-                    >
-                      {t(`nav.${key}`)}
-                    </Link>
-                  )}
+                  <Link
+                    href={href}
+                    onClick={() => setOpen(false)}
+                    aria-current={isActive(href) ? "page" : undefined}
+                    className={cn(
+                      mobileLinkBase,
+                      isActive(href) ? mobileLinkActive : mobileLinkInactive,
+                    )}
+                  >
+                    {t(`nav.${key}`)}
+                  </Link>
                 </li>
               ))}
             </ul>

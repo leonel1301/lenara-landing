@@ -7,17 +7,12 @@ import { EyebrowBadge } from "@/components/eyebrow-badge";
 import { HeroCta } from "@/components/hero-cta";
 import { FullscreenSection } from "@/components/fullscreen-section";
 import { ScrollIndicator } from "@/components/scroll-indicator";
-import { ProcessSteps } from "@/components/process-steps";
 import {
-  ScrollReveal,
   ScrollRevealItem,
   ScrollRevealStagger,
 } from "@/components/scroll-reveal";
-import { ServiceCards } from "@/components/service-cards";
 import { TypewriterText } from "@/components/typewriter-text";
-import { processSteps as processStepsList } from "@/lib/process";
 import { projectAreas as projectAreasList } from "@/lib/projects";
-import { serviceItems as servicesList } from "@/lib/services";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/i18n/routing";
 import { OrganizationJsonLd } from "@/components/organization-jsonld";
@@ -26,8 +21,6 @@ import { buildAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 type Props = {
   params: Promise<{ locale: string }>;
 };
-
-const processSteps = processStepsList;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -52,17 +45,6 @@ export default async function OverviewPage({ params }: Props) {
   const t = await getTranslations("home");
   const tCommon = await getTranslations("common");
   const typewriterPhrases = t.raw("typewriterPhrases") as string[];
-  const services = servicesList.map((item) => ({
-    id: item,
-    title: t(`services.items.${item}.title`),
-    description: t(`services.items.${item}.description`),
-  }));
-  const process = processSteps.map((step, index) => ({
-    id: step,
-    step: index + 1,
-    title: t(`process.steps.${step}.title`),
-    description: t(`process.steps.${step}.description`),
-  }));
 
   return (
     <>
@@ -73,7 +55,7 @@ export default async function OverviewPage({ params }: Props) {
         className="border-b border-border bg-background"
         scrollIndicator={
           <ScrollIndicator
-            href="#services"
+            href="#about"
             label={tCommon("scrollDown")}
           />
         }
@@ -105,30 +87,6 @@ export default async function OverviewPage({ params }: Props) {
             />
           </ScrollRevealItem>
         </ScrollRevealStagger>
-      </FullscreenSection>
-
-      <FullscreenSection id="services" containerClassName="max-w-6xl">
-        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-14">
-          <ScrollReveal className="space-y-3 lg:sticky lg:top-24">
-            <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-              {t("services.title")}
-            </h2>
-            <p className="text-muted-foreground">{t("services.description")}</p>
-          </ScrollReveal>
-          <ServiceCards items={services} compact magazine />
-        </div>
-      </FullscreenSection>
-
-      <FullscreenSection id="process" containerClassName="max-w-6xl">
-        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-14">
-          <ScrollReveal className="space-y-3 lg:sticky lg:top-24">
-            <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-              {t("process.title")}
-            </h2>
-            <p className="text-muted-foreground">{t("process.description")}</p>
-          </ScrollReveal>
-          <ProcessSteps items={process} compact />
-        </div>
       </FullscreenSection>
 
       <AboutSection

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { AppCarousel } from "@/components/app-carousel";
-import { AppShowcase } from "@/components/app-showcase";
+import { WaloopShowcase } from "@/components/waloop-showcase";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { WebPageJsonLd } from "@/components/webpage-jsonld";
 import { EyebrowBadge } from "@/components/eyebrow-badge";
 import { FullscreenSection } from "@/components/fullscreen-section";
 import { ScrollIndicator } from "@/components/scroll-indicator";
@@ -54,9 +54,16 @@ export default async function AppsPage({ params }: Props) {
     });
   const waloopIosGallery = buildWaloopGallery("ios");
   const waloopAndroidGallery = buildWaloopGallery("android");
+  const techStackItems = t.raw("waloop.techStack.items") as Record<string, string>;
 
   return (
     <>
+      <WebPageJsonLd
+        locale={locale as Locale}
+        href="/apps"
+        name={t("title")}
+        description={t("description")}
+      />
       <BreadcrumbJsonLd
         locale={locale as Locale}
         items={[
@@ -98,7 +105,7 @@ export default async function AppsPage({ params }: Props) {
 
       <FullscreenSection id="waloop" containerClassName="max-w-6xl">
         <ScrollReveal delay={0.05}>
-          <AppShowcase
+          <WaloopShowcase
             badge={t("waloop.badge")}
             name={t("waloop.name")}
             nameHref="/apps/waloop"
@@ -107,17 +114,17 @@ export default async function AppsPage({ params }: Props) {
             platformsLabel={t("waloop.platformsLabel")}
             appStoreHref={WALOOP_APP_STORE_URL}
             androidSoonLabel={t("waloop.androidSoonLabel")}
-            media={
-              <AppCarousel
-                iosSlides={waloopIosGallery}
-                androidSlides={waloopAndroidGallery}
-                label={t("waloop.galleryLabel")}
-                prevLabel={tCommon("carouselPrev")}
-                nextLabel={tCommon("carouselNext")}
-                iosLabel={t("waloop.platformIos")}
-                androidLabel={t("waloop.platformAndroid")}
-              />
-            }
+            iosSlides={waloopIosGallery}
+            androidSlides={waloopAndroidGallery}
+            galleryLabel={t("waloop.galleryLabel")}
+            carouselPrevLabel={tCommon("carouselPrev")}
+            carouselNextLabel={tCommon("carouselNext")}
+            iosLabel={t("waloop.platformIos")}
+            androidLabel={t("waloop.platformAndroid")}
+            techStackLabels={{
+              label: t("waloop.techStack.label"),
+              items: techStackItems,
+            }}
             legalLinks={{
               privacyHref: "/apps/waloop/privacy",
               termsHref: "/apps/waloop/terms",

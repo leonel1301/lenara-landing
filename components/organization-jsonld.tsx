@@ -1,5 +1,5 @@
 import { LENARA_ICON_SRC } from "@/lib/brand";
-import { SITE_URL } from "@/lib/seo";
+import { MAIN_SITE_PAGES, pageUrl, SEO_DEFAULT_LOCALE, SITE_URL } from "@/lib/seo";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -33,6 +33,16 @@ const jsonLd = {
       name: "Lenara Labs",
       publisher: { "@id": `${SITE_URL}/#organization` },
       inLanguage: ["en", "es"],
+      hasPart: MAIN_SITE_PAGES.map(({ href, name }) => {
+        const url = pageUrl(SEO_DEFAULT_LOCALE, href);
+        return {
+          "@type": "WebPage",
+          "@id": `${url}#webpage`,
+          url,
+          name,
+          isPartOf: { "@id": `${SITE_URL}/#website` },
+        };
+      }),
     },
   ],
 };

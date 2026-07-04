@@ -1,9 +1,10 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Apple, ChevronLeft, ChevronRight, Smartphone } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import { SiAndroid, SiApple } from "react-icons/si";
 
 import { cn } from "@/lib/utils";
 
@@ -27,6 +28,8 @@ type Props = {
   iosLabel: string;
   androidLabel: string;
   className?: string;
+  platform?: Platform;
+  onPlatformChange?: (platform: Platform) => void;
 };
 
 function PhoneScreenshot({
@@ -85,19 +88,29 @@ export function AppCarousel({
   iosLabel,
   androidLabel,
   className,
+  platform: controlledPlatform,
+  onPlatformChange,
 }: Props) {
   const prefersReducedMotion = useReducedMotion();
-  const [platform, setPlatform] = useState<Platform>("ios");
+  const [internalPlatform, setInternalPlatform] = useState<Platform>("ios");
+  const platform = controlledPlatform ?? internalPlatform;
   const slides = platform === "ios" ? iosSlides : androidSlides;
   const count = slides.length;
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [loaded, setLoaded] = useState<Record<string, boolean>>({});
 
-  const selectPlatform = useCallback((next: Platform) => {
-    setPlatform(next);
-    setIndex(0);
-  }, []);
+  const selectPlatform = useCallback(
+    (next: Platform) => {
+      if (onPlatformChange) {
+        onPlatformChange(next);
+      } else {
+        setInternalPlatform(next);
+      }
+      setIndex(0);
+    },
+    [onPlatformChange],
+  );
 
   const paginate = useCallback(
     (step: number) => {
@@ -162,7 +175,7 @@ export function AppCarousel({
             onClick={() => selectPlatform("ios")}
             className={platformTagClass(platform === "ios")}
           >
-            <Apple className="size-3.5" strokeWidth={2} aria-hidden />
+            <SiApple className="size-3.5 shrink-0" aria-hidden />
             {iosLabel}
           </button>
           <button
@@ -172,7 +185,7 @@ export function AppCarousel({
             onClick={() => selectPlatform("android")}
             className={platformTagClass(platform === "android")}
           >
-            <Smartphone className="size-3.5" strokeWidth={1.75} aria-hidden />
+            <SiAndroid className="size-3.5 shrink-0" aria-hidden />
             {androidLabel}
           </button>
         </div>

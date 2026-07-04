@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Lenara Labs — Diseño, código e IA para experiencias digitales",
-    "description": "Lenara Labs diseña y desarrolla productos digitales, sitios web y apps móviles — para clientes y nuestro propio portafolio."
+    "description": "Lenara Labs diseña y desarrolla productos digitales, sitios web y apps móviles. Conoce nuestros servicios, proceso y apps propias."
   },
   "common": {
     "language": "Idioma",
@@ -42,6 +42,7 @@
     "company": {
       "title": "Empresa",
       "about": "Sobre nosotros",
+      "services": "Servicios",
       "process": "Cómo trabajamos",
       "careers": "Trabaja con nosotros",
       "contact": "Contacto",
@@ -67,7 +68,7 @@
   "home": {
     "metadata": {
       "title": "Lenara Labs — Diseño, código e IA para experiencias digitales",
-      "description": "Lenara Labs diseña y desarrolla productos digitales, sitios web y apps móviles — para clientes y nuestro propio portafolio."
+      "description": "Lenara Labs diseña y desarrolla productos digitales, sitios web y apps móviles. Conoce nuestros servicios, proceso y apps propias."
     },
     "eyebrow": "Diseño · Software · IA",
     "title": "Tecnología que impulsa tu negocio",
@@ -208,6 +209,79 @@
       }
     }
   },
+  "services": {
+    "metadata": {
+      "title": "Servicios",
+      "description": "Apps móviles, desarrollo web, infraestructura cloud y consultoría tech — estrategia, diseño e ingeniería por Lenara Labs."
+    },
+    "eyebrow": "Lenara Labs · Servicios",
+    "title": "Lo que hacemos",
+    "description": "Combinamos estrategia, diseño y desarrollo para llevar tus ideas a producción con calidad y velocidad.",
+    "aiBanner": "Todos nuestros servicios están impulsados por IA para entregar un mejor producto en menos tiempo.",
+    "items": {
+      "consulting": {
+        "title": "Consultoría tech",
+        "description": "Empezamos con claridad — auditorías, diseño de arquitectura y acompañamiento técnico para alinear a tu equipo y roadmap antes del primer sprint.",
+        "imageAlt": "Sesión de consultoría y estrategia tecnológica"
+      },
+      "web": {
+        "title": "Desarrollo web",
+        "description": "Plataformas, dashboards y productos digitales con arquitecturas modernas y mantenibles, pensadas para crecer con tu negocio.",
+        "imageAlt": "Desarrollo web y plataformas digitales"
+      },
+      "mobile": {
+        "title": "Apps móviles",
+        "description": "Aplicaciones nativas y multiplataforma para iOS y Android — experiencias pulidas diseñadas para escalar con tus usuarios.",
+        "imageAlt": "Desarrollo de apps móviles para iOS y Android"
+      },
+      "cloud": {
+        "title": "Cloud & APIs",
+        "description": "Infraestructura en la nube, integraciones y backends robustos que mantienen tu producto confiable, seguro y listo para escalar.",
+        "imageAlt": "Infraestructura cloud e integraciones API"
+      }
+    },
+    "cta": {
+      "title": "¿Listo para empezar tu proyecto?",
+      "description": "Cuéntanos tu desafío y te ayudamos a encontrar el camino correcto.",
+      "button": "Contáctanos"
+    }
+  },
+  "process": {
+    "metadata": {
+      "title": "Proceso",
+      "description": "Cómo trabaja Lenara Labs — desde el descubrimiento y diseño hasta el desarrollo y lanzamiento, con entregas iterativas y comunicación constante."
+    },
+    "eyebrow": "Lenara Labs · Proceso",
+    "title": "Cómo trabajamos",
+    "description": "Un proceso claro de principio a fin, con entregas iterativas y comunicación constante.",
+    "steps": {
+      "discovery": {
+        "title": "Descubrimiento",
+        "description": "Entendemos tu negocio, usuarios y objetivos para definir juntos el alcance del producto y los criterios de éxito.",
+        "imageAlt": "Taller de descubrimiento con el equipo"
+      },
+      "design": {
+        "title": "Diseño",
+        "description": "Prototipamos flujos y experiencias en herramientas como Figma antes de escribir una línea de código.",
+        "imageAlt": "Diseño de producto y prototipado en Figma"
+      },
+      "development": {
+        "title": "Desarrollo",
+        "description": "Construimos en sprints con demos frecuentes y feedback continuo para que siempre sepas en qué punto estamos.",
+        "imageAlt": "Desarrollo de software en sprints ágiles"
+      },
+      "launch": {
+        "title": "Lanzamiento",
+        "description": "Publicamos, medimos y acompañamos la evolución de tu producto mucho después del primer release.",
+        "imageAlt": "Lanzamiento de producto y soporte continuo"
+      }
+    },
+    "cta": {
+      "title": "Construyamos algo juntos",
+      "description": "Cada proyecto empieza con una conversación. Escríbenos y cuéntanos en qué estás trabajando.",
+      "button": "Contáctanos"
+    }
+  },
   "apps": {
     "metadata": {
       "title": "Nuestras apps",
@@ -253,6 +327,20 @@
         "Notificaciones inteligentes cuando importan",
         "Ingresa tu fecha de pago — nosotros optimizamos el resto"
       ],
+      "techStack": {
+        "label": "Hecho con",
+        "items": {
+          "swift": "Swift",
+          "swiftui": "SwiftUI",
+          "kotlin": "Kotlin",
+          "jetpackCompose": "Compose",
+          "materialUi": "Material",
+          "firebase": "Firebase",
+          "supabase": "Supabase",
+          "goGin": "Go · Gin",
+          "railway": "Railway"
+        }
+      },
       "legal": {
         "eyebrow": "Waloop · Legal",
         "backToApp": "Volver a Waloop",

@@ -17,6 +17,7 @@ function LinkedinIcon({ className }: { className?: string }) {
 }
 
 import { Link } from "@/i18n/navigation";
+import { AccentStrip } from "@/components/accent-strip";
 import { SectionAnchor } from "@/components/section-anchor";
 import { cn } from "@/lib/utils";
 
@@ -69,7 +70,8 @@ export async function Footer() {
   const serviceLinks = ["mobile", "web", "cloud", "consulting"] as const;
   const companyLinks = [
     { key: "about", href: "/#about" },
-    { key: "process", href: "/#process" },
+    { key: "services", href: "/services" },
+    { key: "process", href: "/process" },
     { key: "contact", href: "/#contact" },
   ] as const;
 
@@ -170,19 +172,19 @@ export async function Footer() {
             <ul className="flex flex-wrap gap-x-6 gap-y-2">
               {serviceLinks.map((key) => (
                 <li key={key}>
-                  <FooterLink href="/#services">{t(`services.${key}`)}</FooterLink>
+                  <FooterLink href={`/services#${key}`}>{t(`services.${key}`)}</FooterLink>
                 </li>
               ))}
             </ul>
           </FooterColumn>
         </div>
-
-        <div className="mt-10 border-t border-border pt-6">
-          <p className="text-center text-sm text-muted-foreground">
-            {t("copyright", { year })}
-          </p>
-        </div>
       </div>
+
+      <AccentStrip ariaLabel={t("copyright", { year })}>
+        <p className="text-center text-sm font-medium text-[#1a1b1c]">
+          {t("copyright", { year })}
+        </p>
+      </AccentStrip>
     </footer>
   );
 }

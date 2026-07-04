@@ -1,4 +1,7 @@
+import { buttonVariants } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 import { SectionLink } from "@/components/section-link";
+import { cn } from "@/lib/utils";
 
 type Props = {
   contactLabel: string;
@@ -11,9 +14,12 @@ export function HeroCta({ contactLabel, servicesLabel }: Props) {
       <SectionLink href="/#contact" size="lg" className="h-11 px-6">
         {contactLabel}
       </SectionLink>
-      <SectionLink href="/#services" variant="outline" size="lg" className="h-11 px-6">
+      <Link
+        href="/services"
+        className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-11 px-6")}
+      >
         {servicesLabel}
-      </SectionLink>
+      </Link>
     </div>
   );
 }

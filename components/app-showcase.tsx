@@ -31,6 +31,7 @@ type Props = {
     faqLabel?: string;
     feedbackLabel?: string;
   };
+  afterLegal?: React.ReactNode;
 };
 
 export function AppShowcase({
@@ -45,6 +46,7 @@ export function AppShowcase({
   media,
   reversed = false,
   legalLinks,
+  afterLegal,
 }: Props) {
   const prefersReducedMotion = useReducedMotion();
 
@@ -176,6 +178,12 @@ export function AppShowcase({
               </Link>
             ) : null}
           </motion.nav>
+        ) : null}
+
+        {afterLegal ? (
+          <motion.div variants={leftItem} className="pt-1">
+            {afterLegal}
+          </motion.div>
         ) : null}
       </motion.div>
 
