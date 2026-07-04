@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 
 import { ShowcaseImage } from "@/components/showcase-image";
+import { ProcessTechStackStrip } from "@/components/process-tech-stack-strip";
 import { type ProcessStep } from "@/lib/process";
 import { cn } from "@/lib/utils";
 
@@ -52,6 +53,13 @@ const iconStyles: Record<
   },
 };
 
+type StackLabels = {
+  toolsLabel: string;
+  aiLabel: string;
+  tools: Record<string, string>;
+  ai: Record<string, string>;
+};
+
 type Props = {
   id: ProcessStep;
   step: number;
@@ -59,6 +67,7 @@ type Props = {
   description: string;
   imageSrc: string;
   imageAlt: string;
+  stackLabels: StackLabels;
   reversed?: boolean;
 };
 
@@ -69,6 +78,7 @@ export function ProcessShowcase({
   description,
   imageSrc,
   imageAlt,
+  stackLabels,
   reversed = false,
 }: Props) {
   const prefersReducedMotion = useReducedMotion();
@@ -152,6 +162,9 @@ export function ProcessShowcase({
         >
           {description}
         </motion.p>
+        <motion.div variants={copyItem}>
+          <ProcessTechStackStrip step={id} labels={stackLabels} />
+        </motion.div>
       </motion.div>
 
       <motion.div

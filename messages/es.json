@@ -276,6 +276,32 @@
         "imageAlt": "Lanzamiento de producto y soporte continuo"
       }
     },
+    "stack": {
+      "toolsLabel": "Herramientas que usamos",
+      "aiLabel": "Impulsado por IA",
+      "tools": {
+        "discord": "Discord",
+        "teams": "Teams",
+        "meet": "Meet",
+        "figma": "Figma",
+        "miro": "Miro",
+        "github": "GitHub",
+        "supabase": "Supabase",
+        "vscode": "VS Code",
+        "xcode": "Xcode",
+        "androidStudio": "Android Studio",
+        "railway": "Railway",
+        "firebase": "Firebase"
+      },
+      "ai": {
+        "gpt": "GPT",
+        "gemini": "Gemini",
+        "claude": "Claude",
+        "claudeCode": "Claude Code",
+        "cursor": "Cursor",
+        "elevenLabs": "ElevenLabs"
+      }
+    },
     "cta": {
       "title": "Construyamos algo juntos",
       "description": "Cada proyecto empieza con una conversación. Escríbenos y cuéntanos en qué estás trabajando.",

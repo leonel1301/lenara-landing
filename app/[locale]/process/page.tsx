@@ -54,6 +54,14 @@ export default async function ProcessPage({ params }: Props) {
   const tCommon = await getTranslations("common");
   const tNav = await getTranslations("header");
   const firstStep = processSteps[0];
+  const stackTools = t.raw("stack.tools") as Record<string, string>;
+  const stackAi = t.raw("stack.ai") as Record<string, string>;
+  const stackLabels = {
+    toolsLabel: t("stack.toolsLabel"),
+    aiLabel: t("stack.aiLabel"),
+    tools: stackTools,
+    ai: stackAi,
+  };
 
   return (
     <>
@@ -116,6 +124,7 @@ export default async function ProcessPage({ params }: Props) {
             description={t(`steps.${id}.description`)}
             imageSrc={getProcessImagePath(id)}
             imageAlt={t(`steps.${id}.imageAlt`)}
+            stackLabels={stackLabels}
             reversed={index % 2 === 1}
           />
         </FullscreenSection>

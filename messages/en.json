@@ -276,6 +276,32 @@
         "imageAlt": "Product launch and ongoing support"
       }
     },
+    "stack": {
+      "toolsLabel": "Tools we use",
+      "aiLabel": "Powered by AI",
+      "tools": {
+        "discord": "Discord",
+        "teams": "Teams",
+        "meet": "Meet",
+        "figma": "Figma",
+        "miro": "Miro",
+        "github": "GitHub",
+        "supabase": "Supabase",
+        "vscode": "VS Code",
+        "xcode": "Xcode",
+        "androidStudio": "Android Studio",
+        "railway": "Railway",
+        "firebase": "Firebase"
+      },
+      "ai": {
+        "gpt": "GPT",
+        "gemini": "Gemini",
+        "claude": "Claude",
+        "claudeCode": "Claude Code",
+        "cursor": "Cursor",
+        "elevenLabs": "ElevenLabs"
+      }
+    },
     "cta": {
       "title": "Let's build something together",
       "description": "Every project starts with a conversation. Reach out and tell us what you're working on.",
