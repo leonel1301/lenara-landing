@@ -9,6 +9,13 @@ export const servicePageOrder = [
   "cloud",
 ] as const satisfies readonly ServiceItem[];
 
+const serviceImageFiles: Record<ServiceItem, string> = {
+  consulting: "Services_Consulting.png",
+  web: "Services_Web.png",
+  mobile: "Services_Mobile.png",
+  cloud: "Services_Cloud.png",
+};
+
 export function getServiceImagePath(id: ServiceItem) {
-  return `/images/services/${id}.jpg`;
+  return `/images/services/${serviceImageFiles[id]}`;
 }

@@ -57,25 +57,40 @@ export function ContactSection({
             className={cn(
               "overflow-hidden rounded-xl border border-border bg-background",
               "shadow-[0_0_0_1px_color-mix(in_oklch,var(--primary)_6%,transparent)]",
-              "lg:grid lg:grid-cols-[1fr_1.15fr]",
+              "lg:grid lg:grid-cols-[1fr_1.15fr] lg:items-stretch",
             )}
           >
-            <ScrollRevealItem className="flex flex-col justify-center space-y-4 border-b border-border p-6 md:p-8 lg:border-b-0 lg:border-r lg:p-10">
-              <p className="text-lg font-medium leading-snug text-foreground md:text-xl">
-                {headline}
-              </p>
-              <div className="space-y-2">
-                <a
-                  href={`mailto:${email}`}
-                  className="inline-flex text-sm font-medium text-primary transition-colors hover:text-[var(--primary-hover)]"
-                >
-                  {email}
-                </a>
-                <p className="text-sm text-muted-foreground">{responseTime}</p>
+            <ScrollRevealItem className="relative isolate h-full min-h-[16rem] overflow-hidden border-b border-border lg:min-h-0 lg:border-b-0 lg:border-r">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-[url('/images/contact/contact-bg.png')] bg-cover bg-center"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-background/55 dark:bg-background/65"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-background/25"
+              />
+
+              <div className="relative z-10 flex h-full min-h-[16rem] flex-col justify-center space-y-4 p-6 md:min-h-[18rem] md:p-8 lg:min-h-0 lg:p-10">
+                <p className="text-lg font-medium leading-snug text-foreground md:text-xl">
+                  {headline}
+                </p>
+                <div className="space-y-2">
+                  <a
+                    href={`mailto:${email}`}
+                    className="inline-flex text-sm font-medium text-primary transition-colors hover:text-[var(--primary-hover)]"
+                  >
+                    {email}
+                  </a>
+                  <p className="text-sm text-muted-foreground">{responseTime}</p>
+                </div>
               </div>
             </ScrollRevealItem>
 
-            <ScrollRevealItem className="p-6 md:p-8 lg:p-10">
+            <ScrollRevealItem className="h-full self-stretch bg-background p-6 md:p-8 lg:p-10">
               <ContactForm
                 email={email}
                 responseTime={responseTime}
