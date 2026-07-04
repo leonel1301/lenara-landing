@@ -67,25 +67,27 @@ export function ContactSection({
               />
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-0 bg-background/55 dark:bg-background/65"
+                className="pointer-events-none absolute inset-0 bg-[#1a1b1c]/65 dark:bg-background/65"
               />
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-background/25"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1a1b1c]/50 via-transparent to-[#1a1b1c]/25 dark:from-background/50 dark:via-transparent dark:to-background/25"
               />
 
               <div className="relative z-10 flex h-full min-h-[16rem] flex-col justify-center space-y-4 p-6 md:min-h-[18rem] md:p-8 lg:min-h-0 lg:p-10">
-                <p className="text-lg font-medium leading-snug text-foreground md:text-xl">
+                <p className="text-lg font-medium leading-snug text-[#f5f4f0] md:text-xl dark:text-foreground">
                   {headline}
                 </p>
                 <div className="space-y-2">
                   <a
                     href={`mailto:${email}`}
-                    className="inline-flex text-sm font-medium text-primary transition-colors hover:text-[var(--primary-hover)]"
+                    className="inline-flex text-sm font-medium text-[#7b8fe3] transition-colors hover:text-[#9dadf0] dark:text-primary dark:hover:text-[var(--primary-hover)]"
                   >
                     {email}
                   </a>
-                  <p className="text-sm text-muted-foreground">{responseTime}</p>
+                  <p className="text-sm text-[#9b9a96] dark:text-muted-foreground">
+                    {responseTime}
+                  </p>
                 </div>
               </div>
             </ScrollRevealItem>
