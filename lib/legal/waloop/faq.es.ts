@@ -2,7 +2,7 @@ import type { LegalDocumentContent } from "@/lib/legal/types";
 
 export const waloopFaqEs: LegalDocumentContent = {
   title: "Preguntas Frecuentes",
-  lastUpdated: "Última actualización: 21 de junio de 2026",
+  lastUpdated: "Última actualización: 6 de julio de 2026",
   intro: [
     "Encuentre respuestas a las preguntas más comunes sobre Waloop, la app de ciclos de facturación y seguimiento de pagos de tarjetas de crédito de Lenara Labs.",
     "Para consultas de privacidad o legales, consulte nuestra Política de Privacidad y Términos de Servicio, o escriba a hello@lenaralabs.com.",
@@ -12,7 +12,7 @@ export const waloopFaqEs: LegalDocumentContent = {
       id: "que-es-waloop",
       title: "¿Qué es Waloop?",
       paragraphs: [
-        "Waloop es una aplicación iOS de finanzas personales que le ayuda a organizar tarjetas de crédito, seguir ciclos de facturación y fechas de pago, recibir recordatorios e identificar días óptimos de compra. Está publicada por Lenara Labs.",
+        "Waloop es una aplicación de finanzas personales para iOS y Android que le ayuda a organizar tarjetas de crédito, seguir ciclos de facturación y fechas de pago, recibir recordatorios e identificar días óptimos de compra. Está publicada por Lenara Labs.",
         "Eslogan: Card billing cycles & payment tracker.",
       ],
     },
@@ -80,10 +80,46 @@ export const waloopFaqEs: LegalDocumentContent = {
       ],
     },
     {
-      id: "eliminar-cuenta",
+      id: "delete-account",
       title: "¿Cómo elimino mi cuenta?",
-      paragraphs: [
-        "Puede cerrar sesión en cualquier momento. Waloop ofrece una opción de eliminación de cuenta dentro de la App. Si el flujo en la App no está disponible, escriba a hello@lenaralabs.com para solicitar la eliminación. Eliminaremos sus datos personales en un plazo razonable, sujeto a requisitos legales de retención.",
+      subsections: [
+        {
+          id: "eliminar-desde-app",
+          title: "Opción 1 — Desde la app",
+          list: [
+            "Abre Waloop (Cards Reminder)",
+            "Ve a Perfil → Ajustes",
+            "Toca Eliminar cuenta y confirma",
+          ],
+        },
+        {
+          id: "eliminar-por-correo",
+          title: "Opción 2 — Por correo",
+          paragraphs: [
+            "Si no tienes la app instalada, escribe a hello@lenaralabs.com desde el correo que usaste para iniciar sesión (Apple o Google).",
+          ],
+        },
+        {
+          id: "datos-eliminados",
+          title: "Datos que se eliminan",
+          list: [
+            "Cuenta y perfil (email, nombre)",
+            "Tarjetas, titulares, historial de pagos",
+            "Tokens de notificaciones (FCM)",
+            "Feedback enviado",
+          ],
+        },
+        {
+          id: "datos-conservados",
+          title: "Datos que pueden conservarse temporalmente",
+          list: [
+            "Logs técnicos de seguridad (hasta 90 días)",
+            "Datos que debamos conservar por obligación legal",
+          ],
+          paragraphs: [
+            "Plazo: eliminación en un plazo razonable, normalmente dentro de 30 días.",
+          ],
+        },
       ],
     },
     {
@@ -97,7 +133,7 @@ export const waloopFaqEs: LegalDocumentContent = {
       id: "plataformas",
       title: "¿Waloop está disponible en Android?",
       paragraphs: [
-        "Waloop está disponible actualmente en iOS (SwiftUI). El soporte para Android aún no está disponible.",
+        "Sí. Waloop está disponible en iOS (App Store) y Android (Google Play). Ambas versiones ofrecen las mismas funciones principales para seguir ciclos de facturación, fechas de pago y recordatorios.",
       ],
     },
     {

@@ -2,7 +2,7 @@ import type { LegalDocumentContent } from "@/lib/legal/types";
 
 export const waloopFaqEn: LegalDocumentContent = {
   title: "Frequently Asked Questions",
-  lastUpdated: "Last updated: June 21, 2026",
+  lastUpdated: "Last updated: July 6, 2026",
   intro: [
     "Find answers to common questions about Waloop, the credit card billing cycle and payment tracker app by Lenara Labs.",
     "For privacy or legal inquiries, see our Privacy Policy and Terms of Service, or contact hello@lenaralabs.com.",
@@ -12,7 +12,7 @@ export const waloopFaqEn: LegalDocumentContent = {
       id: "what-is-waloop",
       title: "What is Waloop?",
       paragraphs: [
-        "Waloop is an iOS personal finance app that helps you organize credit cards, track billing cycles and payment due dates, receive reminders, and identify optimal purchase days. It is published by Lenara Labs.",
+        "Waloop is a personal finance app for iOS and Android that helps you organize credit cards, track billing cycles and payment due dates, receive reminders, and identify optimal purchase days. It is published by Lenara Labs.",
         "Tagline: Card billing cycles & payment tracker.",
       ],
     },
@@ -82,8 +82,44 @@ export const waloopFaqEn: LegalDocumentContent = {
     {
       id: "delete-account",
       title: "How do I delete my account?",
-      paragraphs: [
-        "You can sign out at any time. Waloop offers an account deletion option within the App. If the in-app flow is unavailable, email hello@lenaralabs.com to request deletion. We will remove your personal data within a reasonable timeframe, subject to legal retention requirements.",
+      subsections: [
+        {
+          id: "delete-from-app",
+          title: "Option 1 — From the app",
+          list: [
+            "Open Waloop (Cards Reminder)",
+            "Go to Profile → Settings",
+            "Tap Delete account and confirm",
+          ],
+        },
+        {
+          id: "delete-by-email",
+          title: "Option 2 — By email",
+          paragraphs: [
+            "If you do not have the app installed, email hello@lenaralabs.com from the address you used to sign in (Apple or Google).",
+          ],
+        },
+        {
+          id: "data-deleted",
+          title: "Data that is deleted",
+          list: [
+            "Account and profile (email, name)",
+            "Cards, cardholders, payment history",
+            "Notification tokens (FCM)",
+            "Submitted feedback",
+          ],
+        },
+        {
+          id: "data-retained",
+          title: "Data that may be temporarily retained",
+          list: [
+            "Security technical logs (up to 90 days)",
+            "Data we must retain for legal obligations",
+          ],
+          paragraphs: [
+            "Timeline: deletion within a reasonable timeframe, normally within 30 days.",
+          ],
+        },
       ],
     },
     {
@@ -97,7 +133,7 @@ export const waloopFaqEn: LegalDocumentContent = {
       id: "platforms",
       title: "Is Waloop available on Android?",
       paragraphs: [
-        "Waloop is currently available on iOS (SwiftUI). Android support is not yet available.",
+        "Yes. Waloop is available on iOS (App Store) and Android (Google Play). Both versions offer the same core features for tracking billing cycles, payment due dates, and reminders.",
       ],
     },
     {
