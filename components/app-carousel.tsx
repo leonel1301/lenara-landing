@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { SiAndroid, SiApple } from "react-icons/si";
 
+import { ShowcaseMediaReveal } from "@/components/showcase-media-reveal";
 import { cn } from "@/lib/utils";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
@@ -143,13 +144,7 @@ export function AppCarousel({
   }, [count, paused, paginate, index]);
 
   return (
-    <motion.div
-      initial={
-        prefersReducedMotion ? false : { opacity: 0, y: 24, scale: 0.97 }
-      }
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, amount: 0.2, margin: "0px 0px -8% 0px" }}
-      transition={{ duration: 0.6, ease: easeOut }}
+    <ShowcaseMediaReveal
       role="group"
       aria-roledescription="carousel"
       aria-label={label}
@@ -280,6 +275,6 @@ export function AppCarousel({
           ))}
         </div>
       </div>
-    </motion.div>
+    </ShowcaseMediaReveal>
   );
 }

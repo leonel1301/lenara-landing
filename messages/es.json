@@ -311,15 +311,73 @@
   "apps": {
     "metadata": {
       "title": "Nuestras apps",
-      "description": "Apps creadas por Lenara Labs — incluyendo Waloop y otros productos diseñados y lanzados por nosotros."
+      "description": "Apps y juegos creados por Lenara Labs — incluyendo Waloop y la aventura narrativa retro Broken Compass."
     },
     "eyebrow": "Lenara Labs · Productos",
     "title": "Nuestras apps",
-    "description": "Productos diseñados, desarrollados y publicados por Lenara Labs — de la idea al lanzamiento en móvil, web y escritorio.",
+    "description": "Apps y juegos diseñados y desarrollados por Lenara Labs — desde productos móviles útiles hasta mundos interactivos originales.",
     "comingSoon": {
       "eyebrow": "Muy pronto",
       "title": "Más apps en camino",
       "description": "Estamos construyendo los próximos productos de Lenara Labs. Muy pronto."
+    },
+    "brokenCompass": {
+      "badge": "Retro game",
+      "name": "Broken Compass",
+      "description": "Una aventura narrativa en pixel art sobre un padre que atravesará un mundo roto para encontrar a su hijo desaparecido. Cada viaje forma un grupo distinto de compañeros guiados por IA, cada uno con personalidad propia. Todos parecen dignos de confianza, pero un impostor elegido al azar manipula al grupo con consejos en su mayoría verdaderos, ambigüedad calculada y mentiras en el momento perfecto. ¿Descubrirás quién te engaña antes de que sea demasiado tarde… y salvarás a tu hijo?",
+      "statusLabel": "En desarrollo",
+      "statusDetail": "Aventura narrativa · Concepto para PC y consolas",
+      "galleryLabel": "Arte de presentación de Broken Compass",
+      "galleryPrevious": "Arte anterior de Broken Compass",
+      "galleryNext": "Siguiente arte de Broken Compass",
+      "presentation": {
+        "journey": {
+          "label": "Arte principal del viaje",
+          "alt": "Un padre cansado con una brújula rota contempla caminos que atraviesan los biomas de Broken Compass"
+        },
+        "moonlitForest": {
+          "label": "Bosque lunar",
+          "alt": "El protagonista elige un camino a través de un bosque iluminado por la luna"
+        },
+        "ruinedCity": {
+          "label": "Ciudad en ruinas",
+          "alt": "El viajero atraviesa una ciudad destruida bajo la lluvia y un relámpago lejano"
+        },
+        "snowPeaks": {
+          "label": "Picos nevados",
+          "alt": "El padre asciende un paso montañoso nevado bajo las estrellas"
+        },
+        "stormyCoast": {
+          "label": "Costa tormentosa",
+          "alt": "Compañeros ambiguos guían al protagonista por un acantilado costero tormentoso"
+        },
+        "sunlitForest": {
+          "label": "Bosque soleado",
+          "alt": "El grupo se encuentra en una bifurcación del bosque bajo la luz del día"
+        },
+        "desertCrossing": {
+          "label": "Cruce del desierto",
+          "alt": "Los viajeros cruzan dunas iluminadas por el sol hacia un destino lejano"
+        },
+        "mountainPass": {
+          "label": "Paso de montaña",
+          "alt": "El grupo asciende un sendero alpino luminoso con un puente decisivo adelante"
+        },
+        "havenDestination": {
+          "label": "Destino refugio",
+          "alt": "El padre se reencuentra con su hijo en un pueblo soleado al final del viaje"
+        }
+      },
+      "musicTitle": "Avance de banda sonora",
+      "musicLabel": "Avance de la banda sonora de Broken Compass",
+      "playLabel": "Reproducir pista",
+      "pauseLabel": "Pausar pista",
+      "tracks": {
+        "aMissingPiece": {
+          "title": "A Missing Piece",
+          "description": "Tema de exploración — piano lo-fi, pads cálidos y ambiente distante para el viaje."
+        }
+      }
     },
     "waloop": {
       "badge": "Primer producto",
@@ -407,22 +465,6 @@
         "errorGeneric": "No se pudo cargar el feedback en este momento. Inténtelo de nuevo más tarde.",
         "errorUnauthorized": "El panel de feedback no está configurado. Contacte al administrador."
       }
-    },
-    "times2u": {
-      "badge": "Gestión del tiempo · IA",
-      "name": "Times2U",
-      "description": "Importa horarios desde archivos Excel, capturas o fotos — o créalos manualmente en la app. Lo distinto de Times2U es un asistente de IA que funciona como tu secretaria: dile que tienes reunión el miércoles y se agenda en el calendario, pregúntale qué días tienes libres, pide una rutina y el horario se adapta. Todo gira en torno a una gestión del tiempo más inteligente.",
-      "platformsLabel": "Disponible en",
-      "androidSoonLabel": "Android · Aún no",
-      "videoLabel": "Video tutorial de Times2U",
-      "videoFallback": "Video tutorial próximamente.",
-      "subtitles": [
-        "Dile a tu asistente que tienes reunión — queda en tu calendario",
-        "Importa horarios desde Excel, capturas o fotos",
-        "Pregunta qué días tienes libres",
-        "¿Necesitas una rutina? Tu horario se adapta al instante",
-        "Tu tiempo, gestionado como una secretaria personal"
-      ]
     }
   }
 }

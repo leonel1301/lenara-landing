@@ -311,15 +311,73 @@
   "apps": {
     "metadata": {
       "title": "Our Apps",
-      "description": "Apps built by Lenara Labs — including Waloop and other products designed and shipped in-house."
+      "description": "Apps and games built by Lenara Labs — including Waloop and the retro narrative adventure Broken Compass."
     },
     "eyebrow": "Lenara Labs · Products",
     "title": "Our Apps",
-    "description": "Products designed, built, and shipped by Lenara Labs — from idea to launch on mobile, web, and desktop.",
+    "description": "Apps and games designed and built by Lenara Labs — from useful mobile products to original interactive worlds.",
     "comingSoon": {
       "eyebrow": "Coming soon",
       "title": "More apps on the way",
       "description": "We're building the next products in the Lenara Labs lineup. Stay tuned."
+    },
+    "brokenCompass": {
+      "badge": "Retro game",
+      "name": "Broken Compass",
+      "description": "A narrative pixel-art adventure about a father who will cross a broken world to find his missing son. Every journey assembles a different party of AI-driven companions, each with their own unique personality. They all seem trustworthy, but one randomly chosen impostor subtly manipulates the group with mostly truthful advice, calculated ambiguity, and perfectly timed lies. Will you uncover who is deceiving you before it's too late… and save your son?",
+      "statusLabel": "In development",
+      "statusDetail": "Narrative adventure · PC & console concept",
+      "galleryLabel": "Broken Compass presentation art",
+      "galleryPrevious": "Previous Broken Compass artwork",
+      "galleryNext": "Next Broken Compass artwork",
+      "presentation": {
+        "journey": {
+          "label": "Journey key art",
+          "alt": "A tired father with a broken compass faces branching paths across the biomes of Broken Compass"
+        },
+        "moonlitForest": {
+          "label": "Moonlit forest",
+          "alt": "The protagonist chooses a path through a moonlit forest at night"
+        },
+        "ruinedCity": {
+          "label": "Ruined city",
+          "alt": "The traveler crosses a destroyed city under rain and distant lightning"
+        },
+        "snowPeaks": {
+          "label": "Snow peaks",
+          "alt": "The father climbs a snowy mountain pass beneath the stars"
+        },
+        "stormyCoast": {
+          "label": "Stormy coast",
+          "alt": "Ambiguous companions guide the protagonist along a stormy coastal cliff"
+        },
+        "sunlitForest": {
+          "label": "Sunlit forest",
+          "alt": "The party meets at a bright woodland fork in daylight"
+        },
+        "desertCrossing": {
+          "label": "Desert crossing",
+          "alt": "Travelers cross sunlit dunes toward a distant destination"
+        },
+        "mountainPass": {
+          "label": "Mountain pass",
+          "alt": "The group climbs a bright alpine trail with a bridge choice ahead"
+        },
+        "havenDestination": {
+          "label": "Haven destination",
+          "alt": "The father reunites with his son in a sunlit town at journey's end"
+        }
+      },
+      "musicTitle": "Soundtrack preview",
+      "musicLabel": "Broken Compass soundtrack preview",
+      "playLabel": "Play track",
+      "pauseLabel": "Pause track",
+      "tracks": {
+        "aMissingPiece": {
+          "title": "A Missing Piece",
+          "description": "Exploration theme — lo-fi piano, warm synth pads, and distant ambience for the journey."
+        }
+      }
     },
     "waloop": {
       "badge": "First product",
@@ -407,22 +465,6 @@
         "errorGeneric": "Unable to load feedback right now. Please try again later.",
         "errorUnauthorized": "Feedback panel is not configured. Contact the administrator."
       }
-    },
-    "times2u": {
-      "badge": "Time management · AI",
-      "name": "Times2U",
-      "description": "Import schedules from Excel files, screenshots or photos — or build them manually in the app. What sets Times2U apart is an AI assistant that works like your personal secretary: tell it you have a meeting on Wednesday and it lands on your calendar, ask which days you're free, request a routine and your schedule adapts. Everything revolves around smarter time management.",
-      "platformsLabel": "Available on",
-      "androidSoonLabel": "Android · Not yet",
-      "videoLabel": "Times2U tutorial video",
-      "videoFallback": "Tutorial video coming soon.",
-      "subtitles": [
-        "Tell your assistant about a meeting — it's on your calendar",
-        "Import schedules from Excel, screenshots or photos",
-        "Ask which days you have free",
-        "Need a routine? Your schedule adapts instantly",
-        "Your time, managed like a personal secretary"
-      ]
     }
   }
 }

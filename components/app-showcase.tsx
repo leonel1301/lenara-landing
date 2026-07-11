@@ -15,9 +15,11 @@ type Props = {
   nameHref?: string;
   nameLinkAria?: string;
   description: string;
-  platformsLabel: string;
+  platformsLabel?: string;
   appStoreHref?: string;
-  androidSoonLabel: string;
+  androidSoonLabel?: string;
+  /** Replaces the store badges for products that are not mobile apps. */
+  availability?: React.ReactNode;
   /** Media panel rendered beside the copy (e.g. carousel or video panel). */
   media: React.ReactNode;
   reversed?: boolean;
@@ -43,6 +45,7 @@ export function AppShowcase({
   platformsLabel,
   appStoreHref,
   androidSoonLabel,
+  availability,
   media,
   reversed = false,
   legalLinks,
@@ -73,16 +76,13 @@ export function AppShowcase({
   };
 
   return (
-    <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-6">
+    <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-6">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.25, margin: "0px 0px -8% 0px" }}
         variants={leftContainer}
-        className={cn(
-          "flex flex-col justify-center space-y-6 lg:sticky lg:top-24 lg:self-start",
-          reversed && "lg:order-2",
-        )}
+        className={cn("flex flex-col space-y-6", reversed && "lg:order-2")}
       >
         <motion.p
           variants={leftItem}
@@ -114,34 +114,38 @@ export function AppShowcase({
           {description}
         </motion.p>
 
-        <motion.div variants={leftItem} className="space-y-3">
-          <p className="text-sm font-medium text-foreground">{platformsLabel}</p>
-          <div className="flex flex-wrap gap-3">
-            <motion.div
-              initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.5, ease: easeOut }}
-              whileHover={prefersReducedMotion ? undefined : { y: -3, scale: 1.02 }}
-            >
-              <AppStoreBadge href={appStoreHref} />
-            </motion.div>
-            <motion.span
-              initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.58, ease: easeOut }}
-              whileHover={prefersReducedMotion ? undefined : { y: -2 }}
-              className={cn(
-                "inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium",
-                "bg-muted/50 text-muted-foreground",
-              )}
-            >
-              <Smartphone className="size-4" strokeWidth={1.75} />
-              {androidSoonLabel}
-            </motion.span>
-          </div>
-        </motion.div>
+        {availability ? (
+          <motion.div variants={leftItem}>{availability}</motion.div>
+        ) : platformsLabel && androidSoonLabel ? (
+          <motion.div variants={leftItem} className="space-y-3">
+            <p className="text-sm font-medium text-foreground">{platformsLabel}</p>
+            <div className="flex flex-wrap gap-3">
+              <motion.div
+                initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.5, ease: easeOut }}
+                whileHover={prefersReducedMotion ? undefined : { y: -3, scale: 1.02 }}
+              >
+                <AppStoreBadge href={appStoreHref} />
+              </motion.div>
+              <motion.span
+                initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.58, ease: easeOut }}
+                whileHover={prefersReducedMotion ? undefined : { y: -2 }}
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium",
+                  "bg-muted/50 text-muted-foreground",
+                )}
+              >
+                <Smartphone className="size-4" strokeWidth={1.75} />
+                {androidSoonLabel}
+              </motion.span>
+            </div>
+          </motion.div>
+        ) : null}
 
         {legalLinks ? (
           <motion.nav

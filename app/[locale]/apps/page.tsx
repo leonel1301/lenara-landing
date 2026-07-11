@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Gamepad2 } from "lucide-react";
 
+import { AppShowcase } from "@/components/app-showcase";
+import { BrokenCompassGallery } from "@/components/broken-compass-gallery";
 import { WaloopShowcase } from "@/components/waloop-showcase";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { WebPageJsonLd } from "@/components/webpage-jsonld";
@@ -13,6 +16,11 @@ import {
   ScrollRevealStagger,
 } from "@/components/scroll-reveal";
 import { WALOOP_APP_STORE_URL } from "@/lib/apps";
+import {
+  BROKEN_COMPASS_DAY_PRESENTATION,
+  BROKEN_COMPASS_NIGHT_PRESENTATION,
+} from "@/lib/broken-compass-presentation";
+import { BROKEN_COMPASS_MUSIC_TRACKS } from "@/lib/broken-compass-music";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/i18n/routing";
 import { buildAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
@@ -55,6 +63,22 @@ export default async function AppsPage({ params }: Props) {
   const waloopIosGallery = buildWaloopGallery("ios");
   const waloopAndroidGallery = buildWaloopGallery("android");
   const techStackItems = t.raw("waloop.techStack.items") as Record<string, string>;
+  const brokenCompassTracks = BROKEN_COMPASS_MUSIC_TRACKS.map((track) => ({
+    id: track.id,
+    src: track.src,
+    title: t(`brokenCompass.tracks.${track.titleKey}.title`),
+    description: t(`brokenCompass.tracks.${track.titleKey}.description`),
+  }));
+  const buildBrokenCompassSlides = (
+    slides: typeof BROKEN_COMPASS_NIGHT_PRESENTATION | typeof BROKEN_COMPASS_DAY_PRESENTATION,
+  ) =>
+    slides.map((slide) => ({
+      src: slide.src,
+      label: t(`brokenCompass.presentation.${slide.titleKey}.label`),
+      alt: t(`brokenCompass.presentation.${slide.titleKey}.alt`),
+    }));
+  const brokenCompassNightSlides = buildBrokenCompassSlides(BROKEN_COMPASS_NIGHT_PRESENTATION);
+  const brokenCompassDaySlides = buildBrokenCompassSlides(BROKEN_COMPASS_DAY_PRESENTATION);
 
   return (
     <>
@@ -135,6 +159,48 @@ export default async function AppsPage({ params }: Props) {
               faqLabel: t("waloop.legal.faqLink"),
               feedbackLabel: t("waloop.legal.feedbackLink"),
             }}
+          />
+        </ScrollReveal>
+      </FullscreenSection>
+
+      <FullscreenSection
+        id="broken-compass"
+        containerClassName="max-w-6xl"
+        className="border-t border-border"
+      >
+        <ScrollReveal delay={0.05}>
+          <AppShowcase
+            badge={t("brokenCompass.badge")}
+            name={t("brokenCompass.name")}
+            description={t("brokenCompass.description")}
+            reversed
+            availability={
+              <div className="space-y-3">
+                <p className="text-sm font-medium text-foreground">
+                  {t("brokenCompass.statusLabel")}
+                </p>
+                <span className="inline-flex items-center gap-2 rounded-lg border border-primary/20 bg-badge px-3 py-2 text-sm font-medium text-primary">
+                  <Gamepad2 className="size-4" strokeWidth={1.75} aria-hidden />
+                  {t("brokenCompass.statusDetail")}
+                </span>
+              </div>
+            }
+            media={
+              <BrokenCompassGallery
+                nightSlides={brokenCompassNightSlides}
+                daySlides={brokenCompassDaySlides}
+                label={t("brokenCompass.galleryLabel")}
+                previousLabel={t("brokenCompass.galleryPrevious")}
+                nextLabel={t("brokenCompass.galleryNext")}
+                music={{
+                  title: t("brokenCompass.musicTitle"),
+                  tracks: brokenCompassTracks,
+                  label: t("brokenCompass.musicLabel"),
+                  playLabel: t("brokenCompass.playLabel"),
+                  pauseLabel: t("brokenCompass.pauseLabel"),
+                }}
+              />
+            }
           />
         </ScrollReveal>
       </FullscreenSection>
