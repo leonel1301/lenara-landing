@@ -311,15 +311,36 @@
   "apps": {
     "metadata": {
       "title": "Nuestras apps",
-      "description": "Apps y juegos creados por Lenara Labs — incluyendo Waloop y la aventura narrativa retro Broken Compass."
+      "description": "Productos de Lenara Labs — incluyendo Waloop y Sam Coworker, un bot de WhatsApp con IA que reestructura tu CV para ATS."
     },
     "eyebrow": "Lenara Labs · Productos",
     "title": "Nuestras apps",
-    "description": "Apps y juegos diseñados y desarrollados por Lenara Labs — desde productos móviles útiles hasta mundos interactivos originales.",
+    "description": "Productos diseñados y desarrollados por Lenara Labs — desde apps móviles útiles hasta bots con IA que te ayudan a conseguir el puesto que quieres.",
     "comingSoon": {
       "eyebrow": "Muy pronto",
       "title": "Más apps en camino",
       "description": "Estamos construyendo los próximos productos de Lenara Labs. Muy pronto."
+    },
+    "samCoworker": {
+      "badge": "Bot de WhatsApp",
+      "name": "Sam Coworker",
+      "description": "Sam Coworker es un bot de WhatsApp con IA. Envíale tu CV y el puesto que quieres; Sam lo reestructura con los datos esenciales que pide la empresa, para pasar filtros ATS y para que un reclutador que solo ojea vea la experiencia alineada a la vacante.",
+      "statusLabel": "En desarrollo",
+      "statusDetail": "Adaptador de CV · Listo para ATS · Bot de WhatsApp",
+      "panel": {
+        "label": "Sam Coworker en WhatsApp",
+        "chatUserLabel": "Tú",
+        "chatUserMessage": "Te mando mi CV + una vacante de .NET. Adáptalo para ATS.",
+        "chatBotLabel": "Sam Coworker",
+        "chatBotIntro": "Reestructurado para este puesto — lo que un reclutador de .NET ojea:",
+        "bullets": [
+          { "text": "APIs y servicios con C# y .NET", "highlighted": true },
+          { "text": "Features en backends con ASP.NET Core", "highlighted": true },
+          { "text": "Apps iOS con Swift y SwiftUI", "highlighted": false },
+          { "text": "Prototipos móviles en Kotlin", "highlighted": false }
+        ],
+        "resultLabel": "Chateas por WhatsApp. Sam reescribe el CV para que keywords ATS y bullets encajen con el puesto."
+      }
     },
     "brokenCompass": {
       "badge": "Retro game",

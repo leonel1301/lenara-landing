@@ -311,15 +311,36 @@
   "apps": {
     "metadata": {
       "title": "Our Apps",
-      "description": "Apps and games built by Lenara Labs — including Waloop and the retro narrative adventure Broken Compass."
+      "description": "Products by Lenara Labs — including Waloop and Sam Coworker, an AI WhatsApp bot that restructures your CV for ATS."
     },
     "eyebrow": "Lenara Labs · Products",
     "title": "Our Apps",
-    "description": "Apps and games designed and built by Lenara Labs — from useful mobile products to original interactive worlds.",
+    "description": "Products designed and built by Lenara Labs — from useful mobile apps to AI bots that help you land the role you want.",
     "comingSoon": {
       "eyebrow": "Coming soon",
       "title": "More apps on the way",
       "description": "We're building the next products in the Lenara Labs lineup. Stay tuned."
+    },
+    "samCoworker": {
+      "badge": "WhatsApp bot",
+      "name": "Sam Coworker",
+      "description": "Sam Coworker is an AI WhatsApp bot. Send your CV and the role you want; Sam restructures it around the essentials the company asks for, so it passes ATS filters and so recruiters who only skim see the experience that matches the opening.",
+      "statusLabel": "In development",
+      "statusDetail": "CV tailor · ATS-ready · WhatsApp bot",
+      "panel": {
+        "label": "Sam Coworker on WhatsApp",
+        "chatUserLabel": "You",
+        "chatUserMessage": "Here's my CV + a .NET Developer job. Adapt it for ATS.",
+        "chatBotLabel": "Sam Coworker",
+        "chatBotIntro": "Restructured for this role — keeping what .NET recruiters glance for:",
+        "bullets": [
+          { "text": "Built APIs and services with C# and .NET", "highlighted": true },
+          { "text": "Shipped features on ASP.NET Core backends", "highlighted": true },
+          { "text": "Built iOS apps with Swift & SwiftUI", "highlighted": false },
+          { "text": "Prototyped mobile UX in Kotlin", "highlighted": false }
+        ],
+        "resultLabel": "Chat on WhatsApp. Sam rewrites the CV so ATS keywords and skim-friendly bullets match the job."
+      }
     },
     "brokenCompass": {
       "badge": "Retro game",
