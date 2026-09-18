@@ -311,35 +311,43 @@
   "apps": {
     "metadata": {
       "title": "Our Apps",
-      "description": "Products by Lenara Labs — including Waloop and Sam Coworker, an AI WhatsApp bot that restructures your CV for ATS."
+      "description": "Waloop and Nuudo: products by Lenara Labs to organize your day and connect your business data with artificial intelligence."
     },
     "eyebrow": "Lenara Labs · Products",
     "title": "Our Apps",
-    "description": "Products designed and built by Lenara Labs — from useful mobile apps to AI bots that help you land the role you want.",
+    "description": "Products designed and built by Lenara Labs: apps that simplify your day and tools that turn your company’s information into shared knowledge.",
     "comingSoon": {
       "eyebrow": "Coming soon",
       "title": "More apps on the way",
       "description": "We're building the next products in the Lenara Labs lineup. Stay tuned."
     },
-    "samCoworker": {
-      "badge": "WhatsApp bot",
-      "name": "Sam Coworker",
-      "description": "Sam Coworker is an AI WhatsApp bot. Send your CV and the role you want; Sam restructures it around the essentials the company asks for, so it passes ATS filters and so recruiters who only skim see the experience that matches the opening.",
+    "nuudo": {
+      "badge": "Business intelligence",
+      "name": "Nuudo",
+      "description": "Nuudo connects your company’s data and translates it into a map of concepts, fields and relationships your team can understand and confirm. With that shared context, you can ask questions in natural language and explore answers backed by queries and tables, keeping control over what your information means.",
       "statusLabel": "In development",
-      "statusDetail": "CV tailor · ATS-ready · WhatsApp bot",
-      "panel": {
-        "label": "Sam Coworker on WhatsApp",
-        "chatUserLabel": "You",
-        "chatUserMessage": "Here's my CV + a .NET Developer job. Adapt it for ATS.",
-        "chatBotLabel": "Sam Coworker",
-        "chatBotIntro": "Restructured for this role — keeping what .NET recruiters glance for:",
-        "bullets": [
-          { "text": "Built APIs and services with C# and .NET", "highlighted": true },
-          { "text": "Shipped features on ASP.NET Core backends", "highlighted": true },
-          { "text": "Built iOS apps with Swift & SwiftUI", "highlighted": false },
-          { "text": "Prototyped mobile UX in Kotlin", "highlighted": false }
-        ],
-        "resultLabel": "Chat on WhatsApp. Sam rewrites the CV so ATS keywords and skim-friendly bullets match the job."
+      "statusDetail": "Web app · Data mapping · Human review · AI queries",
+      "techStackLabel": "Technologies we use",
+      "galleryLabel": "The Nuudo interface",
+      "demoLabel": "Screenshots of the current interface with demonstration data.",
+      "expandLabel": "Expand screenshot",
+      "closeLabel": "Close screenshot",
+      "screens": {
+        "structure": {
+          "title": "Structure",
+          "alt": "Nuudo: concepts, fields and relationships mapped for a demonstration business",
+          "description": "Explore how Nuudo interprets your data and where each concept comes from."
+        },
+        "review": {
+          "title": "Review",
+          "alt": "Nuudo: review table with options to confirm, correct or reject interpretations",
+          "description": "Your team confirms, corrects or rejects interpretations that need business judgment."
+        },
+        "infer": {
+          "title": "Infer",
+          "alt": "Nuudo: natural-language question and answer with a sales-by-category table",
+          "description": "Ask questions and explore the queries and tables supporting each answer."
+        }
       }
     },
     "brokenCompass": {

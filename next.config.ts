@@ -11,6 +11,9 @@ const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 // Required: ~/package-lock.json makes Next infer the home dir as workspace root,
 // which causes Turbopack to watch the entire home folder and hang the machine.
 const nextConfig: NextConfig = {
+  images: {
+    qualities: [75, 90, 95],
+  },
   turbopack: {
     root: projectRoot,
   },

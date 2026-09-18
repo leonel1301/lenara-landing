@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { MessageCircle } from "lucide-react";
 
-import { AppShowcase } from "@/components/app-showcase";
-import { SamCoworkerPanel } from "@/components/sam-coworker-panel";
+import { NuudoShowcase } from "@/components/nuudo-showcase";
 import { WaloopShowcase } from "@/components/waloop-showcase";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { WebPageJsonLd } from "@/components/webpage-jsonld";
@@ -19,9 +17,6 @@ import { WALOOP_APP_STORE_URL } from "@/lib/apps";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/i18n/routing";
 import { buildAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
-
-/* Broken Compass assets & gallery remain in the codebase (components/lib/messages)
-   but are temporarily replaced on this page by Sam Coworker. */
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -61,10 +56,12 @@ export default async function AppsPage({ params }: Props) {
   const waloopIosGallery = buildWaloopGallery("ios");
   const waloopAndroidGallery = buildWaloopGallery("android");
   const techStackItems = t.raw("waloop.techStack.items") as Record<string, string>;
-  const samCoworkerBullets = t.raw("samCoworker.panel.bullets") as {
-    text: string;
-    highlighted?: boolean;
-  }[];
+  const nuudoGallery = (["structure", "review", "infer"] as const).map((view) => ({
+    src: `/images/nuudo/${locale}/${view}.jpg`,
+    title: t(`nuudo.screens.${view}.title`),
+    alt: t(`nuudo.screens.${view}.alt`),
+    description: t(`nuudo.screens.${view}.description`),
+  }));
 
   return (
     <>
@@ -150,38 +147,25 @@ export default async function AppsPage({ params }: Props) {
       </FullscreenSection>
 
       <FullscreenSection
-        id="sam-coworker"
+        id="nuudo"
         containerClassName="max-w-6xl"
         className="border-t border-border"
       >
         <ScrollReveal delay={0.05}>
-          <AppShowcase
-            badge={t("samCoworker.badge")}
-            name={t("samCoworker.name")}
-            description={t("samCoworker.description")}
-            reversed
-            availability={
-              <div className="space-y-3">
-                <p className="text-sm font-medium text-foreground">
-                  {t("samCoworker.statusLabel")}
-                </p>
-                <span className="inline-flex items-center gap-2 rounded-lg border border-primary/20 bg-badge px-3 py-2 text-sm font-medium text-primary">
-                  <MessageCircle className="size-4" strokeWidth={1.75} aria-hidden />
-                  {t("samCoworker.statusDetail")}
-                </span>
-              </div>
-            }
-            media={
-              <SamCoworkerPanel
-                label={t("samCoworker.panel.label")}
-                chatUserLabel={t("samCoworker.panel.chatUserLabel")}
-                chatUserMessage={t("samCoworker.panel.chatUserMessage")}
-                chatBotLabel={t("samCoworker.panel.chatBotLabel")}
-                chatBotIntro={t("samCoworker.panel.chatBotIntro")}
-                bullets={samCoworkerBullets}
-                resultLabel={t("samCoworker.panel.resultLabel")}
-              />
-            }
+          <NuudoShowcase
+            badge={t("nuudo.badge")}
+            name={t("nuudo.name")}
+            description={t("nuudo.description")}
+            statusLabel={t("nuudo.statusLabel")}
+            statusDetail={t("nuudo.statusDetail")}
+            techStackLabel={t("nuudo.techStackLabel")}
+            galleryLabel={t("nuudo.galleryLabel")}
+            demoLabel={t("nuudo.demoLabel")}
+            previousLabel={tCommon("carouselPrev")}
+            nextLabel={tCommon("carouselNext")}
+            expandLabel={t("nuudo.expandLabel")}
+            closeLabel={t("nuudo.closeLabel")}
+            slides={nuudoGallery}
           />
         </ScrollReveal>
       </FullscreenSection>

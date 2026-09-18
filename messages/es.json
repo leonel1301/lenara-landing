@@ -311,35 +311,43 @@
   "apps": {
     "metadata": {
       "title": "Nuestras apps",
-      "description": "Productos de Lenara Labs — incluyendo Waloop y Sam Coworker, un bot de WhatsApp con IA que reestructura tu CV para ATS."
+      "description": "Waloop y Nuudo: productos de Lenara Labs para organizar tu día y conectar los datos de tu negocio con inteligencia artificial."
     },
     "eyebrow": "Lenara Labs · Productos",
     "title": "Nuestras apps",
-    "description": "Productos diseñados y desarrollados por Lenara Labs — desde apps móviles útiles hasta bots con IA que te ayudan a conseguir el puesto que quieres.",
+    "description": "Productos diseñados y desarrollados por Lenara Labs: apps que simplifican tu día y herramientas que convierten la información de tu empresa en conocimiento compartido.",
     "comingSoon": {
       "eyebrow": "Muy pronto",
       "title": "Más apps en camino",
       "description": "Estamos construyendo los próximos productos de Lenara Labs. Muy pronto."
     },
-    "samCoworker": {
-      "badge": "Bot de WhatsApp",
-      "name": "Sam Coworker",
-      "description": "Sam Coworker es un bot de WhatsApp con IA. Envíale tu CV y el puesto que quieres; Sam lo reestructura con los datos esenciales que pide la empresa, para pasar filtros ATS y para que un reclutador que solo ojea vea la experiencia alineada a la vacante.",
+    "nuudo": {
+      "badge": "Inteligencia de negocio",
+      "name": "Nuudo",
+      "description": "Nuudo conecta los datos de tu empresa y los traduce en un mapa de conceptos, campos y relaciones que tu equipo puede entender y confirmar. Con ese contexto compartido, puedes hacer preguntas en lenguaje natural y explorar respuestas respaldadas por consultas y tablas, manteniendo el control sobre el significado de tu información.",
       "statusLabel": "En desarrollo",
-      "statusDetail": "Adaptador de CV · Listo para ATS · Bot de WhatsApp",
-      "panel": {
-        "label": "Sam Coworker en WhatsApp",
-        "chatUserLabel": "Tú",
-        "chatUserMessage": "Te mando mi CV + una vacante de .NET. Adáptalo para ATS.",
-        "chatBotLabel": "Sam Coworker",
-        "chatBotIntro": "Reestructurado para este puesto — lo que un reclutador de .NET ojea:",
-        "bullets": [
-          { "text": "APIs y servicios con C# y .NET", "highlighted": true },
-          { "text": "Features en backends con ASP.NET Core", "highlighted": true },
-          { "text": "Apps iOS con Swift y SwiftUI", "highlighted": false },
-          { "text": "Prototipos móviles en Kotlin", "highlighted": false }
-        ],
-        "resultLabel": "Chateas por WhatsApp. Sam reescribe el CV para que keywords ATS y bullets encajen con el puesto."
+      "statusDetail": "App web · Mapa de datos · Revisión humana · Consultas con IA",
+      "techStackLabel": "Tecnologías que usamos",
+      "galleryLabel": "La interfaz de Nuudo",
+      "demoLabel": "Capturas de la interfaz actual con datos de demostración.",
+      "expandLabel": "Ampliar captura",
+      "closeLabel": "Cerrar captura",
+      "screens": {
+        "structure": {
+          "title": "Estructura",
+          "alt": "Nuudo: mapa de conceptos, campos y relaciones de una empresa de demostración",
+          "description": "Explora cómo Nuudo interpreta tus datos y de dónde sale cada concepto."
+        },
+        "review": {
+          "title": "Revisión",
+          "alt": "Nuudo: tabla de revisión con opciones para confirmar, corregir o rechazar interpretaciones",
+          "description": "Tu equipo confirma, corrige o rechaza las interpretaciones que necesitan criterio de negocio."
+        },
+        "infer": {
+          "title": "Inferir",
+          "alt": "Nuudo: pregunta en lenguaje natural y respuesta con una tabla de ventas por categoría",
+          "description": "Haz preguntas y explora las consultas y tablas que respaldan cada respuesta."
+        }
       }
     },
     "brokenCompass": {
