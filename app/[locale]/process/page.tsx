@@ -6,6 +6,7 @@ import { WebPageJsonLd } from "@/components/webpage-jsonld";
 import { EyebrowBadge } from "@/components/eyebrow-badge";
 import { FullscreenSection } from "@/components/fullscreen-section";
 import { PageCta } from "@/components/page-cta";
+import { ProcessLayersHero } from "@/components/process-layers-hero";
 import { ProcessShowcase } from "@/components/process-showcase";
 import { ScrollIndicator } from "@/components/scroll-indicator";
 import {
@@ -62,6 +63,11 @@ export default async function ProcessPage({ params }: Props) {
     tools: stackTools,
     ai: stackAi,
   };
+  const heroLayers = processSteps.map((id, index) => ({
+    id,
+    number: String(index + 1).padStart(2, "0"),
+    title: t(`steps.${id}.title`),
+  }));
 
   return (
     <>
@@ -80,8 +86,8 @@ export default async function ProcessPage({ params }: Props) {
       />
       <FullscreenSection
         fullHeight
-        containerClassName="max-w-3xl items-center text-center"
-        className="border-b border-border bg-background"
+        containerClassName="relative z-10 max-w-7xl"
+        className="overflow-hidden border-b border-border bg-background"
         scrollIndicator={
           <ScrollIndicator
             href={`#${firstStep}`}
@@ -89,25 +95,64 @@ export default async function ProcessPage({ params }: Props) {
           />
         }
       >
-        <ScrollRevealStagger
-          trigger="mount"
-          stagger={0.12}
-          className="flex w-full flex-col items-center gap-6"
-        >
-          <ScrollRevealItem>
-            <EyebrowBadge>{t("eyebrow")}</EyebrowBadge>
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-24 top-24 size-72 rounded-full bg-primary/10 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-20 bottom-12 size-80 rounded-full bg-[var(--icon-4)]/10 blur-3xl"
+        />
+        <div className="grid w-full items-center gap-10 py-10 lg:grid-cols-[0.88fr_1.12fr] lg:gap-14 lg:py-0">
+          <ScrollRevealStagger
+            trigger="mount"
+            stagger={0.12}
+            className="flex w-full flex-col items-start gap-6 text-left"
+          >
+            <ScrollRevealItem>
+              <EyebrowBadge>{t("eyebrow")}</EyebrowBadge>
+            </ScrollRevealItem>
+            <ScrollRevealItem>
+              <h1 className="max-w-xl text-4xl font-semibold tracking-[-0.035em] text-foreground md:text-6xl lg:text-7xl lg:leading-[0.96]">
+                {t("title")}
+              </h1>
+            </ScrollRevealItem>
+            <ScrollRevealItem>
+              <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                {t("description")}
+              </p>
+            </ScrollRevealItem>
+            <ScrollRevealItem className="w-full">
+              <nav aria-label={t("visual.stepsLabel")} className="w-full">
+                <ol className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-2">
+                  {heroLayers.map((layer) => (
+                    <li key={layer.id}>
+                      <a
+                        href={`#${layer.id}`}
+                        className="group flex items-center gap-2 rounded-xl border border-border/80 bg-card/45 px-3 py-2.5 text-sm text-foreground transition-[border-color,background-color,transform] hover:-translate-y-0.5 hover:border-primary/35 hover:bg-card"
+                      >
+                        <span className="font-mono text-[10px] font-semibold tracking-wider text-primary/75">
+                          {layer.number}
+                        </span>
+                        <span className="truncate font-medium text-foreground/85 group-hover:text-primary">
+                          {layer.title}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            </ScrollRevealItem>
+          </ScrollRevealStagger>
+
+          <ScrollRevealItem className="w-full">
+            <ProcessLayersHero
+              layers={heroLayers}
+              kicker={t("visual.kicker")}
+              hint={t("visual.hint")}
+            />
           </ScrollRevealItem>
-          <ScrollRevealItem>
-            <h1 className="text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-              {t("title")}
-            </h1>
-          </ScrollRevealItem>
-          <ScrollRevealItem>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              {t("description")}
-            </p>
-          </ScrollRevealItem>
-        </ScrollRevealStagger>
+        </div>
       </FullscreenSection>
 
       {processSteps.map((id, index) => (

@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { Link } from "@/i18n/navigation";
-import { LENARA_ICON_SRC, LENARA_ICON_ZOOM } from "@/lib/brand";
+import { LENARA_ICON_SRC } from "@/lib/brand";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -21,14 +21,13 @@ export function HeaderBrand({ brand, className }: Props) {
       )}
     >
       <span className="relative flex h-8 items-center gap-2.5 overflow-hidden rounded-[6px] px-2.5">
-        <span className="flex size-8 shrink-0 items-center justify-center overflow-hidden">
+        <span className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-[7px] ring-1 ring-black/5 ring-inset dark:ring-white/10">
           <Image
             src={LENARA_ICON_SRC}
             alt=""
-            width={1536}
-            height={1024}
-            className="h-8 w-auto shrink-0 object-contain dark:brightness-0 dark:invert"
-            style={{ transform: `scale(${LENARA_ICON_ZOOM})` }}
+            width={1254}
+            height={1254}
+            className="size-8 shrink-0 object-cover"
             aria-hidden
             priority
           />

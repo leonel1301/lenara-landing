@@ -254,6 +254,11 @@
     "eyebrow": "Lenara Labs · Proceso",
     "title": "Cómo trabajamos",
     "description": "Un proceso claro de principio a fin, con entregas iterativas y comunicación constante.",
+    "visual": {
+      "kicker": "De la idea al producto",
+      "hint": "Mueve el cursor o desliza para explorar las capas",
+      "stepsLabel": "Ir a una etapa del proceso"
+    },
     "steps": {
       "discovery": {
         "title": "Descubrimiento",

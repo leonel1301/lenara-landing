@@ -254,6 +254,11 @@
     "eyebrow": "Lenara Labs · Process",
     "title": "How we work",
     "description": "A clear process from start to finish, with iterative deliveries and constant communication.",
+    "visual": {
+      "kicker": "From idea to product",
+      "hint": "Move your cursor or swipe to explore the layers",
+      "stepsLabel": "Jump to a process stage"
+    },
     "steps": {
       "discovery": {
         "title": "Discovery",
