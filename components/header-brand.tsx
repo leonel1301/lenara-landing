@@ -27,7 +27,7 @@ export function HeaderBrand({ brand, className }: Props) {
             alt=""
             width={1254}
             height={1254}
-            className="size-8 shrink-0 object-cover"
+            className="size-8 object-cover"
             aria-hidden
             priority
           />
@@ -35,10 +35,6 @@ export function HeaderBrand({ brand, className }: Props) {
         <span className="whitespace-nowrap text-sm font-semibold tracking-tight text-foreground transition-colors duration-300 group-hover:text-primary">
           {brand}
         </span>
-        <span
-          aria-hidden
-          className="brand-mark-shine pointer-events-none absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-primary/12 to-transparent"
-        />
       </span>
     </Link>
   );

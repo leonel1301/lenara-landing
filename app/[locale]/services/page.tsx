@@ -71,7 +71,7 @@ export default async function ServicesPage({ params }: Props) {
       <FullscreenSection
         fullHeight
         containerClassName="max-w-3xl items-center text-center"
-        className="border-b border-border bg-background"
+        className="bg-background"
         scrollIndicator={
           <ScrollIndicator
             href="#services-ai-banner"
@@ -107,7 +107,6 @@ export default async function ServicesPage({ params }: Props) {
           key={id}
           id={id}
           containerClassName="max-w-6xl"
-          className={index > 0 ? "border-t border-border" : undefined}
         >
           <ServiceShowcase
             id={id}
@@ -122,7 +121,6 @@ export default async function ServicesPage({ params }: Props) {
 
       <FullscreenSection
         containerClassName="max-w-3xl items-center text-center"
-        className="border-t border-border"
       >
         <PageCta
           title={t("cta.title")}

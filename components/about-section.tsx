@@ -6,6 +6,7 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 type ProjectAreaLabel = {
   id: "ios" | "android" | "web" | "iot" | "ai";
   label: string;
+  detail: string;
 };
 
 type Props = {
@@ -46,19 +47,34 @@ export function AboutSection({
   return (
     <FullscreenSection
       id="about"
-      containerClassName="max-w-5xl"
-      className="border-t border-border"
+      containerClassName="max-w-6xl"
+      className="relative"
     >
-      <div className="flex flex-col gap-8 md:gap-10">
-        <ScrollReveal className="max-w-2xl space-y-3">
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 -top-80 h-[58rem] bg-[linear-gradient(to_bottom,transparent_0%,color-mix(in_oklch,var(--primary)_7%,var(--background))_22%,color-mix(in_oklch,var(--primary)_7%,var(--background))_48%,transparent_100%)]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-40 left-[6%] size-[28rem] rounded-full bg-primary/10 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-0 bottom-0 size-64 rounded-full bg-[var(--icon-4)]/10 blur-3xl"
+      />
+
+      <div className="relative flex flex-col gap-8 md:gap-10">
+        <ScrollReveal className="max-w-3xl space-y-4">
+          <h2 className="text-4xl font-semibold tracking-[-0.035em] text-foreground md:text-5xl">
             {title}
           </h2>
-          <p className="text-muted-foreground">{subtitle}</p>
+          <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            {subtitle}
+          </p>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.1}>
-          <div className="grid items-stretch gap-6 md:grid-cols-2">
+        <ScrollReveal delay={0.08}>
+          <div className="grid items-stretch gap-5 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:gap-6">
             <FounderCard
               founderLabel={founderLabel}
               name={name}

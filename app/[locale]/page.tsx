@@ -52,7 +52,7 @@ export default async function OverviewPage({ params }: Props) {
       <FullscreenSection
         fullHeight
         containerClassName="max-w-3xl items-center text-center"
-        className="border-b border-border bg-background"
+        className="bg-background"
         scrollIndicator={
           <ScrollIndicator
             href="#about"
@@ -105,6 +105,7 @@ export default async function OverviewPage({ params }: Props) {
         projectAreas={projectAreasList.map((area) => ({
           id: area,
           label: t(`about.projects.areas.${area}`),
+          detail: t(`about.projects.areaDetails.${area}`),
         }))}
         appsLink={t("about.appsLink")}
         appsLinkAria={t("about.appsLinkAria")}

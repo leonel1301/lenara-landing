@@ -199,37 +199,6 @@
   animation: typewriter-blink 0.85s step-end infinite;
 }
 
-@keyframes brand-mark-pulse {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-    box-shadow: 0 0 0 0 color-mix(in oklch, var(--primary) 35%, transparent);
-  }
-  50% {
-    opacity: 0.75;
-    transform: scale(0.88);
-    box-shadow: 0 0 0 3px transparent;
-  }
-}
-
-@keyframes brand-mark-shine {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-.brand-mark-dot {
-  animation: brand-mark-pulse 2.8s ease-in-out infinite;
-}
-
-.brand-mark:hover .brand-mark-shine {
-  animation: brand-mark-shine 0.65s ease-out;
-}
-
 .brand-mark:focus-visible {
   outline: 2px solid color-mix(in oklch, var(--primary) 50%, transparent);
   outline-offset: 2px;

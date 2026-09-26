@@ -81,7 +81,7 @@ export default async function AppsPage({ params }: Props) {
       <FullscreenSection
         fullHeight
         containerClassName="max-w-3xl items-center text-center"
-        className="border-b border-border bg-background"
+        className="bg-background"
         scrollIndicator={
           <ScrollIndicator
             href="#waloop"
@@ -149,7 +149,6 @@ export default async function AppsPage({ params }: Props) {
       <FullscreenSection
         id="nuudo"
         containerClassName="max-w-6xl"
-        className="border-t border-border"
       >
         <ScrollReveal delay={0.05}>
           <NuudoShowcase
@@ -173,7 +172,6 @@ export default async function AppsPage({ params }: Props) {
       <FullscreenSection
         id="coming-soon"
         containerClassName="max-w-3xl items-center text-center"
-        className="border-t border-border"
       >
         <ScrollReveal
           delay={0.05}

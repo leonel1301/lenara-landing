@@ -41,7 +41,7 @@ export function ContactSection({
     <FullscreenSection
       id="contact"
       containerClassName="max-w-5xl"
-      className="border-t border-border bg-background"
+      className="bg-background"
     >
       <div className="flex flex-col gap-8 md:gap-10">
         <ScrollReveal className="max-w-2xl space-y-3">
