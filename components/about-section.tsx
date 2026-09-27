@@ -1,10 +1,15 @@
-import { FounderCard } from "@/components/founder-card";
-import { ProjectsCard } from "@/components/projects-card";
-import { FullscreenSection } from "@/components/fullscreen-section";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+
+import { AboutBuildStack } from "@/components/about-build-stack";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { PERSONAL_HOMEPAGE_URL } from "@/lib/process";
+import type { ProjectArea } from "@/lib/projects";
+
+const FOUNDER_PHOTO_SRC = "/images/lenara/leonel-ortega.jpg";
 
 type ProjectAreaLabel = {
-  id: "ios" | "android" | "web" | "iot" | "ai";
+  id: ProjectArea;
   label: string;
   detail: string;
 };
@@ -36,7 +41,6 @@ export function AboutSection({
   description,
   profileLink,
   profileLinkAria,
-  initials,
   projectsLabel,
   projectsTitle,
   projectsDescription,
@@ -45,56 +49,90 @@ export function AboutSection({
   appsLinkAria,
 }: Props) {
   return (
-    <FullscreenSection
+    <section
       id="about"
-      containerClassName="max-w-6xl"
-      className="relative"
+      aria-labelledby="about-title"
+      className="slab-field scroll-mt-[var(--header-height)] px-6 py-20 md:py-28 lg:py-32"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 -top-80 h-[58rem] bg-[linear-gradient(to_bottom,transparent_0%,color-mix(in_oklch,var(--primary)_7%,var(--background))_22%,color-mix(in_oklch,var(--primary)_7%,var(--background))_48%,transparent_100%)]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-40 left-[6%] size-[28rem] rounded-full bg-primary/10 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute right-0 bottom-0 size-64 rounded-full bg-[var(--icon-4)]/10 blur-3xl"
-      />
+      <div className="mx-auto grid w-full max-w-6xl gap-16 lg:grid-cols-12 lg:gap-x-10">
+        <div className="flex flex-col gap-12 lg:col-span-5 lg:gap-16">
+          <ScrollReveal className="space-y-5">
+            <h2
+              id="about-title"
+              className="text-[2.5rem] leading-[1.05] font-semibold tracking-[-0.035em] text-balance text-[var(--slab-ink)] md:text-6xl"
+            >
+              {title}
+            </h2>
+            <p className="max-w-md text-lg leading-relaxed text-pretty text-[var(--slab-ink-soft)]">
+              {subtitle}
+            </p>
+          </ScrollReveal>
 
-      <div className="relative flex flex-col gap-8 md:gap-10">
-        <ScrollReveal className="max-w-3xl space-y-4">
-          <h2 className="text-4xl font-semibold tracking-[-0.035em] text-foreground md:text-5xl">
-            {title}
-          </h2>
-          <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            {subtitle}
-          </p>
-        </ScrollReveal>
+          <ScrollReveal delay={0.08}>
+            <figure
+              aria-label={founderLabel}
+              className="border-t border-[var(--slab-rule)] pt-8"
+            >
+              <div className="flex items-center gap-4">
+                <Image
+                  src={FOUNDER_PHOTO_SRC}
+                  alt={name}
+                  width={160}
+                  height={160}
+                  sizes="80px"
+                  className="size-20 shrink-0 rounded-full object-cover shadow-[0_10px_24px_-14px_var(--slab-shadow)] ring-1 ring-[var(--slab-rule)]"
+                />
+                <figcaption className="min-w-0">
+                  <p className="text-xl font-semibold tracking-[-0.02em] text-[var(--slab-ink)]">
+                    {name}
+                  </p>
+                  <p className="text-sm font-medium text-[var(--slab-accent)]">
+                    {role}
+                  </p>
+                </figcaption>
+              </div>
+              <blockquote className="mt-6 max-w-md text-base leading-relaxed text-pretty text-[var(--slab-ink-soft)]">
+                {description}
+              </blockquote>
+              <a
+                href={PERSONAL_HOMEPAGE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={profileLinkAria}
+                className="slab-link group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold"
+              >
+                {profileLink}
+                <ArrowUpRight
+                  aria-hidden
+                  className="size-4 transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  strokeWidth={2}
+                />
+              </a>
+            </figure>
+          </ScrollReveal>
+        </div>
 
-        <ScrollReveal delay={0.08}>
-          <div className="grid items-stretch gap-5 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:gap-6">
-            <FounderCard
-              founderLabel={founderLabel}
-              name={name}
-              role={role}
-              description={description}
-              profileLink={profileLink}
-              profileLinkAria={profileLinkAria}
-              initials={initials}
-            />
-            <ProjectsCard
-              label={projectsLabel}
-              title={projectsTitle}
-              description={projectsDescription}
-              areas={projectAreas}
-              appsLink={appsLink}
-              appsLinkAria={appsLinkAria}
-            />
-          </div>
-        </ScrollReveal>
+        <div
+          aria-label={projectsLabel}
+          role="group"
+          className="flex flex-col gap-10 lg:col-span-6 lg:col-start-7 lg:pt-3"
+        >
+          <ScrollReveal className="space-y-3">
+            <h3 className="text-2xl font-semibold tracking-[-0.025em] text-[var(--slab-ink)] md:text-3xl">
+              {projectsTitle}
+            </h3>
+            <p className="max-w-md text-base leading-relaxed text-pretty text-[var(--slab-ink-soft)]">
+              {projectsDescription}
+            </p>
+          </ScrollReveal>
+
+          <AboutBuildStack
+            areas={projectAreas}
+            appsLink={appsLink}
+            appsLinkAria={appsLinkAria}
+          />
+        </div>
       </div>
-    </FullscreenSection>
+    </section>
   );
 }

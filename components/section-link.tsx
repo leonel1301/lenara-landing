@@ -13,6 +13,8 @@ type Props = {
   href: `/#${string}`;
   variant?: "default" | "outline";
   size?: "default" | "sm" | "lg";
+  /** Skip button styling so the caller can shape the link. */
+  bare?: boolean;
   className?: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   children: React.ReactNode;
@@ -22,6 +24,7 @@ export function SectionLink({
   href,
   variant = "default",
   size = "default",
+  bare = false,
   className,
   onClick,
   children,
@@ -49,7 +52,7 @@ export function SectionLink({
     <Link
       href={path}
       onClick={handleClick}
-      className={cn(buttonVariants({ variant, size }), className)}
+      className={bare ? className : cn(buttonVariants({ variant, size }), className)}
     >
       {children}
     </Link>

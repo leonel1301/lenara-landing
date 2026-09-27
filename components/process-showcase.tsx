@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 
 import { ShowcaseImage } from "@/components/showcase-image";
+import { SlabBacked, SlabBadge, SlabStair } from "@/components/slab";
 import { ProcessTechStackStrip } from "@/components/process-tech-stack-strip";
 import { type ProcessStep } from "@/lib/process";
 import { cn } from "@/lib/utils";
@@ -23,36 +24,6 @@ const icons: Record<ProcessStep, LucideIcon> = {
   launch: Rocket,
 };
 
-const iconStyles: Record<
-  ProcessStep,
-  { bg: string; text: string; border: string; accent: string }
-> = {
-  discovery: {
-    bg: "bg-[color-mix(in_oklch,var(--icon-1)_14%,transparent)]",
-    text: "text-[var(--icon-1)]",
-    border: "border-[color-mix(in_oklch,var(--icon-1)_28%,transparent)]",
-    accent: "from-[var(--icon-1)]/20",
-  },
-  design: {
-    bg: "bg-[color-mix(in_oklch,var(--icon-4)_14%,transparent)]",
-    text: "text-[var(--icon-4)]",
-    border: "border-[color-mix(in_oklch,var(--icon-4)_28%,transparent)]",
-    accent: "from-[var(--icon-4)]/20",
-  },
-  development: {
-    bg: "bg-[color-mix(in_oklch,var(--icon-2)_14%,transparent)]",
-    text: "text-[var(--icon-2)]",
-    border: "border-[color-mix(in_oklch,var(--icon-2)_28%,transparent)]",
-    accent: "from-[var(--icon-2)]/20",
-  },
-  launch: {
-    bg: "bg-[color-mix(in_oklch,var(--icon-3)_14%,transparent)]",
-    text: "text-[var(--icon-3)]",
-    border: "border-[color-mix(in_oklch,var(--icon-3)_28%,transparent)]",
-    accent: "from-[var(--icon-3)]/20",
-  },
-};
-
 type StackLabels = {
   toolsLabel: string;
   aiLabel: string;
@@ -63,6 +34,8 @@ type StackLabels = {
 type Props = {
   id: ProcessStep;
   step: number;
+  totalSteps: number;
+  stepLabel: string;
   title: string;
   description: string;
   imageSrc: string;
@@ -74,6 +47,8 @@ type Props = {
 export function ProcessShowcase({
   id,
   step,
+  totalSteps,
+  stepLabel,
   title,
   description,
   imageSrc,
@@ -83,8 +58,7 @@ export function ProcessShowcase({
 }: Props) {
   const prefersReducedMotion = useReducedMotion();
   const Icon = icons[id];
-  const style = iconStyles[id];
-  const stepLabel = String(step).padStart(2, "0");
+  const tone = step - 1;
 
   const copyContainer: Variants = {
     hidden: {},
@@ -121,7 +95,7 @@ export function ProcessShowcase({
   };
 
   return (
-    <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+    <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -132,33 +106,21 @@ export function ProcessShowcase({
           reversed && "lg:order-2",
         )}
       >
-        <motion.div variants={copyItem} className="flex items-center gap-4">
-          <motion.div
-            whileHover={prefersReducedMotion ? undefined : { scale: 1.08, rotate: 6 }}
-            whileTap={prefersReducedMotion ? undefined : { scale: 0.92 }}
-            transition={{ type: "spring", stiffness: 420, damping: 18 }}
-            className={cn(
-              "inline-flex size-12 items-center justify-center rounded-xl border",
-              style.bg,
-              style.text,
-              style.border,
-            )}
-          >
-            <Icon className="size-5" strokeWidth={1.75} />
-          </motion.div>
-          <span className="text-sm font-semibold tracking-widest text-primary/70">
-            {stepLabel}
-          </span>
+        <motion.div variants={copyItem} className="flex items-end gap-5">
+          <SlabBadge tone={tone}>
+            <Icon className="size-5" strokeWidth={1.75} aria-hidden />
+          </SlabBadge>
+          <SlabStair step={step} total={totalSteps} label={stepLabel} className="pb-2" />
         </motion.div>
         <motion.h2
           variants={copyItem}
-          className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl"
+          className="text-3xl font-semibold tracking-[-0.03em] text-foreground md:text-5xl"
         >
           {title}
         </motion.h2>
         <motion.p
           variants={copyItem}
-          className="text-base leading-relaxed text-muted-foreground md:text-lg"
+          className="max-w-lg text-base leading-relaxed text-pretty text-muted-foreground md:text-lg"
         >
           {description}
         </motion.p>
@@ -174,29 +136,19 @@ export function ProcessShowcase({
         variants={imageVariants}
         className={cn(reversed && "lg:order-1")}
       >
-        <ShowcaseImage
-          src={imageSrc}
-          alt={imageAlt}
-          fallback={
-            <div
-              className={cn(
-                "flex h-full w-full flex-col items-center justify-center gap-3 bg-gradient-to-br to-transparent p-8",
-                style.accent,
-              )}
-            >
-              <div
-                className={cn(
-                  "flex size-16 items-center justify-center rounded-2xl border",
-                  style.bg,
-                  style.text,
-                  style.border,
-                )}
-              >
-                <Icon className="size-7" strokeWidth={1.5} />
+        <SlabBacked side={reversed ? "left" : "right"} tone={tone}>
+          <ShowcaseImage
+            src={imageSrc}
+            alt={imageAlt}
+            fallback={
+              <div className="flex h-full w-full items-center justify-center bg-muted/40">
+                <SlabBadge tone={tone} className="scale-125">
+                  <Icon className="size-6" strokeWidth={1.5} aria-hidden />
+                </SlabBadge>
               </div>
-            </div>
-          }
-        />
+            }
+          />
+        </SlabBacked>
       </motion.div>
     </div>
   );

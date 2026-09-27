@@ -3,15 +3,11 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { WebPageJsonLd } from "@/components/webpage-jsonld";
-import { EyebrowBadge } from "@/components/eyebrow-badge";
 import { FullscreenSection } from "@/components/fullscreen-section";
 import { PageCta } from "@/components/page-cta";
+import { PageHero } from "@/components/page-hero";
 import { ProcessShowcase } from "@/components/process-showcase";
 import { ScrollIndicator } from "@/components/scroll-indicator";
-import {
-  ScrollRevealItem,
-  ScrollRevealStagger,
-} from "@/components/scroll-reveal";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/i18n/routing";
 import {
@@ -77,37 +73,21 @@ export default async function ProcessPage({ params }: Props) {
           { name: tNav("nav.process"), href: "/process" },
         ]}
       />
-      <FullscreenSection
-        fullHeight
-        containerClassName="max-w-3xl items-center text-center"
-        className="bg-background"
+      <PageHero
+        title={t("title")}
+        description={t("description")}
+        indexLabel={tCommon("onThisPage")}
+        items={processSteps.map((id) => ({
+          id,
+          label: t(`steps.${id}.title`),
+        }))}
         scrollIndicator={
           <ScrollIndicator
             href={`#${firstStep}`}
             label={tCommon("scrollDown")}
           />
         }
-      >
-        <ScrollRevealStagger
-          trigger="mount"
-          stagger={0.12}
-          className="flex w-full flex-col items-center gap-6"
-        >
-          <ScrollRevealItem>
-            <EyebrowBadge>{t("eyebrow")}</EyebrowBadge>
-          </ScrollRevealItem>
-          <ScrollRevealItem>
-            <h1 className="text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-              {t("title")}
-            </h1>
-          </ScrollRevealItem>
-          <ScrollRevealItem>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              {t("description")}
-            </p>
-          </ScrollRevealItem>
-        </ScrollRevealStagger>
-      </FullscreenSection>
+      />
 
       {processSteps.map((id, index) => (
         <FullscreenSection
@@ -118,6 +98,11 @@ export default async function ProcessPage({ params }: Props) {
           <ProcessShowcase
             id={id as ProcessStep}
             step={index + 1}
+            totalSteps={processSteps.length}
+            stepLabel={t("stepLabel", {
+              step: index + 1,
+              total: processSteps.length,
+            })}
             title={t(`steps.${id}.title`)}
             description={t(`steps.${id}.description`)}
             imageSrc={getProcessImagePath(id)}
@@ -128,16 +113,12 @@ export default async function ProcessPage({ params }: Props) {
         </FullscreenSection>
       ))}
 
-      <FullscreenSection
-        containerClassName="max-w-3xl items-center text-center"
-      >
-        <PageCta
-          title={t("cta.title")}
-          description={t("cta.description")}
-          buttonLabel={t("cta.button")}
-          buttonHref="/#contact"
-        />
-      </FullscreenSection>
+      <PageCta
+        title={t("cta.title")}
+        description={t("cta.description")}
+        buttonLabel={t("cta.button")}
+        buttonHref="/#contact"
+      />
     </>
   );
 }

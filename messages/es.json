@@ -10,7 +10,8 @@
     "scrollDown": "Desplazarse hacia abajo",
     "appStoreBadgeAria": "Consíguelo en el App Store",
     "carouselPrev": "Captura anterior",
-    "carouselNext": "Captura siguiente"
+    "carouselNext": "Captura siguiente",
+    "onThisPage": "En esta página"
   },
   "header": {
     "brand": "Lenara Labs",
@@ -283,6 +284,7 @@
         "imageAlt": "Lanzamiento de producto y soporte continuo"
       }
     },
+    "stepLabel": "Paso {step} de {total}",
     "stack": {
       "toolsLabel": "Herramientas que usamos",
       "aiLabel": "Impulsado por IA",

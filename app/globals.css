@@ -204,6 +204,104 @@
   outline-offset: 2px;
 }
 
+/* Slabs — the slanted parallelograms of the Lenara mark */
+:root {
+  --slab-1: #7589ec;
+  --slab-2: #4661d6;
+  --slab-3: #3146ad;
+  --slab-1-ink: #ffffff;
+  --slab-2-ink: #ffffff;
+  --slab-3-ink: #ffffff;
+  --slab-ink: var(--foreground);
+  --slab-ink-soft: var(--muted-foreground);
+  --slab-accent: var(--primary);
+  --slab-rule: color-mix(in oklch, #2c2d2e 12%, transparent);
+  --slab-shadow: #1c2b8a;
+  --slab-foot-ink: #ffffff;
+  --slab-foot-hover: var(--slab-3);
+}
+
+.dark {
+  --slab-1: #5d73dc;
+  --slab-2: #8196f0;
+  --slab-3: #3a50c4;
+  --slab-2-ink: #0e1130;
+  --slab-rule: color-mix(in oklch, #f5f4f0 12%, transparent);
+  --slab-shadow: #000000;
+  --slab-foot-ink: #0e1130;
+  --slab-foot-hover: #a9b7f5;
+}
+
+/* A section that sits on the Lenara mark's own field */
+.slab-field {
+  --field-bg: #b9c4f1;
+  --slab-ink: #151a3d;
+  --slab-ink-soft: #343c72;
+  --slab-accent: #2f43b8;
+  --slab-rule: color-mix(in oklch, #151a3d 14%, transparent);
+  background: var(--field-bg);
+  color: var(--slab-ink);
+}
+
+.dark .slab-field {
+  --field-bg: #171b35;
+  --slab-ink: #eef0ff;
+  --slab-ink-soft: #aab3e6;
+  --slab-accent: #9dadf0;
+  --slab-rule: color-mix(in oklch, #eef0ff 14%, transparent);
+}
+
+.slab-field ::selection {
+  background: var(--slab-2);
+  color: #ffffff;
+}
+
+.slab-field a.slab-link {
+  color: var(--slab-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+  text-decoration-color: color-mix(in oklch, var(--slab-accent) 40%, transparent);
+  transition: text-decoration-color 0.3s ease-out;
+}
+
+.slab-field a.slab-link:hover {
+  color: var(--slab-accent);
+  text-decoration-color: var(--slab-accent);
+}
+
+.slab-field a:focus-visible {
+  outline: 2px solid var(--slab-ink);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+a.slab-foot,
+a.slab-foot:hover {
+  isolation: isolate;
+  color: var(--slab-foot-ink);
+}
+
+a.slab-foot::before {
+  content: "";
+  position: absolute;
+  inset: 0 1.375rem;
+  z-index: -1;
+  background: var(--slab-2);
+  transform: skewX(-38deg);
+  transition: background-color 0.3s ease-out;
+}
+
+a.slab-foot:hover::before {
+  background: var(--slab-foot-hover);
+}
+
+a.slab-foot:focus-visible {
+  outline: 2px solid var(--slab-3);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
 /* Mobile: offset main for fixed header; slide content up when header hides (no layout shift) */
 @media (max-width: 1023px) {
   .site-main {

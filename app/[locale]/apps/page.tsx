@@ -5,14 +5,11 @@ import { NuudoShowcase } from "@/components/nuudo-showcase";
 import { WaloopShowcase } from "@/components/waloop-showcase";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { WebPageJsonLd } from "@/components/webpage-jsonld";
-import { EyebrowBadge } from "@/components/eyebrow-badge";
 import { FullscreenSection } from "@/components/fullscreen-section";
+import { PageHero } from "@/components/page-hero";
 import { ScrollIndicator } from "@/components/scroll-indicator";
-import {
-  ScrollReveal,
-  ScrollRevealItem,
-  ScrollRevealStagger,
-} from "@/components/scroll-reveal";
+import { ScrollReveal } from "@/components/scroll-reveal";
+import { SlabGhosts } from "@/components/slab";
 import { WALOOP_APP_STORE_URL } from "@/lib/apps";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/i18n/routing";
@@ -78,37 +75,26 @@ export default async function AppsPage({ params }: Props) {
           { name: tNav("nav.apps"), href: "/apps" },
         ]}
       />
-      <FullscreenSection
-        fullHeight
-        containerClassName="max-w-3xl items-center text-center"
-        className="bg-background"
+      <PageHero
+        title={t("title")}
+        description={t("description")}
+        indexLabel={tCommon("onThisPage")}
+        items={[
+          { id: "waloop", label: t("waloop.name"), detail: t("waloop.badge") },
+          { id: "nuudo", label: t("nuudo.name"), detail: t("nuudo.badge") },
+          {
+            id: "coming-soon",
+            label: t("comingSoon.title"),
+            detail: t("comingSoon.eyebrow"),
+          },
+        ]}
         scrollIndicator={
           <ScrollIndicator
             href="#waloop"
             label={tCommon("scrollDown")}
           />
         }
-      >
-        <ScrollRevealStagger
-          trigger="mount"
-          stagger={0.12}
-          className="flex w-full flex-col items-center gap-6"
-        >
-          <ScrollRevealItem>
-            <EyebrowBadge>{t("eyebrow")}</EyebrowBadge>
-          </ScrollRevealItem>
-          <ScrollRevealItem>
-            <h1 className="text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-              {t("title")}
-            </h1>
-          </ScrollRevealItem>
-          <ScrollRevealItem>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              {t("description")}
-            </p>
-          </ScrollRevealItem>
-        </ScrollRevealStagger>
-      </FullscreenSection>
+      />
 
       <FullscreenSection id="waloop" containerClassName="max-w-6xl">
         <ScrollReveal delay={0.05}>
@@ -169,23 +155,25 @@ export default async function AppsPage({ params }: Props) {
         </ScrollReveal>
       </FullscreenSection>
 
-      <FullscreenSection
+      <section
         id="coming-soon"
-        containerClassName="max-w-3xl items-center text-center"
+        className="slab-field scroll-mt-[var(--header-height)] px-6 py-20 md:py-28"
       >
-        <ScrollReveal
-          delay={0.05}
-          className="flex w-full flex-col items-center gap-5"
-        >
-          <EyebrowBadge>{t("comingSoon.eyebrow")}</EyebrowBadge>
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-            {t("comingSoon.title")}
-          </h2>
-          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-            {t("comingSoon.description")}
-          </p>
-        </ScrollReveal>
-      </FullscreenSection>
+        <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-12 lg:gap-x-10">
+          <ScrollReveal className="space-y-5 lg:col-span-7">
+            <h2 className="text-[2.5rem] leading-[1.05] font-semibold tracking-[-0.035em] text-balance text-[var(--slab-ink)] md:text-6xl">
+              {t("comingSoon.title")}
+            </h2>
+            <p className="max-w-lg text-lg leading-relaxed text-pretty text-[var(--slab-ink-soft)]">
+              {t("comingSoon.description")}
+            </p>
+          </ScrollReveal>
+          <SlabGhosts
+            count={3}
+            className="lg:col-span-4 lg:col-start-9 lg:pr-6"
+          />
+        </div>
+      </section>
     </>
   );
 }

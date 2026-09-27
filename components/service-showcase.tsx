@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 
 import { ShowcaseImage } from "@/components/showcase-image";
+import { SlabBacked, SlabBadge } from "@/components/slab";
 import { type ServiceItem } from "@/lib/services";
 import { cn } from "@/lib/utils";
 
@@ -22,42 +23,13 @@ const icons: Record<ServiceItem, LucideIcon> = {
   consulting: BrainCircuit,
 };
 
-const iconStyles: Record<
-  ServiceItem,
-  { bg: string; text: string; border: string; accent: string }
-> = {
-  mobile: {
-    bg: "bg-[color-mix(in_oklch,var(--icon-1)_14%,transparent)]",
-    text: "text-[var(--icon-1)]",
-    border: "border-[color-mix(in_oklch,var(--icon-1)_28%,transparent)]",
-    accent: "from-[var(--icon-1)]/20",
-  },
-  web: {
-    bg: "bg-[color-mix(in_oklch,var(--icon-2)_14%,transparent)]",
-    text: "text-[var(--icon-2)]",
-    border: "border-[color-mix(in_oklch,var(--icon-2)_28%,transparent)]",
-    accent: "from-[var(--icon-2)]/20",
-  },
-  cloud: {
-    bg: "bg-[color-mix(in_oklch,var(--icon-3)_14%,transparent)]",
-    text: "text-[var(--icon-3)]",
-    border: "border-[color-mix(in_oklch,var(--icon-3)_28%,transparent)]",
-    accent: "from-[var(--icon-3)]/20",
-  },
-  consulting: {
-    bg: "bg-[color-mix(in_oklch,var(--icon-4)_14%,transparent)]",
-    text: "text-[var(--icon-4)]",
-    border: "border-[color-mix(in_oklch,var(--icon-4)_28%,transparent)]",
-    accent: "from-[var(--icon-4)]/20",
-  },
-};
-
 type Props = {
   id: ServiceItem;
   title: string;
   description: string;
   imageSrc: string;
   imageAlt: string;
+  tone: number;
   reversed?: boolean;
 };
 
@@ -67,11 +39,11 @@ export function ServiceShowcase({
   description,
   imageSrc,
   imageAlt,
+  tone,
   reversed = false,
 }: Props) {
   const prefersReducedMotion = useReducedMotion();
   const Icon = icons[id];
-  const style = iconStyles[id];
 
   const copyContainer: Variants = {
     hidden: {},
@@ -108,7 +80,7 @@ export function ServiceShowcase({
   };
 
   return (
-    <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+    <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -120,29 +92,19 @@ export function ServiceShowcase({
         )}
       >
         <motion.div variants={copyItem}>
-          <motion.div
-            whileHover={prefersReducedMotion ? undefined : { scale: 1.08, rotate: -4 }}
-            whileTap={prefersReducedMotion ? undefined : { scale: 0.92 }}
-            transition={{ type: "spring", stiffness: 420, damping: 18 }}
-            className={cn(
-              "inline-flex size-12 items-center justify-center rounded-xl border",
-              style.bg,
-              style.text,
-              style.border,
-            )}
-          >
-            <Icon className="size-5" strokeWidth={1.75} />
-          </motion.div>
+          <SlabBadge tone={tone}>
+            <Icon className="size-5" strokeWidth={1.75} aria-hidden />
+          </SlabBadge>
         </motion.div>
         <motion.h2
           variants={copyItem}
-          className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl"
+          className="text-3xl font-semibold tracking-[-0.03em] text-foreground md:text-5xl"
         >
           {title}
         </motion.h2>
         <motion.p
           variants={copyItem}
-          className="text-base leading-relaxed text-muted-foreground md:text-lg"
+          className="max-w-lg text-base leading-relaxed text-pretty text-muted-foreground md:text-lg"
         >
           {description}
         </motion.p>
@@ -155,29 +117,19 @@ export function ServiceShowcase({
         variants={imageVariants}
         className={cn(reversed && "lg:order-1")}
       >
-        <ShowcaseImage
-          src={imageSrc}
-          alt={imageAlt}
-          fallback={
-            <div
-              className={cn(
-                "flex h-full w-full flex-col items-center justify-center gap-3 bg-gradient-to-br to-transparent p-8",
-                style.accent,
-              )}
-            >
-              <div
-                className={cn(
-                  "flex size-16 items-center justify-center rounded-2xl border",
-                  style.bg,
-                  style.text,
-                  style.border,
-                )}
-              >
-                <Icon className="size-7" strokeWidth={1.5} />
+        <SlabBacked side={reversed ? "left" : "right"} tone={tone}>
+          <ShowcaseImage
+            src={imageSrc}
+            alt={imageAlt}
+            fallback={
+              <div className="flex h-full w-full items-center justify-center bg-muted/40">
+                <SlabBadge tone={tone} className="scale-125">
+                  <Icon className="size-6" strokeWidth={1.5} aria-hidden />
+                </SlabBadge>
               </div>
-            </div>
-          }
-        />
+            }
+          />
+        </SlabBacked>
       </motion.div>
     </div>
   );
